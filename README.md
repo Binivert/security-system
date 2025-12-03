@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/Binivert/security-system/blob/main/assets/unnamed.jpg" width="400">
+</p>
+
 # 🎬 Movie Recommendation System
 
 This project is a movie recommendation system that helps you find movies that you might like. It uses a content-based filtering algorithm that compares movies based on their features, such as genres, keywords, cast, crew, and overview. It also has a web interface that lets you search, rate, and get recommendations for movies. 🙌
