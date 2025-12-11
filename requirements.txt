@@ -1,0 +1,25 @@
+# Advanced Security System Dependencies
+# Python 3.10+ required
+
+# GUI Framework
+PyQt6>=6.4.0
+
+# Computer Vision
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# Face Recognition
+face-recognition>=1.3.0
+dlib>=19.24.0
+
+# MediaPipe for holistic detection (pose + face mesh + hands)
+mediapipe>=0.10.0
+
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Audio Playback
+pygame>=2.5.0
+
+# HTTP Requests (for Telegram)
+requests>=2.31.0
