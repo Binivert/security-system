@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80">
+  <defs>
+    <linearGradient id="licBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#0a1628;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0d1117;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="licGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="80" fill="url(#licBg)"/>
+  
+  <line x1="200" y1="40" x2="470" y2="40" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  <line x1="730" y1="40" x2="1000" y2="40" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Document/license icon -->
+  <g transform="translate(518, 15)">
+    <path d="M 0 0 L 20 0 L 28 8 L 28 35 L 0 35 Z" fill="none" stroke="#00d4ff" stroke-width="2" filter="url(#licGlow)">
+      <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 20 0 L 20 8 L 28 8" fill="none" stroke="#00d4ff" stroke-width="2"/>
+    <line x1="5" y1="15" x2="23" y2="15" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+    <line x1="5" y1="21" x2="20" y2="21" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+    <line x1="5" y1="27" x2="18" y2="27" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
+  </g>
+  
+  <text x="600" y="48" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="bold" fill="#00d4ff" filter="url(#licGlow)">
+    LICENSE
+  </text>
+  
+  <circle cx="500" cy="40" r="3" fill="#00d4ff" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="40" r="3" fill="#00d4ff" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+</svg>
