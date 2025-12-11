@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#0d1025"/>
+      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowStrong" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="200" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="50" x2="900" y2="50" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="0" y1="100" x2="900" y2="100" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="0" y1="150" x2="900" y2="150" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="150" y1="0" x2="150" y2="200" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="300" y1="0" x2="300" y2="200" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="450" y1="0" x2="450" y2="200" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="200" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="750" y1="0" x2="750" y2="200" stroke="#00f0ff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Decorative corners -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M10,30 L10,10 L30,10"/>
+    <path d="M870,10 L890,10 L890,30"/>
+    <path d="M890,170 L890,190 L870,190"/>
+    <path d="M30,190 L10,190 L10,170"/>
+  </g>
+  
+  <!-- Shield icon -->
+  <g transform="translate(350, 40)" filter="url(#glowStrong)">
+    <path d="M100,0 L130,15 L130,60 C130,90 100,110 100,110 C100,110 70,90 70,60 L70,15 Z" 
+          fill="none" stroke="#00f0ff" stroke-width="3"/>
+    <path d="M100,25 L100,85" stroke="#00f0ff" stroke-width="2"/>
+    <path d="M85,55 L115,55" stroke="#00f0ff" stroke-width="2"/>
+    <circle cx="100" cy="55" r="8" fill="none" stroke="#ff0080" stroke-width="2"/>
+  </g>
+  
+  <!-- Main title -->
+  <text x="450" y="135" text-anchor="middle" font-family="Consolas, monospace" font-size="36" font-weight="bold" fill="#00f0ff" filter="url(#glow)">
+    SECURITY SYSTEM
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="450" y="165" text-anchor="middle" font-family="Consolas, monospace" font-size="14" fill="#888899">
+    AI-Powered Real-Time Surveillance • YOLOv8 • Face Recognition • Telegram Control
+  </text>
+  
+  <!-- Animated scan line -->
+  <rect x="50" y="180" width="800" height="2" fill="url(#glowGrad)" opacity="0.5">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Side decorations -->
+  <g fill="#00f0ff" opacity="0.4">
+    <rect x="50" y="85" width="60" height="2"/>
+    <rect x="50" y="95" width="40" height="2"/>
+    <rect x="50" y="105" width="50" height="2"/>
+    <rect x="790" y="85" width="60" height="2"/>
+    <rect x="810" y="95" width="40" height="2"/>
+    <rect x="800" y="105" width="50" height="2"/>
+  </g>
+  
+  <!-- Corner dots -->
+  <circle cx="50" cy="50" r="3" fill="#00f0ff" opacity="0.6"/>
+  <circle cx="850" cy="50" r="3" fill="#00f0ff" opacity="0.6"/>
+  <circle cx="50" cy="150" r="3" fill="#ff0080" opacity="0.6"/>
+  <circle cx="850" cy="150" r="3" fill="#ff0080" opacity="0.6"/>
+</svg>
