@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Animated Header -->
-<img src="readme_assets/header.svg" alt="Sentinel AI Header" width="100%">
+<img src="readme_assets/header.svg" alt="Nexus Security Header" width="100%">
 
 <!-- Animated Scanning Line -->
 <img src="readme_assets/scanning-line.svg" alt="Scanning Line" width="100%">
@@ -22,41 +22,48 @@
 <!-- Badges Row 2 -->
 <p>
   <a href="#">
-    <img src="https://img.shields.io/badge/Detection-YOLOv8-ff6b6b?style=for-the-badge&logo=yolo&logoColor=white&labelColor=0d1117" alt="YOLO">
+    <img src="https://img.shields.io/badge/Status-Active%20Development-00ff88?style=for-the-badge&logo=statuspage&logoColor=white&labelColor=0d1117" alt="Status">
   </a>
   <a href="#">
-    <img src="https://img.shields.io/badge/Skeleton-MediaPipe-00ff88?style=for-the-badge&logo=google&logoColor=white&labelColor=0d1117" alt="MediaPipe">
+    <img src="https://img.shields.io/badge/AI-YOLOv8%20Powered-ff6b6b?style=for-the-badge&logo=pytorch&logoColor=white&labelColor=0d1117" alt="AI">
   </a>
   <a href="#">
-    <img src="https://img.shields.io/badge/Alerts-Telegram-58a6ff?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0d1117" alt="Telegram">
+    <img src="https://img.shields.io/badge/Security-Biometric-58a6ff?style=for-the-badge&logo=shield&logoColor=white&labelColor=0d1117" alt="Security">
   </a>
 </p>
 
 <!-- Repo Stats -->
 <p>
-  <img src="https://img.shields.io/github/stars/yourusername/sentinel-ai?style=for-the-badge&color=00d4ff&labelColor=0d1117" alt="Stars">
-  <img src="https://img.shields.io/github/forks/yourusername/sentinel-ai?style=for-the-badge&color=58a6ff&labelColor=0d1117" alt="Forks">
-  <img src="https://img.shields.io/github/issues/yourusername/sentinel-ai?style=for-the-badge&color=ff6b6b&labelColor=0d1117" alt="Issues">
-  <img src="https://img.shields.io/github/last-commit/yourusername/sentinel-ai?style=for-the-badge&color=00ff88&labelColor=0d1117" alt="Last Commit">
+  <img src="https://img.shields.io/github/stars/yourusername/nexus-security?style=for-the-badge&color=00d4ff&labelColor=0d1117" alt="Stars">
+  <img src="https://img.shields.io/github/forks/yourusername/nexus-security?style=for-the-badge&color=58a6ff&labelColor=0d1117" alt="Forks">
+  <img src="https://img.shields.io/github/issues/yourusername/nexus-security?style=for-the-badge&color=ff6b6b&labelColor=0d1117" alt="Issues">
+  <img src="https://img.shields.io/github/last-commit/yourusername/nexus-security?style=for-the-badge&color=00ff88&labelColor=0d1117" alt="Last Commit">
 </p>
 
-<!-- Activity Graph -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=yourusername&bg_color=0d1117&color=00d4ff&line=58a6ff&point=00ff88&area=true&hide_border=true" width="100%" alt="Activity Graph">
+<!-- Additional Badges -->
+<p>
+  <img src="https://img.shields.io/github/repo-size/yourusername/nexus-security?style=for-the-badge&color=00d4ff&labelColor=0d1117" alt="Repo Size">
+  <img src="https://img.shields.io/github/languages/code-size/yourusername/nexus-security?style=for-the-badge&color=58a6ff&labelColor=0d1117" alt="Code Size">
+  <img src="https://img.shields.io/badge/PRs-Welcome-00ff88?style=for-the-badge&labelColor=0d1117" alt="PRs Welcome">
+</p>
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
 
 <!-- Short Description -->
 <h3>
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" alt="Shield" width="28" height="28" />
-  Advanced AI-Powered Security Surveillance System
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" alt="Shield" width="28" height="28" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked%20with%20Key.png" alt="Lock" width="25" height="25" />
+  Next-Generation AI-Powered Security System
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked%20with%20Key.png" alt="Lock" width="25" height="25" />
 </h3>
 
 <p align="center">
-  <em>A next-generation security surveillance system featuring YOLOv8 person detection,<br>
-  MediaPipe skeleton tracking, face recognition, multi-zone breach detection,<br>
-  and real-time Telegram alerts with remote control capabilities.</em>
+  <em>An advanced biometric security system featuring YOLOv8 person detection, MediaPipe skeleton tracking,<br>
+  real-time face recognition, multi-zone breach detection, and Telegram remote control.</em>
+</p>
+
+<p align="center">
+  <strong>🎓 Student Project | 🔬 Computer Vision | 🛡️ Security Systems | 🤖 AI/ML</strong>
 </p>
 
 <!-- Quick Links -->
@@ -65,11 +72,12 @@
   <a href="#-features">Features</a> •
   <a href="#-usage">Usage</a> •
   <a href="#-demo">Demo</a> •
+  <a href="#-architecture">Architecture</a> •
   <a href="#-contributing">Contributing</a>
 </p>
 
 <!-- Typing SVG -->
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Real-Time+Person+Detection;Skeleton+Tracking+%26+Analysis;Multi-Zone+Breach+Detection;Face+Recognition+System;Telegram+Remote+Control;Night+Vision+%26+Heat+Maps" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&random=false&width=600&lines=Real-Time+Person+Detection;Skeleton+Tracking+%26+Analysis;Face+Recognition+System;Multi-Zone+Breach+Detection;Telegram+Remote+Control;Night+Vision+%26+Heat+Mapping" alt="Typing SVG" /></a>
 
 </div>
 
@@ -83,31 +91,39 @@
   <img src="readme_assets/wave-top.svg" alt="Wave" width="100%">
 </div>
 
-**Sentinel AI** is a comprehensive, AI-powered security surveillance system designed for real-time monitoring and threat detection. Built with Python and leveraging cutting-edge machine learning technologies including YOLOv8 and MediaPipe, it provides enterprise-grade security monitoring with an intuitive PyQt6 graphical interface.
+**Nexus Security** is a comprehensive, AI-powered security surveillance system developed as a student project to explore the intersection of computer vision, machine learning, and practical security applications. Built with Python and leveraging state-of-the-art detection models, it provides enterprise-grade biometric security with an intuitive PyQt6 interface.
 
-This project was developed as a student initiative to explore the intersection of computer vision, machine learning, and practical security applications. It demonstrates the power of combining multiple AI technologies to create a robust, real-world security solution.
+### 🎯 Project Goals
+
+This project was developed to:
+- Implement real-time object detection using YOLOv8
+- Explore skeleton tracking with MediaPipe Pose estimation
+- Build a practical face recognition system
+- Create an intuitive security monitoring interface
+- Integrate remote control capabilities via Telegram
+- Learn about multi-threaded video processing
 
 <table align="center">
   <tr>
     <td align="center" width="25%">
       <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" width="50" height="50"/>
-      <br><strong>YOLOv8 Detection</strong>
-      <br><sub>Accurate person detection with no false positives</sub>
-    </td>
-    <td align="center" width="25%">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Running.png" width="50" height="50"/>
-      <br><strong>Skeleton Tracking</strong>
-      <br><sub>Full body pose estimation with 33 landmarks</sub>
+      <br><strong>Real-Time Detection</strong>
+      <br><sub>YOLOv8 + MediaPipe skeleton tracking</sub>
     </td>
     <td align="center" width="25%">
       <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" width="50" height="50"/>
-      <br><strong>Zone Breach</strong>
-      <br><sub>Multi-zone intrusion detection</sub>
+      <br><strong>Zone Breach Detection</strong>
+      <br><sub>Custom 3D zones with animations</sub>
+    </td>
+    <td align="center" width="25%">
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Bust%20in%20Silhouette.png" width="50" height="50"/>
+      <br><strong>Face Recognition</strong>
+      <br><sub>Trusted person identification</sub>
     </td>
     <td align="center" width="25%">
       <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" width="50" height="50"/>
-      <br><strong>Telegram Control</strong>
-      <br><sub>Remote monitoring & alerts</sub>
+      <br><strong>Remote Control</strong>
+      <br><sub>Full Telegram bot integration</sub>
     </td>
   </tr>
 </table>
@@ -121,89 +137,74 @@ This project was developed as a student initiative to explore the intersection o
 
 <div align="center">
 
-### 🎯 Core Detection Features
+### 🔐 Core Security Features
 
 </div>
 
 <table>
   <tr>
     <td width="50%">
-      <h4>🔍 YOLOv8 Person Detection</h4>
+      <h4>🎯 YOLOv8 Person Detection</h4>
       <ul>
-        <li>State-of-the-art YOLOv8 neural network</li>
-        <li>Real-time detection at 30+ FPS</li>
+        <li>State-of-the-art object detection model</li>
         <li>Adjustable confidence thresholds (Low/Medium/High)</li>
-        <li>Zero false positives on non-human objects</li>
-        <li>Bounding box visualization with confidence scores</li>
+        <li>Real-time processing at 20+ FPS</li>
+        <li>Accurate bounding box detection</li>
+        <li>Minimal false positives</li>
       </ul>
     </td>
     <td width="50%">
       <h4>🦴 Skeleton Tracking</h4>
       <ul>
-        <li>MediaPipe Pose estimation with 33 landmarks</li>
-        <li>Partial body detection (face, hands, feet, torso)</li>
-        <li>Real-time skeleton visualization</li>
-        <li>Works even with partial body visibility</li>
-        <li>Foot position tracking for precise zone detection</li>
+        <li>MediaPipe Pose estimation (33 landmarks)</li>
+        <li>Partial body detection (hands, feet, torso)</li>
+        <li>Visibility confidence scoring</li>
+        <li>Full skeleton visualization</li>
+        <li>Body part zone breach detection</li>
       </ul>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <h4>👤 Face Recognition</h4>
+      <h4>👤 Face Recognition Engine</h4>
       <ul>
         <li>128-dimensional face encoding</li>
-        <li>Trusted persons database</li>
-        <li>Auto-processing of new trusted faces</li>
+        <li>Trusted person database</li>
+        <li>Auto-processing of new face images</li>
+        <li>Configurable match tolerance</li>
         <li>Personalized greetings via TTS</li>
-        <li>Unknown intruder detection</li>
       </ul>
     </td>
     <td width="50%">
-      <h4>🎯 Multi-Zone Breach Detection</h4>
+      <h4>🚨 Multi-Zone Breach Detection</h4>
       <ul>
-        <li>Draw custom detection zones</li>
-        <li>3D perspective visualization</li>
-        <li>Animated scanning effects</li>
-        <li>Multiple simultaneous zones</li>
+        <li>Custom polygon zone drawing</li>
+        <li>3D animated zone visualization</li>
         <li>Auto-detect floor corners</li>
+        <li>Multiple simultaneous zones</li>
+        <li>Comprehensive breach checking (bbox, skeleton, body parts)</li>
       </ul>
     </td>
   </tr>
-</table>
-
-<div align="center">
-
-### 📱 Remote Control & Alerts
-
-</div>
-
-<table>
   <tr>
     <td width="50%">
-      <h4>📲 Telegram Integration</h4>
+      <h4>📱 Telegram Remote Control</h4>
       <ul>
-        <li>Real-time intrusion alerts with photos</li>
-        <li>Inline keyboard controls</li>
-        <li>Remote arm/disarm system</li>
-        <li>Snapshot on demand</li>
-        <li>Status queries and statistics</li>
-        <li>Recording control</li>
-        <li>Sensitivity adjustment</li>
-        <li>Night vision toggle</li>
+        <li>Inline keyboard buttons</li>
+        <li>Arm/Disarm system remotely</li>
+        <li>Receive instant alert photos</li>
+        <li>Take snapshots on demand</li>
+        <li>View system status and statistics</li>
       </ul>
     </td>
     <td width="50%">
-      <h4>🔔 Alert System</h4>
+      <h4>🔥 Motion Detection & Heat Map</h4>
       <ul>
-        <li>Instant breach notifications</li>
-        <li>Continuous alarm with mute option</li>
-        <li>Text-to-speech announcements</li>
-        <li>Auto-record on breach</li>
-        <li>Configurable photo intervals</li>
-        <li>Complete event logging</li>
-        <li>Daily statistics tracking</li>
-        <li>SQLite event database</li>
+        <li>Frame differencing algorithm</li>
+        <li>Configurable sensitivity</li>
+        <li>Visual heat map overlay</li>
+        <li>Motion region highlighting</li>
+        <li>Combined motion + skeleton detection</li>
       </ul>
     </td>
   </tr>
@@ -215,16 +216,16 @@ This project was developed as a student initiative to explore the intersection o
 
 <p>
   <img src="https://img.shields.io/badge/🌙_Night_Vision-Enhanced_Low_Light-00d4ff?style=flat-square&labelColor=0d1117" alt="Night Vision">
-  <img src="https://img.shields.io/badge/🔥_Heat_Map-Motion_Visualization-ff6b6b?style=flat-square&labelColor=0d1117" alt="Heat Map">
-  <img src="https://img.shields.io/badge/📹_Recording-AVI_Format-58a6ff?style=flat-square&labelColor=0d1117" alt="Recording">
-  <img src="https://img.shields.io/badge/📸_Snapshots-JPEG_95%25-00ff88?style=flat-square&labelColor=0d1117" alt="Snapshots">
+  <img src="https://img.shields.io/badge/🔊_TTS_Alerts-Voice_Announcements-58a6ff?style=flat-square&labelColor=0d1117" alt="TTS">
+  <img src="https://img.shields.io/badge/📹_Auto_Recording-Motion_Triggered-00ff88?style=flat-square&labelColor=0d1117" alt="Recording">
+  <img src="https://img.shields.io/badge/💾_SQLite_Database-Event_Logging-ff6b6b?style=flat-square&labelColor=0d1117" alt="Database">
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/🎬_Video_Playback-MP4%2FAVI%2FMKV-00d4ff?style=flat-square&labelColor=0d1117" alt="Video">
-  <img src="https://img.shields.io/badge/🎛️_Multi--Camera-Support-58a6ff?style=flat-square&labelColor=0d1117" alt="Multi-Camera">
-  <img src="https://img.shields.io/badge/🎨_Dark_Theme-Cyberpunk_UI-ff6b6b?style=flat-square&labelColor=0d1117" alt="Theme">
-  <img src="https://img.shields.io/badge/⌨️_Hotkeys-Keyboard_Shortcuts-00ff88?style=flat-square&labelColor=0d1117" alt="Hotkeys">
+  <img src="https://img.shields.io/badge/🎬_Video_Playback-Analysis_Mode-00d4ff?style=flat-square&labelColor=0d1117" alt="Video">
+  <img src="https://img.shields.io/badge/📊_Statistics-Daily_Reports-58a6ff?style=flat-square&labelColor=0d1117" alt="Stats">
+  <img src="https://img.shields.io/badge/🔔_Continuous_Alarm-Breach_Alert-00ff88?style=flat-square&labelColor=0d1117" alt="Alarm">
+  <img src="https://img.shields.io/badge/📸_Snapshots-Manual_%26_Auto-ff6b6b?style=flat-square&labelColor=0d1117" alt="Snapshots">
 </p>
 
 </div>
@@ -246,8 +247,8 @@ This project was developed as a student initiative to explore the intersection o
     </td>
     <td align="center" width="100">
       <img src="https://skillicons.dev/icons?i=pytorch" width="48" height="48" alt="PyTorch" />
-      <br><strong>PyTorch</strong>
-      <br><sub>Backend</sub>
+      <br><strong>YOLOv8</strong>
+      <br><sub>Detection</sub>
     </td>
     <td align="center" width="100">
       <img src="https://skillicons.dev/icons?i=opencv" width="48" height="48" alt="OpenCV" />
@@ -257,63 +258,55 @@ This project was developed as a student initiative to explore the intersection o
     <td align="center" width="100">
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" width="48" height="48" alt="NumPy" />
       <br><strong>NumPy</strong>
-      <br><sub>Computing</sub>
+      <br><sub>Arrays</sub>
+    </td>
+    <td align="center" width="100">
+      <img src="https://skillicons.dev/icons?i=qt" width="48" height="48" alt="Qt" />
+      <br><strong>PyQt6</strong>
+      <br><sub>GUI</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="100">
+      <img src="https://www.gstatic.com/devrel-devsite/prod/v0e0f589edd85502a40d78d7d0825db8ea5ef3b99ab4070381ee86977c9168730/tensorflow/images/favicon.png" width="48" height="48" alt="MediaPipe" />
+      <br><strong>MediaPipe</strong>
+      <br><sub>Skeleton</sub>
     </td>
     <td align="center" width="100">
       <img src="https://skillicons.dev/icons?i=sqlite" width="48" height="48" alt="SQLite" />
       <br><strong>SQLite</strong>
       <br><sub>Database</sub>
     </td>
-  </tr>
-  <tr>
-    <td align="center" width="100">
-      <img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics-logomark-color.svg" width="48" height="48" alt="YOLO" />
-      <br><strong>YOLOv8</strong>
-      <br><sub>Detection</sub>
-    </td>
-    <td align="center" width="100">
-      <img src="https://viz.mediapipe.dev/logo.png" width="48" height="48" alt="MediaPipe" />
-      <br><strong>MediaPipe</strong>
-      <br><sub>Pose</sub>
-    </td>
     <td align="center" width="100">
       <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="48" height="48" alt="Telegram" />
       <br><strong>Telegram</strong>
-      <br><sub>Alerts</sub>
+      <br><sub>Bot API</sub>
     </td>
     <td align="center" width="100">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Qt_logo_2016.svg" width="48" height="48" alt="Qt" />
-      <br><strong>PyQt6</strong>
-      <br><sub>GUI</sub>
+      <img src="https://www.pygame.org/ftp/pygame-head-party.png" width="48" height="48" alt="Pygame" />
+      <br><strong>Pygame</strong>
+      <br><sub>Audio</sub>
     </td>
     <td align="center" width="100">
-      <img src="https://www.svgrepo.com/show/349342/face-recognition.svg" width="48" height="48" alt="Face Recognition" />
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cmake/cmake-original.svg" width="48" height="48" alt="dlib" />
       <br><strong>dlib</strong>
-      <br><sub>Faces</sub>
+      <br><sub>Face ML</sub>
     </td>
   </tr>
 </table>
 
-### 📊 Technology Breakdown
+### 📦 Dependencies Overview
 
-```mermaid
-graph LR
-    A[Camera Input] --> B[Frame Processing]
-    B --> C{Detection Pipeline}
-    C --> D[YOLOv8 Person Detection]
-    C --> E[MediaPipe Skeleton]
-    C --> F[Motion Detection]
-    C --> G[Face Recognition]
-    D --> H[Zone Breach Check]
-    E --> H
-    F --> H
-    G --> I{Trusted?}
-    I -->|Yes| J[Allow + Greet]
-    I -->|No| K[Alert]
-    H -->|Breach| K
-    K --> L[Telegram Notification]
-    K --> M[Alarm + TTS]
-    K --> N[Database Log]
+```
+ultralytics          # YOLOv8 object detection
+opencv-python        # Computer vision operations
+PyQt6                # Modern GUI framework
+face-recognition     # Face detection & encoding
+mediapipe            # Pose estimation & skeleton
+numpy                # Numerical computations
+pyttsx3              # Text-to-speech engine
+pygame               # Audio playback
+requests             # Telegram API calls
 ```
 
 </div>
@@ -336,12 +329,11 @@ graph LR
   <tr>
     <td>
       <ul>
-        <li><strong>Python:</strong> 3.10 or higher</li>
-        <li><strong>RAM:</strong> 8GB minimum (16GB recommended)</li>
-        <li><strong>GPU:</strong> NVIDIA GPU recommended for faster detection (optional)</li>
-        <li><strong>Camera:</strong> Webcam or IP camera</li>
-        <li><strong>OS:</strong> Windows 10/11, macOS, or Linux</li>
-        <li><strong>Storage:</strong> 2GB for dependencies + space for recordings</li>
+        <li><strong>Python 3.10</strong> or higher (required for YOLOv8)</li>
+        <li><strong>Webcam</strong> or USB camera device</li>
+        <li><strong>8GB RAM</strong> minimum (16GB recommended)</li>
+        <li><strong>GPU</strong> recommended for faster detection (CUDA support)</li>
+        <li><strong>Windows 10/11</strong>, macOS, or Linux</li>
       </ul>
     </td>
   </tr>
@@ -354,10 +346,10 @@ graph LR
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/sentinel-ai.git
+git clone https://github.com/yourusername/nexus-security.git
 
 # Navigate to project directory
-cd sentinel-ai
+cd nexus-security
 ```
 
 </details>
@@ -383,30 +375,24 @@ source venv/bin/activate
 <summary><strong>Step 3: Install Dependencies</strong></summary>
 
 ```bash
+# Upgrade pip
+pip install --upgrade pip
+
 # Install required packages
 pip install -r requirements.txt
 ```
 
-> **⚠️ Note for dlib installation:**
-> 
-> If you encounter issues installing `dlib`, you may need:
-> 
-> **Windows:**
+> **⚠️ Note for face-recognition:** If you encounter issues installing `dlib`, you may need:
 > ```bash
+> # Windows: Install Visual Studio Build Tools first
 > pip install cmake
 > pip install dlib
+> pip install face-recognition
 > ```
-> 
-> **macOS:**
+>
+> **For GPU acceleration (optional):**
 > ```bash
-> brew install cmake
-> pip install dlib
-> ```
-> 
-> **Linux (Ubuntu/Debian):**
-> ```bash
-> sudo apt-get install cmake libboost-all-dev
-> pip install dlib
+> pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 > ```
 
 </details>
@@ -414,17 +400,16 @@ pip install -r requirements.txt
 <details open>
 <summary><strong>Step 4: Configure Telegram Bot (Optional)</strong></summary>
 
-1. Create a bot with [@BotFather](https://t.me/botfather) on Telegram
-2. Get your bot token and chat ID
-3. Update `config.py` with your credentials:
+1. Create a bot via [@BotFather](https://t.me/BotFather) on Telegram
+2. Get your bot token
+3. Get your chat ID (message [@userinfobot](https://t.me/userinfobot))
+4. Update `config.py`:
 
 ```python
+# In config.py
 TELEGRAM_BOT_TOKEN = "your_bot_token_here"
 TELEGRAM_CHAT_ID = "your_chat_id_here"
 ```
-
-> **💡 Tip:** To get your chat ID, message your bot and visit:
-> `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates`
 
 </details>
 
@@ -432,10 +417,18 @@ TELEGRAM_CHAT_ID = "your_chat_id_here"
 <summary><strong>Step 5: Add Trusted Faces (Optional)</strong></summary>
 
 ```bash
-# Add photos of trusted persons to the trusted_faces folder
-# Name files with the person's name (e.g., "John.jpg", "Jane.png")
-# The system will auto-process them on startup
+# Create the trusted faces directory if it doesn't exist
+mkdir trusted_faces
+
+# Add face images (one face per image, clear frontal view)
+# Name files as: PersonName.jpg (e.g., John.jpg, Alice.png)
 ```
+
+> **📸 Tips for best results:**
+> - Use clear, well-lit photos
+> - One face per image
+> - Frontal view preferred
+> - File name becomes the person's name
 
 </details>
 
@@ -448,60 +441,70 @@ python main.py
 
 </details>
 
-### 📦 Dependencies
+### 📦 Requirements File
 
 ```txt
-# Core Framework
-PyQt6>=6.4.0           # Modern GUI framework
+# requirements.txt
+# Advanced Security System Dependencies
+# Python 3.10+ required
+
+# GUI Framework
+PyQt6>=6.4.0
 
 # Computer Vision
-opencv-python>=4.8.0   # Image processing
-numpy>=1.24.0          # Numerical computing
+opencv-python>=4.8.0
+numpy>=1.24.0
 
-# AI/ML Detection
-ultralytics>=8.0.0     # YOLOv8 object detection
-mediapipe>=0.10.0      # Pose estimation
+# Object Detection
+ultralytics>=8.0.0
 
 # Face Recognition
-face-recognition>=1.3.0 # Face encoding & matching
-dlib>=19.24.0          # Face detection backend
+face-recognition>=1.3.0
+dlib>=19.24.0
 
-# Audio
-pyttsx3>=2.90          # Text-to-speech
-pygame>=2.5.0          # Audio playback
+# MediaPipe for skeleton detection
+mediapipe>=0.10.0
 
-# Networking
-requests>=2.31.0       # Telegram API
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Audio Playback
+pygame>=2.5.0
+
+# HTTP Requests (for Telegram)
+requests>=2.31.0
 ```
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
 
-<!-- Project Structure Section -->
+<!-- Architecture Section -->
 <img src="readme_assets/architecture-header.svg" alt="Architecture Header" width="100%">
 
+<div align="center">
+
+### 📁 Project Structure
+
+</div>
+
 ```
-sentinel-ai/
+nexus-security/
 │
-├── 📄 main.py                 # Application entry point
-├── 📄 config.py               # Configuration settings & constants
-├── 📄 database.py             # SQLite database operations
-├── 📄 detectors.py            # YOLOv8, MediaPipe, Face Recognition
-├── 📄 gui.py                  # PyQt6 main window & UI components
-├── 📄 telegram_bot.py         # Telegram bot integration
-├── 📄 audio.py                # TTS engine & alarm system
-├── 📄 utils.py                # Detection zones & utilities
-├── 📄 requirements.txt        # Python dependencies
-├── 📄 README.md               # Project documentation
+├── 🚀 main.py                 # Application entry point
+├── 🖥️ gui.py                  # Main GUI window & video processing
+├── ⚙️ config.py               # Configuration settings & constants
+├── 💾 database.py             # SQLite database operations
+├── 🎯 detectors.py            # YOLOv8, MediaPipe, Face Recognition engines
+├── 📱 telegram_bot.py         # Telegram bot with inline keyboards
+├── 🔊 audio.py                # TTS engine & alarm system
+├── 🛠️ utils.py                # Zone management & corner detection
+├── 📋 requirements.txt        # Python dependencies
 ├── 📄 LICENSE                 # AGPL-3.0 License
-├── 📄 .gitignore              # Git ignore rules
+├── 📖 README.md               # Project documentation
 │
 ├── 📁 readme_assets/          # README SVG assets
 │   ├── 🎨 header.svg
 │   ├── 🎨 divider.svg
-│   ├── 🎨 scanning-line.svg
-│   ├── 🎨 wave-top.svg
-│   ├── 🎨 wave-bottom.svg
 │   ├── 🎨 features-header.svg
 │   ├── 🎨 tech-stack-header.svg
 │   ├── 🎨 installation-header.svg
@@ -511,22 +514,61 @@ sentinel-ai/
 │   ├── 🎨 security-header.svg
 │   ├── 🎨 contributing-header.svg
 │   ├── 🎨 license-header.svg
-│   └── 🎨 footer.svg
+│   ├── 🎨 footer.svg
+│   ├── 🎨 scanning-line.svg
+│   ├── 🎨 wave-top.svg
+│   └── 🎨 wave-bottom.svg
 │
-└── 📁 trusted_faces/          # Drop trusted person photos here
-    └── 📷 (your photos)
+├── 📁 trusted_faces/          # Drop trusted face images here (auto-created)
+├── 📁 fixed_images/           # Processed face database (auto-created)
+├── 📁 recordings/             # Video recordings (auto-created)
+├── 📁 snapshots/              # Manual snapshots (auto-created)
+└── 📁 alerts/                 # Alert images (auto-created)
 ```
 
-### 📂 Auto-Generated Folders
+### 🔄 System Architecture
 
-These folders are created automatically at runtime:
-
-| Folder | Purpose |
-|--------|--------|
-| `recordings/` | Saved video recordings |
-| `snapshots/` | Manual snapshots |
-| `alerts/` | Breach alert photos |
-| `fixed_images/` | Processed trusted faces database |
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           NEXUS SECURITY SYSTEM                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ┌─────────────┐    ┌──────────────┐    ┌─────────────────────────┐    │
+│  │   Camera    │───▶│ Frame Buffer │───▶│   Detection Thread      │    │
+│  │   Thread    │    │              │    │  ┌─────────────────┐    │    │
+│  └─────────────┘    └──────────────┘    │  │ YOLOv8 Person   │    │    │
+│                                          │  │ Detection       │    │    │
+│  ┌─────────────┐                        │  └────────┬────────┘    │    │
+│  │   Video     │───▶ (Alternative)      │           │             │    │
+│  │   Thread    │                        │  ┌────────▼────────┐    │    │
+│  └─────────────┘                        │  │ MediaPipe Pose  │    │    │
+│                                          │  │ Skeleton        │    │    │
+│                                          │  └────────┬────────┘    │    │
+│                                          │           │             │    │
+│                                          │  ┌────────▼────────┐    │    │
+│                                          │  │ Motion Detect   │    │    │
+│                                          │  └─────────────────┘    │    │
+│                                          └───────────┬─────────────┘    │
+│                                                      │                  │
+│  ┌───────────────────────────────────────────────────▼───────────────┐  │
+│  │                         Main GUI Thread                           │  │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐    │  │
+│  │  │ Zone Manager │  │ Face Engine  │  │ Breach Detection     │    │  │
+│  │  │ (Multi-Zone) │  │ (Recognition)│  │ (Skeleton + Motion)  │    │  │
+│  │  └──────────────┘  └──────────────┘  └──────────────────────┘    │  │
+│  └───────────────────────────────────────────────────────────────────┘  │
+│                                      │                                  │
+│         ┌────────────────────────────┼────────────────────────────┐    │
+│         │                            │                            │    │
+│         ▼                            ▼                            ▼    │
+│  ┌─────────────┐           ┌─────────────────┐           ┌──────────┐  │
+│  │  Telegram   │           │    Database     │           │  Audio   │  │
+│  │    Bot      │           │   (SQLite)      │           │  Engine  │  │
+│  │  (Remote)   │           │                 │           │  (TTS)   │  │
+│  └─────────────┘           └─────────────────┘           └──────────┘  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
@@ -534,7 +576,7 @@ These folders are created automatically at runtime:
 <!-- Usage Section -->
 <img src="readme_assets/usage-header.svg" alt="Usage Header" width="100%">
 
-### 🎯 Quick Start Guide
+### 🎯 Getting Started
 
 <table>
   <tr>
@@ -550,91 +592,122 @@ These folders are created automatically at runtime:
     </td>
     <td align="center" width="20%">
       <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked.png" width="40" height="40" />
-      <br><strong>3. Arm</strong>
+      <br><strong>3. Arm System</strong>
       <br><sub>Enable monitoring</sub>
     </td>
     <td align="center" width="20%">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Eyes.png" width="40" height="40" />
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" width="40" height="40" />
       <br><strong>4. Monitor</strong>
       <br><sub>Watch for alerts</sub>
     </td>
     <td align="center" width="20%">
       <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" width="40" height="40" />
       <br><strong>5. Control</strong>
-      <br><sub>Via Telegram</sub>
+      <br><sub>Use Telegram bot</sub>
     </td>
   </tr>
 </table>
 
-### 📖 Detailed Usage
+### 📖 Detailed Usage Guide
 
 <details>
 <summary><strong>🎯 Creating Detection Zones</strong></summary>
 
 1. Click **"➕ New"** to create a new zone
 2. Click **"✏️ Draw"** to enter drawing mode
-3. Click on the video feed to add corner points (minimum 3)
-4. Click **"✅ Done"** when finished
-5. Optionally click **"🔧 Optimize"** to smooth the zone
-6. Use **"🤖 Auto-Detect"** to automatically find floor corners
+3. **Click on the video** to add polygon points
+4. Add at least 3 points to complete a zone
+5. Click **"✅ Done"** when finished
+6. Use **"🔧 Optimize"** to smooth the zone shape
+7. Use **"🤖 Auto-Detect"** for automatic floor corner detection
 
-> **💡 Tip:** Create multiple zones for different areas. Each zone can be independently monitored.
+> **💡 Tip:** Create multiple zones for different areas. Each zone can have different names and colors.
 
 </details>
 
 <details>
 <summary><strong>🔒 Arming the System</strong></summary>
 
-1. Click the **"🔒 ARM SYSTEM"** button
-2. The status indicator will turn green
-3. Any person entering a zone will trigger an alert
-4. Trusted faces will be announced but won't trigger alarms
-5. Click **"🔓 DISARM"** to disable monitoring
+1. Create at least one detection zone
+2. Click **"🔒 ARM SYSTEM"** button
+3. The status indicator will turn green
+4. System will now monitor for zone breaches
+5. When a person enters a zone:
+   - Alarm sounds (if not muted)
+   - Telegram alert sent with photo
+   - Event logged to database
+   - TTS announces the alert
 
-**Keyboard Shortcut:** Press `A` to toggle arm/disarm
+> **🛡️ Trusted Persons:** If a recognized trusted person enters the zone, the alarm will be suppressed and they'll receive a greeting.
 
 </details>
 
 <details>
 <summary><strong>👤 Adding Trusted Faces</strong></summary>
 
-1. Take clear photos of trusted persons (front-facing, good lighting)
-2. Name the files with the person's name (e.g., `John.jpg`, `Alice.png`)
-3. Copy the photos to the `trusted_faces/` folder
-4. Click **"🔄 Reload Faces"** or restart the application
-5. The system will greet trusted persons by name
+1. Place face images in the `trusted_faces/` folder
+2. Name files as `PersonName.jpg` (e.g., `John.jpg`)
+3. Click **"🔄 Reload Faces"** or restart the app
+4. System will automatically process and load faces
 
-> **📷 Photo Tips:**
-> - Use well-lit, front-facing photos
-> - One face per image
-> - Supported formats: JPG, JPEG, PNG, BMP
+**Image requirements:**
+- Clear, well-lit frontal face photo
+- One person per image
+- Supported formats: JPG, JPEG, PNG, BMP
+- File name becomes the display name
 
 </details>
 
 <details>
 <summary><strong>📱 Telegram Commands</strong></summary>
 
+Once connected, use these commands or inline buttons:
+
 | Command | Description |
 |---------|-------------|
-| `/start` or `/menu` | Show control panel |
-| `arm` | Arm the system |
-| `disarm` | Disarm the system |
-| `snap` | Take a snapshot |
-| `record` | Start recording |
-| `stoprecord` | Stop recording |
-| `mute` | Mute alarm |
-| `unmute` | Unmute alarm |
-| `status` | Get system status |
-| `stats` | View daily statistics |
-| `log` | View recent events |
-| `reload_faces` | Reload trusted faces |
-| `nightmode on/off` | Toggle night vision |
-| `sensitivity low/medium/high` | Adjust detection sensitivity |
+| `/start` or `/menu` | Show main control panel |
+| `/arm` | Arm the system |
+| `/disarm` | Disarm the system |
+| `/snap` | Take a snapshot |
+| `/record` | Start recording |
+| `/stoprecord` | Stop recording |
+| `/mute` | Mute alarm |
+| `/unmute` | Unmute alarm |
+| `/status` | View system status |
+| `/stats` | View daily statistics |
+| `/log` | View recent events |
+| `/reload_faces` | Reload trusted faces |
 
 </details>
 
 <details>
-<summary><strong>⌨️ Keyboard Shortcuts</strong></summary>
+<summary><strong>⚙️ Adjusting Sensitivity</strong></summary>
+
+Use the **Sensitivity** dropdown to adjust detection:
+
+| Level | YOLO Confidence | Best For |
+|-------|-----------------|----------|
+| **Low** | 60% | Reduce false positives, only very confident detections |
+| **Medium** | 40% | Balanced detection (recommended) |
+| **High** | 25% | Maximum sensitivity, detect partial/distant persons |
+
+</details>
+
+<details>
+<summary><strong>🎬 Video Playback Mode</strong></summary>
+
+1. Click the **"📹 Live Camera"** toggle to switch to **"📁 Video File"**
+2. Click **"📁 Load Video"** to select a video file
+3. Use playback controls:
+   - ⏪ Skip back 10 seconds
+   - ⏸/▶ Pause/Play
+   - ⏩ Skip forward 10 seconds
+   - Slider for seeking
+4. Detection works on video files too!
+
+</details>
+
+### ⌨️ Keyboard Shortcuts
 
 | Key | Action |
 |-----|--------|
@@ -642,36 +715,7 @@ These folders are created automatically at runtime:
 | `A` | Toggle arm/disarm |
 | `R` | Toggle recording |
 | `F11` | Toggle fullscreen |
-| `Escape` | Exit fullscreen |
-
-</details>
-
-<details>
-<summary><strong>🎥 Video Playback Mode</strong></summary>
-
-1. Click the source toggle to switch to **"📁 Video File"**
-2. Click **"📁 Load Video"** to select a video file
-3. Use playback controls:
-   - ⏪ Skip back 10 seconds
-   - ⏸/▶ Play/Pause
-   - ⏩ Skip forward 10 seconds
-   - Slider for seeking
-4. Detection works on video files too!
-
-</details>
-
-<details>
-<summary><strong>⚙️ Adjusting Sensitivity</strong></summary>
-
-| Level | YOLO Confidence | Best For |
-|-------|-----------------|----------|
-| **Low** | 60% | Reduce false positives, outdoor use |
-| **Medium** | 40% | Balanced detection (default) |
-| **High** | 25% | Maximum sensitivity, catch everything |
-
-Adjust via the dropdown in the GUI or Telegram command.
-
-</details>
+| `Esc` | Exit fullscreen |
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
@@ -689,20 +733,24 @@ Adjust via the dropdown in the GUI or Telegram command.
     <td align="center">
       <img src="https://via.placeholder.com/400x300/0d1117/00d4ff?text=Main+Dashboard" alt="Main Dashboard" width="400"/>
       <br><sub><strong>Main Dashboard</strong></sub>
+      <br><sub>Full system overview with live feed</sub>
     </td>
     <td align="center">
-      <img src="https://via.placeholder.com/400x300/0d1117/58a6ff?text=Zone+Detection" alt="Zone Detection" width="400"/>
-      <br><sub><strong>Zone Breach Detection</strong></sub>
+      <img src="https://via.placeholder.com/400x300/0d1117/58a6ff?text=Person+Detection" alt="Person Detection" width="400"/>
+      <br><sub><strong>Person Detection</strong></sub>
+      <br><sub>YOLOv8 + Skeleton tracking</sub>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <img src="https://via.placeholder.com/400x300/0d1117/00ff88?text=Skeleton+Tracking" alt="Skeleton Tracking" width="400"/>
-      <br><sub><strong>Skeleton Tracking</strong></sub>
+      <img src="https://via.placeholder.com/400x300/0d1117/00ff88?text=Zone+Breach+Alert" alt="Zone Breach" width="400"/>
+      <br><sub><strong>Zone Breach Detection</strong></sub>
+      <br><sub>3D animated zone visualization</sub>
     </td>
     <td align="center">
-      <img src="https://via.placeholder.com/400x300/0d1117/ff6b6b?text=Telegram+Alerts" alt="Telegram Alerts" width="400"/>
-      <br><sub><strong>Telegram Alerts</strong></sub>
+      <img src="https://via.placeholder.com/400x300/0d1117/ff6b6b?text=Telegram+Control" alt="Telegram" width="400"/>
+      <br><sub><strong>Telegram Control Panel</strong></sub>
+      <br><sub>Remote monitoring & control</sub>
     </td>
   </tr>
 </table>
@@ -714,7 +762,32 @@ Adjust via the dropdown in the GUI or Telegram command.
   <img src="https://via.placeholder.com/800x450/0d1117/00d4ff?text=▶+Click+to+Watch+Demo+Video" alt="Demo Video" width="800"/>
 </a>
 
-<p><em>Click the image above to watch the full demonstration</em></p>
+<p><em>Click the image above to watch the full demonstration video</em></p>
+
+### 🎥 Feature Demonstrations
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="#">
+        <img src="https://via.placeholder.com/250x150/0d1117/00d4ff?text=Zone+Drawing" alt="Zone Drawing" width="250"/>
+      </a>
+      <br><sub>Zone Drawing Tutorial</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="#">
+        <img src="https://via.placeholder.com/250x150/0d1117/58a6ff?text=Face+Recognition" alt="Face Recognition" width="250"/>
+      </a>
+      <br><sub>Face Recognition Demo</sub>
+    </td>
+    <td align="center" width="33%">
+      <a href="#">
+        <img src="https://via.placeholder.com/250x150/0d1117/00ff88?text=Telegram+Bot" alt="Telegram Bot" width="250"/>
+      </a>
+      <br><sub>Telegram Bot Setup</sub>
+    </td>
+  </tr>
+</table>
 
 </div>
 
@@ -726,7 +799,7 @@ Adjust via the dropdown in the GUI or Telegram command.
 
 <div align="center">
 
-### 🛡️ Security & Privacy
+### 🛡️ Security Measures & Privacy
 
 </div>
 
@@ -735,27 +808,51 @@ Adjust via the dropdown in the GUI or Telegram command.
     <td width="50%">
       <h4>🔒 Data Protection</h4>
       <ul>
-        <li>All data stored locally - no cloud uploads</li>
-        <li>Face encodings never leave your machine</li>
-        <li>SQLite database with local file storage</li>
-        <li>Telegram alerts are the only external communication</li>
-        <li>No telemetry or usage tracking</li>
+        <li>All face encodings stored locally only</li>
+        <li>SQLite database with file-level security</li>
+        <li>No cloud uploads (except Telegram alerts)</li>
+        <li>Configurable data retention</li>
+        <li>Easy data deletion</li>
       </ul>
     </td>
     <td width="50%">
-      <h4>⚠️ Important Notes</h4>
+      <h4>🔐 Access Control</h4>
       <ul>
-        <li>Secure your Telegram bot token</li>
-        <li>Don't commit <code>config.py</code> with real credentials</li>
-        <li>Recordings may contain sensitive footage</li>
-        <li>Trusted faces folder contains biometric data</li>
-        <li>Use strong system passwords</li>
+        <li>Trusted person whitelist system</li>
+        <li>Telegram authentication via chat ID</li>
+        <li>Local-only operation mode available</li>
+        <li>No external API dependencies for core features</li>
+        <li>Configurable alert recipients</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h4>🚨 Threat Response</h4>
+      <ul>
+        <li>Immediate visual and audio alerts</li>
+        <li>Automatic photo capture on breach</li>
+        <li>Continuous alarm until disarmed</li>
+        <li>Complete event audit trail</li>
+        <li>Configurable alert intervals</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h4>📊 Logging & Audit</h4>
+      <ul>
+        <li>All events logged with timestamps</li>
+        <li>Daily statistics tracking</li>
+        <li>Alert history with snapshots</li>
+        <li>Queryable SQLite database</li>
+        <li>Export-ready data format</li>
       </ul>
     </td>
   </tr>
 </table>
 
-> ⚠️ **Disclaimer:** This system is designed for personal/educational use. For commercial or high-security deployments, additional security measures and compliance considerations may be required. Always comply with local laws regarding surveillance and data protection.
+> ⚠️ **Security Notice:** This system is designed for educational and personal use. For enterprise or critical security deployments, additional measures such as encryption, secure authentication, and professional security audits should be implemented.
+
+> 🔑 **Telegram Security:** Keep your bot token private. Anyone with the token can control your bot. Consider using environment variables instead of hardcoding credentials.
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
@@ -765,28 +862,48 @@ Adjust via the dropdown in the GUI or Telegram command.
 
 <div align="center">
 
-Contributions are what make the open source community amazing! Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create.
+
+**Any contributions you make are greatly appreciated!** 🙏
 
 </div>
 
 ### 🤝 How to Contribute
 
 1. **Fork** the repository
-2. **Create** your feature branch (`git checkout -b feature/AmazingFeature`)
-3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+2. **Create** your feature branch
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. **Commit** your changes
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. **Push** to the branch
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
 5. **Open** a Pull Request
 
-### 📝 Contribution Ideas
+### 📝 Contribution Guidelines
 
-- [ ] Add more detection models (YOLOv9, etc.)
-- [ ] Implement object tracking (DeepSORT)
+- Follow [PEP 8](https://pep8.org/) style guidelines
+- Write meaningful commit messages
+- Add comments for complex logic
+- Update documentation for new features
+- Test your changes thoroughly
+- Be respectful and constructive in discussions
+
+### 💡 Ideas for Contributions
+
+- [ ] Add support for multiple cameras
+- [ ] Implement object tracking across frames
 - [ ] Add web dashboard interface
-- [ ] Support for IP cameras (RTSP)
-- [ ] Mobile app companion
-- [ ] Cloud backup option
-- [ ] Multi-language TTS support
-- [ ] Action recognition (falling, fighting, etc.)
+- [ ] Create Docker containerization
+- [ ] Add more notification channels (Discord, Slack, Email)
+- [ ] Implement cloud backup option
+- [ ] Add gesture recognition
+- [ ] Create mobile companion app
 
 ### 🐛 Reporting Issues
 
@@ -795,7 +912,7 @@ Found a bug? Please open an issue with:
 - Steps to reproduce
 - Expected vs actual behavior
 - System information (OS, Python version, GPU)
-- Error messages/logs if applicable
+- Screenshots or error logs if applicable
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
@@ -814,7 +931,7 @@ This project is licensed under the **GNU Affero General Public License v3.0**
 </div>
 
 ```
-Sentinel AI - Advanced Security Surveillance System
+Nexus Security - AI-Powered Security Surveillance System
 Copyright (C) 2024
 
 This program is free software: you can redistribute it and/or modify
@@ -831,13 +948,15 @@ You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
 
-### 📜 What AGPL-3.0 Means
+### Why AGPL-3.0?
 
-- ✅ You can use, modify, and distribute this software
-- ✅ You can use it for commercial purposes
-- ⚠️ You must disclose source code of modifications
-- ⚠️ You must use the same license for derivatives
+The AGPL-3.0 license ensures that:
+- ✅ You can use this software for any purpose
+- ✅ You can modify the source code
+- ✅ You can distribute copies
+- ⚠️ Modifications must be open-sourced under AGPL-3.0
 - ⚠️ Network use counts as distribution
+- ⚠️ You must include the original copyright notice
 
 <!-- Divider -->
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
@@ -847,6 +966,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 <div align="center">
 
+Special thanks to the developers and communities behind these amazing projects:
+
 <table>
   <tr>
     <td align="center">
@@ -855,7 +976,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/google/mediapipe">
+      <a href="https://google.github.io/mediapipe/">
         <img src="https://img.shields.io/badge/Google-MediaPipe-58a6ff?style=flat-square&labelColor=0d1117" alt="MediaPipe">
       </a>
     </td>
@@ -870,9 +991,36 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
       </a>
     </td>
   </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.riverbankcomputing.com/software/pyqt/">
+        <img src="https://img.shields.io/badge/PyQt6-GUI_Framework-00d4ff?style=flat-square&labelColor=0d1117" alt="PyQt6">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://core.telegram.org/bots/api">
+        <img src="https://img.shields.io/badge/Telegram-Bot_API-58a6ff?style=flat-square&labelColor=0d1117" alt="Telegram">
+      </a>
+    </td>
+    <td align="center">
+      <a href="http://dlib.net/">
+        <img src="https://img.shields.io/badge/dlib-ML_Library-ff6b6b?style=flat-square&labelColor=0d1117" alt="dlib">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.pygame.org/">
+        <img src="https://img.shields.io/badge/Pygame-Audio-00ff88?style=flat-square&labelColor=0d1117" alt="Pygame">
+      </a>
+    </td>
+  </tr>
 </table>
 
-Special thanks to all the open-source projects that made this possible!
+### 📚 Learning Resources
+
+- [YOLOv8 Documentation](https://docs.ultralytics.com/)
+- [MediaPipe Pose Guide](https://google.github.io/mediapipe/solutions/pose.html)
+- [Face Recognition Tutorial](https://github.com/ageitgey/face_recognition#face-recognition)
+- [PyQt6 Documentation](https://www.riverbankcomputing.com/static/Docs/PyQt6/)
 
 </div>
 
@@ -880,13 +1028,13 @@ Special thanks to all the open-source projects that made this possible!
 <img src="readme_assets/divider.svg" alt="Divider" width="100%">
 
 <!-- Contact -->
-## 📬 Contact
+## 📬 Contact & Support
 
 <div align="center">
 
 <p>
   <a href="https://github.com/yourusername">
-    <img src="https://img.shields.io/badge/GitHub-yourusername-00d4ff?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" alt="GitHub">
+    <img src="https://img.shields.io/badge/GitHub-Profile-00d4ff?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117" alt="GitHub">
   </a>
   <a href="mailto:your.email@example.com">
     <img src="https://img.shields.io/badge/Email-Contact_Me-58a6ff?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117" alt="Email">
@@ -896,7 +1044,23 @@ Special thanks to all the open-source projects that made this possible!
   </a>
 </p>
 
-<sub>Built with 💙 by a passionate student developer</sub>
+<p>
+  <a href="https://twitter.com/yourusername">
+    <img src="https://img.shields.io/badge/Twitter-Follow-00d4ff?style=for-the-badge&logo=twitter&logoColor=white&labelColor=0d1117" alt="Twitter">
+  </a>
+  <a href="https://discord.gg/yourdiscord">
+    <img src="https://img.shields.io/badge/Discord-Join_Server-58a6ff?style=for-the-badge&logo=discord&logoColor=white&labelColor=0d1117" alt="Discord">
+  </a>
+</p>
+
+---
+
+### 💬 Get Help
+
+- 📖 Check the [Documentation](#-usage)
+- 🐛 Report [Issues](https://github.com/yourusername/nexus-security/issues)
+- 💡 Request [Features](https://github.com/yourusername/nexus-security/issues/new?labels=enhancement)
+- 💬 Join [Discussions](https://github.com/yourusername/nexus-security/discussions)
 
 </div>
 
@@ -908,14 +1072,13 @@ Special thanks to all the open-source projects that made this possible!
 ### ⭐ Star this repository if you found it helpful!
 
 <p>
-  <img src="https://img.shields.io/badge/Made%20with-💙-00d4ff?style=for-the-badge&labelColor=0d1117" alt="Made with Love">
-  <img src="https://img.shields.io/badge/Powered%20by-AI-ff6b6b?style=for-the-badge&labelColor=0d1117" alt="AI">
-  <img src="https://img.shields.io/badge/Built%20with-Python-00ff88?style=for-the-badge&logo=python&logoColor=white&labelColor=0d1117" alt="Python">
+  <img src="https://img.shields.io/badge/Made%20with-❤️-ff6b6b?style=for-the-badge&labelColor=0d1117" alt="Made with Love">
+  <img src="https://img.shields.io/badge/Powered%20by-Python-00d4ff?style=for-the-badge&logo=python&logoColor=white&labelColor=0d1117" alt="Python">
+  <img src="https://img.shields.io/badge/Built%20by-Student-00ff88?style=for-the-badge&labelColor=0d1117" alt="Student">
 </p>
 
-<!-- Profile Views Counter -->
-<img src="https://komarev.com/ghpvc/?username=yourusername&color=00d4ff&style=for-the-badge&label=PROFILE+VIEWS" alt="Profile Views">
-
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,16,18,20&height=100&section=footer" width="100%">
+
+<sub>🔒 Securing the future, one frame at a time.</sub>
 
 </div>
