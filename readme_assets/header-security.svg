@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
   <defs>
     <style>
       @keyframes glitch1 {
@@ -29,8 +29,8 @@
         80% { opacity: 0; }
       }
       @keyframes scanline {
-        0% { transform: translateY(-400px); }
-        100% { transform: translateY(400px); }
+        0% { transform: translateY(-600px); }
+        100% { transform: translateY(600px); }
       }
       @keyframes verticalScan {
         0% { transform: translateX(-100px); }
@@ -65,39 +65,63 @@
         50% { opacity: 0.8; }
         100% { opacity: 0.3; }
       }
+      @keyframes logoSpin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes logoPulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.9; }
+      }
+      @keyframes logoGlow {
+        0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.7)); }
+        50% { filter: drop-shadow(0 0 35px rgba(0, 240, 255, 1)); }
+      }
+      @keyframes lockPulse {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      @keyframes gearRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes reverseGearRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(-360deg); }
+      }
       .bg { fill: #020818; }
       .matrix { font-family: 'Courier New', monospace; font-size: 10px; fill: #00f0ff; animation: matrixFade 4s infinite; }
       .main-text {
         font-family: 'Courier New', monospace;
-        font-size: 52px;
+        font-size: 64px;
         font-weight: bold;
         fill: #00f0ff;
         animation: pulseGlow 3s ease-in-out infinite, flicker 8s infinite;
       }
       .glitch-r {
         font-family: 'Courier New', monospace;
-        font-size: 52px;
+        font-size: 64px;
         font-weight: bold;
         fill: #ff0080;
         animation: glitch2 4s infinite;
       }
       .glitch-c {
         font-family: 'Courier New', monospace;
-        font-size: 52px;
+        font-size: 64px;
         font-weight: bold;
         fill: #00ff80;
         animation: glitch3 4s infinite;
       }
       .glitch-main {
         font-family: 'Courier New', monospace;
-        font-size: 52px;
+        font-size: 64px;
         font-weight: bold;
         fill: #00f0ff;
         animation: glitch1 6s infinite;
       }
       .subtitle {
         font-family: 'Courier New', monospace;
-        font-size: 14px;
+        font-size: 16px;
         fill: #4a9eff;
         letter-spacing: 8px;
       }
@@ -115,9 +139,14 @@
       .node { fill: #00f0ff; opacity: 0.4; }
       .shield { animation: shieldPulse 2s ease-in-out infinite; }
       .badge-box { fill: #0a1628; stroke-width: 1.5; }
-      .badge-text { font-family: 'Courier New', monospace; font-size: 11px; font-weight: bold; }
+      .badge-text { font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold; }
       .data-stream { animation: dataStream 2s infinite; }
       .cursor { fill: #00f0ff; animation: blink 1s infinite; }
+      .logo-gear { animation: gearRotate 20s linear infinite; }
+      .logo-gear-reverse { animation: reverseGearRotate 15s linear infinite; }
+      .logo-glow { animation: logoGlow 4s ease-in-out infinite; }
+      .logo-pulse { animation: logoPulse 3s ease-in-out infinite; }
+      .logo-lock { animation: lockPulse 2s ease-in-out infinite; }
     </style>
     
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -137,6 +166,16 @@
       <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0.05"/>
     </linearGradient>
     
+    <linearGradient id="logoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f0ff"/>
+      <stop offset="100%" style="stop-color:#0080ff"/>
+    </linearGradient>
+    
+    <linearGradient id="logoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0080"/>
+      <stop offset="100%" style="stop-color:#ff00ff"/>
+    </linearGradient>
+    
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -147,58 +186,63 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     
+    <filter id="logoGlowFilter" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
     <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
       <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#0a3050" stroke-width="0.5"/>
     </pattern>
   </defs>
   
   <!-- Background -->
-  <rect class="bg" width="1200" height="400" fill="url(#bgGrad)"/>
-  <rect width="1200" height="400" fill="url(#grid)" opacity="0.4"/>
+  <rect class="bg" width="1200" height="600" fill="url(#bgGrad)"/>
+  <rect width="1200" height="600" fill="url(#grid)" opacity="0.4"/>
   
   <!-- Matrix code background -->
   <g class="matrix">
     <text x="30" y="25">01001110 11010010 00101101 10110100 NEURAL_SCAN::ACTIVE</text>
     <text x="700" y="25">0xFF00FF 0x00F0FF THREAT_LEVEL::0</text>
-    <text x="30" y="385">SYS.SECURITY.INITIALIZED</text>
-    <text x="350" y="385">DETECTION_MODULE::ONLINE</text>
-    <text x="700" y="385">YOLO_v8::ARMED</text>
-    <text x="950" y="385">v2.0_STABLE</text>
+    <text x="30" y="585">SYS.SECURITY.INITIALIZED</text>
+    <text x="350" y="585">DETECTION_MODULE::ONLINE</text>
+    <text x="700" y="585">YOLO_v8::ARMED</text>
+    <text x="950" y="585">v2.0_STABLE</text>
   </g>
   
   <!-- Additional binary streams -->
   <g class="matrix data-stream" style="animation-delay: 0.5s;">
     <text x="50" y="60">10110101</text>
     <text x="1050" y="60">01001101</text>
-    <text x="100" y="350">SECURE</text>
-    <text x="1000" y="350">ACTIVE</text>
+    <text x="100" y="550">SECURE</text>
+    <text x="1000" y="550">ACTIVE</text>
   </g>
   
   <!-- Circuit patterns -->
   <g class="circuit">
-    <path d="M0,100 L120,100 L140,120 L220,120"/>
-    <path d="M0,300 L100,300 L120,280 L180,280"/>
-    <path d="M1200,100 L1080,100 L1060,120 L980,120"/>
-    <path d="M1200,300 L1100,300 L1080,280 L1020,280"/>
-    <path d="M0,200 L80,200 L100,180 L100,150"/>
-    <path d="M1200,200 L1120,200 L1100,180 L1100,150"/>
-    <circle class="node" cx="140" cy="120" r="4"/>
-    <circle class="node" cx="120" cy="280" r="4"/>
-    <circle class="node" cx="1060" cy="120" r="4"/>
-    <circle class="node" cx="1080" cy="280" r="4"/>
-    <circle class="node" cx="100" cy="150" r="3"/>
-    <circle class="node" cx="1100" cy="150" r="3"/>
+    <path d="M0,150 L120,150 L140,170 L220,170"/>
+    <path d="M0,450 L100,450 L120,430 L180,430"/>
+    <path d="M1200,150 L1080,150 L1060,170 L980,170"/>
+    <path d="M1200,450 L1100,450 L1080,430 L1020,430"/>
+    <path d="M0,300 L80,300 L100,280 L100,250"/>
+    <path d="M1200,300 L1120,300 L1100,280 L1100,250"/>
+    <circle class="node" cx="140" cy="170" r="4"/>
+    <circle class="node" cx="120" cy="430" r="4"/>
+    <circle class="node" cx="1060" cy="170" r="4"/>
+    <circle class="node" cx="1080" cy="430" r="4"/>
+    <circle class="node" cx="100" cy="250" r="3"/>
+    <circle class="node" cx="1100" cy="250" r="3"/>
   </g>
   
   <!-- Grid lines -->
   <g>
-    <line class="grid-line" x1="0" y1="100" x2="1200" y2="100"/>
-    <line class="grid-line" x1="0" y1="200" x2="1200" y2="200"/>
+    <line class="grid-line" x1="0" y1="150" x2="1200" y2="150"/>
     <line class="grid-line" x1="0" y1="300" x2="1200" y2="300"/>
-    <line class="grid-line" x1="240" y1="0" x2="240" y2="400"/>
-    <line class="grid-line" x1="480" y1="0" x2="480" y2="400"/>
-    <line class="grid-line" x1="720" y1="0" x2="720" y2="400"/>
-    <line class="grid-line" x1="960" y1="0" x2="960" y2="400"/>
+    <line class="grid-line" x1="0" y1="450" x2="1200" y2="450"/>
+    <line class="grid-line" x1="240" y1="0" x2="240" y2="600"/>
+    <line class="grid-line" x1="480" y1="0" x2="480" y2="600"/>
+    <line class="grid-line" x1="720" y1="0" x2="720" y2="600"/>
+    <line class="grid-line" x1="960" y1="0" x2="960" y2="600"/>
   </g>
   
   <!-- Scanlines -->
@@ -207,7 +251,7 @@
   
   <!-- Vertical scanning bar -->
   <g class="vertical-scan">
-    <rect x="0" y="0" width="3" height="400" fill="url(#scanGrad)" opacity="0.6"/>
+    <rect x="0" y="0" width="3" height="600" fill="url(#scanGrad)" opacity="0.6"/>
   </g>
   
   <!-- Corner brackets -->
@@ -215,86 +259,147 @@
   <path class="corner-accent" d="M 28,28 L 28,55 M 28,28 L 55,28"/>
   <path class="corner" d="M 1180,20 L 1180,60 M 1180,20 L 1140,20"/>
   <path class="corner-accent" d="M 1172,28 L 1172,55 M 1172,28 L 1145,28"/>
-  <path class="corner" d="M 20,380 L 20,340 M 20,380 L 60,380"/>
-  <path class="corner-accent" d="M 28,372 L 28,345 M 28,372 L 55,372"/>
-  <path class="corner" d="M 1180,380 L 1180,340 M 1180,380 L 1140,380"/>
-  <path class="corner-accent" d="M 1172,372 L 1172,345 M 1172,372 L 1145,372"/>
+  <path class="corner" d="M 20,580 L 20,540 M 20,580 L 60,580"/>
+  <path class="corner-accent" d="M 28,572 L 28,545 M 28,572 L 55,572"/>
+  <path class="corner" d="M 1180,580 L 1180,540 M 1180,580 L 1140,580"/>
+  <path class="corner-accent" d="M 1172,572 L 1172,545 M 1172,572 L 1145,572"/>
   
-  <!-- Shield Logo -->
-  <g transform="translate(600, 95)" class="shield" filter="url(#strongGlow)">
-    <path d="M 0 -55 L 45 -35 L 45 20 L 0 55 L -45 20 L -45 -35 Z" fill="url(#shieldGrad)" stroke="#00f0ff" stroke-width="2.5"/>
-    <path d="M 0 -40 L 32 -25 L 32 15 L 0 40 L -32 15 L -32 -25 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="18" fill="none" stroke="#00f0ff" stroke-width="2"/>
-    <circle cx="0" cy="0" r="10" fill="#00f0ff" opacity="0.3"/>
-    <circle cx="0" cy="0" r="5" fill="#00f0ff" opacity="0.6"/>
-    <path d="M -10 0 L -3 7 L 12 -8" stroke="#00f0ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- ANIMATED SECURITY LOGO - TOP CENTER -->
+  <g transform="translate(600, 120)" class="logo-glow" filter="url(#logoGlowFilter)">
+    <!-- Outer rotating ring -->
+    <circle cx="0" cy="0" r="85" fill="none" stroke="url(#logoGrad1)" stroke-width="3" opacity="0.8" style="animation: logoSpin 30s linear infinite;"/>
+    
+    <!-- Inner rotating ring (reverse direction) -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#logoGrad2)" stroke-width="2" opacity="0.7" style="animation: logoSpin 20s linear infinite reverse;"/>
+    
+    <!-- Main shield body -->
+    <path class="logo-pulse" d="M 0 -60 L 50 -35 L 50 25 L 0 60 L -50 25 L -50 -35 Z" fill="#0a1628" stroke="url(#logoGrad1)" stroke-width="3"/>
+    
+    <!-- Inner shield -->
+    <path d="M 0 -45 L 35 -25 L 35 20 L 0 45 L -35 20 L -35 -25 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="2"/>
+    
+    <!-- Lock body -->
+    <g class="logo-lock">
+      <rect x="-25" y="-15" width="50" height="40" rx="5" fill="#0a1628" stroke="#00f0ff" stroke-width="2"/>
+      <circle cx="0" cy="-30" r="15" fill="#0a1628" stroke="#00f0ff" stroke-width="2"/>
+      <rect x="-8" y="-5" width="16" height="12" rx="2" fill="#0a1628" stroke="#ff0080" stroke-width="2"/>
+      <path d="M -10 -5 L -10 7 M 10 -5 L 10 7" stroke="#ff0080" stroke-width="2"/>
+      <!-- Keyhole -->
+      <circle cx="0" cy="5" r="3" fill="none" stroke="#00ff80" stroke-width="2"/>
+      <rect x="-1" y="5" width="2" height="8" fill="#00ff80"/>
+    </g>
+    
+    <!-- Rotating gears -->
+    <g transform="translate(-70, 0)" class="logo-gear">
+      <circle cx="0" cy="0" r="20" fill="#0a1628" stroke="#00f0ff" stroke-width="2"/>
+      <path d="M 0 -20 L 0 -30 M 14.14 -14.14 L 21.21 -21.21 M 20 0 L 30 0 M 14.14 14.14 L 21.21 21.21 M 0 20 L 0 30 M -14.14 14.14 L -21.21 21.21 M -20 0 L -30 0 M -14.14 -14.14 L -21.21 -21.21" stroke="#00f0ff" stroke-width="2"/>
+      <circle cx="0" cy="0" r="8" fill="#0a1628" stroke="#ff0080" stroke-width="2"/>
+    </g>
+    
+    <g transform="translate(70, 0)" class="logo-gear-reverse">
+      <circle cx="0" cy="0" r="18" fill="#0a1628" stroke="#00ff80" stroke-width="2"/>
+      <path d="M 0 -18 L 0 -27 M 12.73 -12.73 L 19.09 -19.09 M 18 0 L 27 0 M 12.73 12.73 L 19.09 19.09 M 0 18 L 0 27 M -12.73 12.73 L -19.09 19.09 M -18 0 L -27 0 M -12.73 -12.73 L -19.09 -19.09" stroke="#00ff80" stroke-width="2"/>
+      <circle cx="0" cy="0" r="6" fill="#0a1628" stroke="#ff0080" stroke-width="2"/>
+    </g>
+    
+    <!-- Animated scanning beam -->
+    <line x1="-60" y1="0" x2="60" y2="0" stroke="#00f0ff" stroke-width="2" opacity="0.7">
+      <animate attributeName="y1" from="-40" to="40" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="y2" from="-40" to="40" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.7;0.2" dur="2s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Glowing center dot -->
+    <circle cx="0" cy="0" r="5" fill="#00f0ff">
+      <animate attributeName="r" values="5;8;5" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Security rays -->
+    <line x1="0" y1="-80" x2="0" y2="-60" stroke="#00f0ff" stroke-width="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="60" y1="-60" x2="50" y2="-35" stroke="#00f0ff" stroke-width="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1s" repeatCount="indefinite" begin="0.2s"/>
+    </line>
+    <line x1="-60" y1="-60" x2="-50" y2="-35" stroke="#00f0ff" stroke-width="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1s" repeatCount="indefinite" begin="0.4s"/>
+    </line>
   </g>
   
   <!-- Main Title with Glitch Effect -->
-  <text class="glitch-r" x="600" y="200" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="glitch-c" x="600" y="200" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="glitch-main" x="600" y="200" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="main-text" x="600" y="200" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="glitch-r" x="600" y="280" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="glitch-c" x="600" y="280" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="glitch-main" x="600" y="280" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="main-text" x="600" y="280" text-anchor="middle">SECURITY SYSTEM</text>
   
   <!-- Subtitle -->
-  <text class="subtitle" x="600" y="230" text-anchor="middle">AI-POWERED SURVEILLANCE • REAL-TIME MONITORING</text>
+  <text class="subtitle" x="600" y="320" text-anchor="middle">AI-POWERED SURVEILLANCE • REAL-TIME MONITORING</text>
   
-  <!-- Feature Badges Row -->
-  <g transform="translate(600, 290)">
+  <!-- Feature Badges Row - Made larger and more readable -->
+  <g transform="translate(600, 380)">
     <!-- AI-Powered Badge -->
     <g transform="translate(-480, 0)">
-      <rect class="badge-box" x="-65" y="-18" width="130" height="36" rx="5" stroke="#00f0ff" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="5" text-anchor="middle" fill="#00f0ff">🤖 AI-POWERED</text>
+      <rect class="badge-box" x="-75" y="-22" width="150" height="44" rx="6" stroke="#00f0ff" filter="url(#glow)"/>
+      <text class="badge-text" x="0" y="7" text-anchor="middle" fill="#00f0ff">🤖 AI-POWERED</text>
     </g>
     
     <!-- YOLOv8 Badge -->
     <g transform="translate(-240, 0)">
-      <rect class="badge-box" x="-55" y="-18" width="110" height="36" rx="5" stroke="#ff0080" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="5" text-anchor="middle" fill="#ff0080">🎯 YOLOv8</text>
+      <rect class="badge-box" x="-65" y="-22" width="130" height="44" rx="6" stroke="#ff0080" filter="url(#glow)"/>
+      <text class="badge-text" x="0" y="7" text-anchor="middle" fill="#ff0080">🎯 YOLOv8</text>
     </g>
     
     <!-- Face Recognition Badge -->
     <g transform="translate(0, 0)">
-      <rect class="badge-box" x="-85" y="-18" width="170" height="36" rx="5" stroke="#00ff80" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="5" text-anchor="middle" fill="#00ff80">👤 FACE RECOGNITION</text>
+      <rect class="badge-box" x="-95" y="-22" width="190" height="44" rx="6" stroke="#00ff80" filter="url(#glow)"/>
+      <text class="badge-text" x="0" y="7" text-anchor="middle" fill="#00ff80">👤 FACE RECOGNITION</text>
     </g>
     
-    <!-- Telegram Badge -->
+    <!-- Telegram Control Badge -->
     <g transform="translate(240, 0)">
-      <rect class="badge-box" x="-85" y="-18" width="170" height="36" rx="5" stroke="#4a9eff" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="5" text-anchor="middle" fill="#4a9eff">📱 TELEGRAM CONTROL</text>
+      <rect class="badge-box" x="-95" y="-22" width="190" height="44" rx="6" stroke="#4a9eff" filter="url(#glow)"/>
+      <text class="badge-text" x="0" y="7" text-anchor="middle" fill="#4a9eff">📱 TELEGRAM CONTROL</text>
     </g>
     
     <!-- Motion Detect Badge -->
     <g transform="translate(480, 0)">
-      <rect class="badge-box" x="-75" y="-18" width="150" height="36" rx="5" stroke="#ffaa00" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="5" text-anchor="middle" fill="#ffaa00">🔥 MOTION DETECT</text>
+      <rect class="badge-box" x="-85" y="-22" width="170" height="44" rx="6" stroke="#ffaa00" filter="url(#glow)"/>
+      <text class="badge-text" x="0" y="7" text-anchor="middle" fill="#ffaa00">🔥 MOTION DETECT</text>
     </g>
   </g>
   
   <!-- Typing animation line -->
-  <g transform="translate(400, 340)">
-    <text font-family="'Courier New', monospace" font-size="12" fill="#00ff80">$ ./initialize_security_protocol.sh --armed</text>
-    <rect class="cursor" x="380" y="-10" width="8" height="14"/>
+  <g transform="translate(400, 450)">
+    <text font-family="'Courier New', monospace" font-size="13" fill="#00ff80">$ ./initialize_security_protocol.sh --armed</text>
+    <rect class="cursor" x="385" y="-11" width="9" height="16"/>
   </g>
   
   <!-- Accent lines -->
-  <line x1="150" y1="255" x2="380" y2="255" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
-  <line x1="820" y1="255" x2="1050" y2="255" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
-  <circle cx="600" cy="255" r="4" fill="#ff0080" opacity="0.9" filter="url(#glow)"/>
-  <circle cx="600" cy="255" r="8" fill="none" stroke="#ff0080" stroke-width="1" opacity="0.5"/>
+  <line x1="150" y1="345" x2="380" y2="345" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
+  <line x1="820" y1="345" x2="1050" y2="345" stroke="#00f0ff" stroke-width="1" opacity="0.4"/>
+  <circle cx="600" cy="345" r="4" fill="#ff0080" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="600" cy="345" r="8" fill="none" stroke="#ff0080" stroke-width="1" opacity="0.5"/>
   
   <!-- Decorative dots -->
-  <circle cx="130" cy="200" r="4" fill="#00f0ff" opacity="0.6"/>
-  <circle cx="136" cy="194" r="2" fill="#ff0080" opacity="0.8"/>
-  <circle cx="1070" cy="200" r="4" fill="#00f0ff" opacity="0.6"/>
-  <circle cx="1064" cy="194" r="2" fill="#ff0080" opacity="0.8"/>
+  <circle cx="130" cy="280" r="4" fill="#00f0ff" opacity="0.6"/>
+  <circle cx="136" cy="274" r="2" fill="#ff0080" opacity="0.8"/>
+  <circle cx="1070" cy="280" r="4" fill="#00f0ff" opacity="0.6"/>
+  <circle cx="1064" cy="274" r="2" fill="#ff0080" opacity="0.8"/>
   
   <!-- Bottom accent lines -->
-  <line x1="0" y1="395" x2="400" y2="395" stroke="#00f0ff" stroke-width="2" opacity="0.6"/>
-  <line x1="450" y1="395" x2="750" y2="395" stroke="#ff0080" stroke-width="2" opacity="0.6"/>
-  <line x1="800" y1="395" x2="1200" y2="395" stroke="#00f0ff" stroke-width="2" opacity="0.6"/>
+  <line x1="0" y1="520" x2="400" y2="520" stroke="#00f0ff" stroke-width="2" opacity="0.6"/>
+  <line x1="450" y1="520" x2="750" y2="520" stroke="#ff0080" stroke-width="2" opacity="0.6"/>
+  <line x1="800" y1="520" x2="1200" y2="520" stroke="#00f0ff" stroke-width="2" opacity="0.6"/>
   
   <!-- Status indicator -->
-  <text x="600" y="365" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a5568">[ SYSTEM.ARMED ] • NEURAL_CORE v2.0 • THREAT_DETECTION::ACTIVE</text>
+  <text x="600" y="550" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#4a9eff">[ SYSTEM.ARMED ] • NEURAL_CORE v2.0 • THREAT_DETECTION::ACTIVE</text>
+  
+  <!-- Additional decorative elements for balance -->
+  <circle cx="200" cy="120" r="3" fill="#00ff80" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1000" cy="120" r="3" fill="#ff0080" opacity="0.7">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
 </svg>
