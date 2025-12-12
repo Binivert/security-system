@@ -389,11 +389,15 @@ Security-System/
 
 <br><br>
 
-<img src="readme_assets/frame-demo.svg" width="100%">
+<img src="readme_assets/frame-top.svg" width="100%">
 
 <br>
 
-**[YOUR VIDEO LINK HERE]**
+[![Security System Demo](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+<br>
+
+<img src="readme_assets/frame-bottom.svg" width="100%">
 
 </div>
 
