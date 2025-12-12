@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 20">
+  <defs>
+    <linearGradient id="neonLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="20%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff0080;stop-opacity:1"/>
+      <stop offset="80%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect x="0" y="8" width="1200" height="4" fill="url(#neonLine)" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Center diamond -->
+  <polygon points="600,2 608,10 600,18 592,10" fill="#ff0080" filter="url(#neonGlow)">
+    <animate attributeName="fill" values="#ff0080;#00f0ff;#ff0080" dur="3s" repeatCount="indefinite"/>
+  </polygon>
+  
+  <!-- Side dots -->
+  <circle cx="200" cy="10" r="3" fill="#00f0ff" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="400" cy="10" r="3" fill="#00f0ff" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+  </circle>
+  <circle cx="800" cy="10" r="3" fill="#00f0ff" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+  </circle>
+  <circle cx="1000" cy="10" r="3" fill="#00f0ff" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.9s"/>
+  </circle>
+</svg>

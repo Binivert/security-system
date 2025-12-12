@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
+  <defs>
+    <filter id="badgeGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="120" height="40" fill="#0a1525" rx="6" stroke="#00ff80" stroke-width="2" filter="url(#badgeGlow)"/>
+  
+  <!-- Lock icon -->
+  <g transform="translate(10, 8)">
+    <rect x="3" y="10" width="18" height="14" fill="none" stroke="#00ff80" stroke-width="2" rx="2"/>
+    <path d="M7 10 L7 6 C7 3 12 0 17 3 L17 10" fill="none" stroke="#00ff80" stroke-width="2"/>
+    <circle cx="12" cy="17" r="3" fill="#00ff80"/>
+  </g>
+  
+  <text x="75" y="26" text-anchor="middle" fill="#00ff80" font-family="'Courier New', monospace" font-size="14" font-weight="bold">ARMED</text>
+</svg>

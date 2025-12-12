@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60">
+  <defs>
+    <linearGradient id="sectionGrad5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="50%" style="stop-color:#0d1825"/>
+      <stop offset="100%" style="stop-color:#0a0f1a"/>
+    </linearGradient>
+    <filter id="textGlow5">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="60" fill="url(#sectionGrad5)" rx="8"/>
+  <rect x="2" y="2" width="396" height="56" fill="none" stroke="#00f0ff" stroke-width="1" rx="6" opacity="0.5"/>
+  
+  <!-- Terminal icon -->
+  <g transform="translate(30, 15)" filter="url(#textGlow5)">
+    <rect x="0" y="0" width="24" height="20" fill="none" stroke="#00f0ff" stroke-width="2" rx="2"/>
+    <path d="M4 6 L8 10 L4 14" stroke="#00f0ff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="10" y1="14" x2="18" y2="14" stroke="#00f0ff" stroke-width="2" stroke-linecap="round">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <text x="75" y="38" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#00f0ff" filter="url(#textGlow5)">// USAGE</text>
+</svg>

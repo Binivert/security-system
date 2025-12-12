@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="iconGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1525"/>
+      <stop offset="100%" style="stop-color:#0d1a2a"/>
+    </linearGradient>
+  </defs>
+  
+  <circle cx="50" cy="50" r="48" fill="url(#iconBg)" stroke="#00f0ff" stroke-width="2"/>
+  
+  <!-- Person silhouette -->
+  <g filter="url(#iconGlow)" transform="translate(25, 20)">
+    <circle cx="25" cy="12" r="10" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <path d="M25 24 L25 45" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M25 30 L10 40" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M25 30 L40 40" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M25 45 L15 60" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M25 45 L35 60" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Detection box corners -->
+  <g stroke="#ff0080" stroke-width="2" fill="none">
+    <path d="M20 25 L20 18 L27 18"/>
+    <path d="M73 18 L80 18 L80 25"/>
+    <path d="M80 75 L80 82 L73 82"/>
+    <path d="M27 82 L20 82 L20 75"/>
+    <animate attributeName="stroke" values="#ff0080;#00f0ff;#ff0080" dur="2s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Scanning line -->
+  <line x1="20" y1="50" x2="80" y2="50" stroke="#00f0ff" stroke-width="1" opacity="0.5">
+    <animate attributeName="y1" values="25;75;25" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="25;75;25" dur="2s" repeatCount="indefinite"/>
+  </line>
+</svg>
