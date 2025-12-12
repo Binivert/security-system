@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="faceGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="100" height="100" fill="#0a0a1a" rx="10"/>
+  <rect x="2" y="2" width="96" height="96" fill="none" stroke="#1a1a4a" stroke-width="1" rx="8"/>
+  
+  <!-- Face outline -->
+  <g transform="translate(50, 50)" filter="url(#faceGlow)">
+    <ellipse cx="0" cy="0" rx="25" ry="30" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <!-- Eyes -->
+    <circle cx="-10" cy="-5" r="3" fill="#00f0ff"/>
+    <circle cx="10" cy="-5" r="3" fill="#00f0ff"/>
+    <!-- Nose -->
+    <line x1="0" y1="0" x2="0" y2="8" stroke="#00f0ff" stroke-width="1.5"/>
+    <!-- Mouth -->
+    <path d="M -8 15 Q 0 20 8 15" fill="none" stroke="#00f0ff" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Scan lines -->
+  <g stroke="#00f0ff" stroke-width="0.5" opacity="0.3">
+    <line x1="20" y1="30" x2="80" y2="30"/>
+    <line x1="20" y1="50" x2="80" y2="50"/>
+    <line x1="20" y1="70" x2="80" y2="70"/>
+  </g>
+  
+  <!-- Match indicator -->
+  <g transform="translate(80, 20)">
+    <circle cx="0" cy="0" r="8" fill="#0f0" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <path d="M -4 0 L -1 3 L 4 -3" fill="none" stroke="white" stroke-width="2"/>
+  </g>
+</svg>

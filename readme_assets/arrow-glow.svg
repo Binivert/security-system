@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+  <defs>
+    <filter id="arrowGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Arrow body -->
+  <line x1="5" y1="15" x2="45" y2="15" stroke="url(#arrowGrad)" stroke-width="3" filter="url(#arrowGlow)"/>
+  
+  <!-- Arrow head -->
+  <polygon points="45,15 35,8 35,22" fill="#00f0ff" filter="url(#arrowGlow)">
+    <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+  </polygon>
+  
+  <!-- Animated dot -->
+  <circle r="3" fill="#00f0ff" filter="url(#arrowGlow)">
+    <animate attributeName="cx" values="5;45;5" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="15;15;15" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

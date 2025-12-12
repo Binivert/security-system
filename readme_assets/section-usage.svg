@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60">
+  <defs>
+    <linearGradient id="useGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a1a4a"/>
+      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    </linearGradient>
+    <filter id="useGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="60" fill="url(#useGrad)" rx="8"/>
+  <rect x="2" y="2" width="396" height="56" fill="none" stroke="#00f0ff" stroke-width="1" rx="6" opacity="0.5"/>
+  
+  <g transform="translate(30, 30)" filter="url(#useGlow)">
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <text x="0" y="5" font-size="16" fill="#00f0ff" text-anchor="middle">▶️</text>
+  </g>
+  
+  <text x="70" y="38" font-family="monospace" font-size="24" font-weight="bold" fill="#00f0ff" filter="url(#useGlow)">USAGE GUIDE</text>
+  
+  <line x1="240" y1="45" x2="380" y2="45" stroke="#00f0ff" stroke-width="1" opacity="0.3"/>
+  
+  <circle cx="380" cy="30" r="5" fill="#00f0ff" opacity="0.5">
+    <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

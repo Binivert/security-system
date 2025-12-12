@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <filter id="motionGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="heatGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f"/>
+      <stop offset="50%" style="stop-color:#ff0"/>
+      <stop offset="100%" style="stop-color:#f00"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="100" height="100" fill="#0a0a1a" rx="10"/>
+  <rect x="2" y="2" width="96" height="96" fill="none" stroke="#1a1a4a" stroke-width="1" rx="8"/>
+  
+  <!-- Heat map representation -->
+  <g transform="translate(15, 15)">
+    <rect x="0" y="0" width="70" height="70" fill="none" stroke="#00f0ff" stroke-width="1"/>
+    
+    <!-- Heat blobs -->
+    <ellipse cx="35" cy="35" rx="20" ry="25" fill="url(#heatGrad)" opacity="0.6">
+      <animate attributeName="rx" values="20;25;20" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="25;30;25" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="55" cy="50" rx="10" ry="12" fill="url(#heatGrad)" opacity="0.4"/>
+  </g>
+  
+  <!-- Motion lines -->
+  <g stroke="#00f0ff" stroke-width="1" opacity="0.5">
+    <line x1="75" y1="30" x2="85" y2="25">
+      <animate attributeName="x2" values="85;90;85" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="75" y1="40" x2="88" y2="40">
+      <animate attributeName="x2" values="88;93;88" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="75" y1="50" x2="85" y2="55">
+      <animate attributeName="x2" values="85;90;85" dur="0.5s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>

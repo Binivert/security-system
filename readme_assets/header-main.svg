@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050510"/>
+      <stop offset="50%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#050510"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glitch">
+      <feOffset in="SourceGraphic" dx="2" dy="0" result="r">
+        <animate attributeName="dx" values="2;-2;2" dur="0.1s" repeatCount="indefinite"/>
+      </feOffset>
+      <feOffset in="SourceGraphic" dx="-2" dy="0" result="b">
+        <animate attributeName="dx" values="-2;2;-2" dur="0.1s" repeatCount="indefinite"/>
+      </feOffset>
+      <feColorMatrix in="r" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r2"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b2"/>
+      <feBlend in="r2" in2="b2" mode="screen" result="blend"/>
+      <feBlend in="blend" in2="SourceGraphic" mode="screen"/>
+    </filter>
+    <clipPath id="scanClip">
+      <rect x="0" y="0" width="1200" height="300">
+        <animate attributeName="y" values="-50;300;-50" dur="3s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00f0ff" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1200" height="300" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Animated scan line -->
+  <rect x="0" y="0" width="1200" height="2" fill="url(#cyanGrad)" opacity="0.5">
+    <animate attributeName="y" values="0;300;0" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Corner decorations -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" filter="url(#glow)">
+    <path d="M 20 60 L 20 20 L 60 20"/>
+    <path d="M 1140 20 L 1180 20 L 1180 60"/>
+    <path d="M 1180 240 L 1180 280 L 1140 280"/>
+    <path d="M 60 280 L 20 280 L 20 240"/>
+  </g>
+  
+  <!-- Shield icon -->
+  <g transform="translate(100, 100)" filter="url(#glow)">
+    <path d="M 50 10 L 90 30 L 90 70 Q 90 100 50 120 Q 10 100 10 70 L 10 30 Z" 
+          fill="none" stroke="#00f0ff" stroke-width="3">
+      <animate attributeName="stroke-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 35 60 L 45 70 L 65 50" fill="none" stroke="#00f0ff" stroke-width="3"/>
+  </g>
+  
+  <!-- Main title with glitch effect -->
+  <g filter="url(#glitch)">
+    <text x="600" y="130" font-family="monospace" font-size="72" font-weight="bold" 
+          fill="#00f0ff" text-anchor="middle" filter="url(#glow)">SECURITY</text>
+  </g>
+  <text x="600" y="180" font-family="monospace" font-size="48" font-weight="bold" 
+        fill="#00f0ff" text-anchor="middle" filter="url(#glow)" opacity="0.8">SYSTEM</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="220" font-family="monospace" font-size="14" 
+        fill="#00f0ff" text-anchor="middle" opacity="0.7">
+    [ AI-POWERED SURVEILLANCE • REAL-TIME DETECTION • ZONE MONITORING ]
+  </text>
+  
+  <!-- Status indicators -->
+  <g transform="translate(950, 100)">
+    <rect x="0" y="0" width="180" height="80" fill="#0a0a1a" stroke="#1a1a4a" stroke-width="1" rx="5"/>
+    <text x="15" y="25" font-family="monospace" font-size="10" fill="#00f0ff">STATUS:</text>
+    <circle cx="160" cy="20" r="5" fill="#0f0">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="15" y="45" font-family="monospace" font-size="10" fill="#666">VERSION: 2.0</text>
+    <text x="15" y="65" font-family="monospace" font-size="10" fill="#666">PYTHON 3.10+</text>
+  </g>
+  
+  <!-- Bottom line -->
+  <rect x="100" y="270" width="1000" height="1" fill="url(#cyanGrad)"/>
+  
+  <!-- Animated dots -->
+  <g fill="#00f0ff">
+    <circle cx="100" cy="270" r="3">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="270" r="3">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

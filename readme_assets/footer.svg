@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100">
+  <defs>
+    <linearGradient id="footGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#050510"/>
+    </linearGradient>
+    <linearGradient id="footLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="footGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="100" fill="url(#footGrad)"/>
+  
+  <!-- Top line -->
+  <rect x="0" y="0" width="1200" height="2" fill="url(#footLine)"/>
+  
+  <!-- Center content -->
+  <g transform="translate(600, 50)">
+    <!-- Shield icon -->
+    <path d="M 0 -20 L 15 -10 L 15 5 Q 15 20 0 25 Q -15 20 -15 5 L -15 -10 Z" 
+          fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#footGlow)" opacity="0.5"/>
+    
+    <!-- Text -->
+    <text x="0" y="45" font-family="monospace" font-size="10" fill="#666" text-anchor="middle">
+      SECURITY SYSTEM v2.0 • © 2024 Binivert • AGPL-3.0
+    </text>
+  </g>
+  
+  <!-- Animated particles -->
+  <g fill="#00f0ff">
+    <circle r="2" opacity="0.5">
+      <animate attributeName="cx" values="0;1200" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="50;30;70;50" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="1.5" opacity="0.3">
+      <animate attributeName="cx" values="1200;0" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="30;60;40;30" dur="8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

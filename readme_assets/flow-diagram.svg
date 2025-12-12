@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    </linearGradient>
+    <filter id="flowGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00f0ff"/>
+    </marker>
+  </defs>
+  
+  <rect width="800" height="200" fill="url(#flowGrad)"/>
+  
+  <!-- Step 1: Camera -->
+  <g transform="translate(80, 100)">
+    <rect x="-50" y="-40" width="100" height="80" fill="#1a1a4a" stroke="#00f0ff" stroke-width="2" rx="5"/>
+    <text x="0" y="-15" font-family="monospace" font-size="24" fill="#00f0ff" text-anchor="middle">📷</text>
+    <text x="0" y="15" font-family="monospace" font-size="10" fill="#00f0ff" text-anchor="middle">CAPTURE</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <line x1="140" y1="100" x2="200" y2="100" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Step 2: Detection -->
+  <g transform="translate(260, 100)">
+    <rect x="-50" y="-40" width="100" height="80" fill="#1a1a4a" stroke="#00f0ff" stroke-width="2" rx="5"/>
+    <text x="0" y="-15" font-family="monospace" font-size="24" fill="#00f0ff" text-anchor="middle">🎯</text>
+    <text x="0" y="15" font-family="monospace" font-size="10" fill="#00f0ff" text-anchor="middle">DETECT</text>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <line x1="320" y1="100" x2="380" y2="100" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1s" begin="0.25s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Step 3: Analysis -->
+  <g transform="translate(440, 100)">
+    <rect x="-50" y="-40" width="100" height="80" fill="#1a1a4a" stroke="#00f0ff" stroke-width="2" rx="5"/>
+    <text x="0" y="-15" font-family="monospace" font-size="24" fill="#00f0ff" text-anchor="middle">🧠</text>
+    <text x="0" y="15" font-family="monospace" font-size="10" fill="#00f0ff" text-anchor="middle">ANALYZE</text>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <line x1="500" y1="100" x2="560" y2="100" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)">
+    <animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1s" begin="0.5s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Step 4: Response -->
+  <g transform="translate(620, 100)">
+    <rect x="-50" y="-40" width="100" height="80" fill="#1a1a4a" stroke="#ff0040" stroke-width="2" rx="5">
+      <animate attributeName="stroke" values="#ff0040;#00f0ff;#ff0040" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-15" font-family="monospace" font-size="24" fill="#ff0040" text-anchor="middle">🚨</text>
+    <text x="0" y="15" font-family="monospace" font-size="10" fill="#ff0040" text-anchor="middle">RESPOND</text>
+  </g>
+  
+  <!-- Labels -->
+  <text x="80" y="170" font-family="monospace" font-size="8" fill="#666" text-anchor="middle">Camera/Video</text>
+  <text x="260" y="170" font-family="monospace" font-size="8" fill="#666" text-anchor="middle">YOLO+MediaPipe</text>
+  <text x="440" y="170" font-family="monospace" font-size="8" fill="#666" text-anchor="middle">Zone+Face Check</text>
+  <text x="620" y="170" font-family="monospace" font-size="8" fill="#666" text-anchor="middle">Alert+Record</text>
+</svg>
