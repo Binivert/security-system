@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="50%" style="stop-color:#0d1420"/>
+      <stop offset="100%" style="stop-color:#0a0f1a"/>
+    </linearGradient>
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="magentaGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff0080;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff0080;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00f0ff" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1200" height="300" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Scan lines -->
+  <g opacity="0.05">
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#00f0ff" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="300" fill="url(#scanlines)"/>
+  </g>
+  
+  <!-- Top border glow -->
+  <rect x="0" y="0" width="1200" height="2" fill="url(#cyanGlow)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Bottom border glow -->
+  <rect x="0" y="298" width="1200" height="2" fill="url(#magentaGlow)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </rect>
+  
+  <!-- Shield icon -->
+  <g transform="translate(500, 80)" filter="url(#glowStrong)">
+    <path d="M100 0 L180 30 L180 100 C180 150 100 180 100 180 C100 180 20 150 20 100 L20 30 Z" 
+          fill="none" stroke="#00f0ff" stroke-width="3">
+      <animate attributeName="stroke" values="#00f0ff;#ff0080;#00f0ff" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M100 30 L150 50 L150 95 C150 130 100 155 100 155 C100 155 50 130 50 95 L50 50 Z" 
+          fill="#00f0ff" fill-opacity="0.1" stroke="#00f0ff" stroke-width="1"/>
+    <circle cx="100" cy="90" r="25" fill="none" stroke="#ff0080" stroke-width="2">
+      <animate attributeName="r" values="25;30;25" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="90" r="10" fill="#00f0ff">
+      <animate attributeName="fill" values="#00f0ff;#ff0080;#00f0ff" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="245" text-anchor="middle" font-family="'Courier New', monospace" font-size="48" font-weight="bold" fill="#00f0ff" filter="url(#glow)">
+    SECURITY SYSTEM
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="275" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff0080" opacity="0.8">
+    AI-POWERED SURVEILLANCE • YOLOV8 • FACE RECOGNITION • ZONE DETECTION
+  </text>
+  
+  <!-- Corner decorations -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M10 40 L10 10 L40 10"/>
+    <path d="M1160 10 L1190 10 L1190 40"/>
+    <path d="M1190 260 L1190 290 L1160 290"/>
+    <path d="M40 290 L10 290 L10 260"/>
+  </g>
+  
+  <!-- Status indicators -->
+  <g font-family="'Courier New', monospace" font-size="10" fill="#00f0ff" opacity="0.5">
+    <text x="20" y="25">SYS.INIT</text>
+    <text x="1100" y="25">v2.0.0</text>
+    <text x="20" y="285">SECURE</text>
+    <text x="1100" y="285">ONLINE</text>
+  </g>
+</svg>

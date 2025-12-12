@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60">
+  <defs>
+    <linearGradient id="sectionGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="50%" style="stop-color:#0d1825"/>
+      <stop offset="100%" style="stop-color:#0a0f1a"/>
+    </linearGradient>
+    <filter id="textGlow3">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="400" height="60" fill="url(#sectionGrad3)" rx="8"/>
+  <rect x="2" y="2" width="396" height="56" fill="none" stroke="#00f0ff" stroke-width="1" rx="6" opacity="0.5"/>
+  
+  <!-- Gear icon -->
+  <g transform="translate(30, 18)" filter="url(#textGlow3)">
+    <circle cx="12" cy="12" r="6" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <circle cx="12" cy="12" r="3" fill="#00f0ff"/>
+    <g stroke="#00f0ff" stroke-width="2">
+      <line x1="12" y1="0" x2="12" y2="4"/>
+      <line x1="12" y1="20" x2="12" y2="24"/>
+      <line x1="0" y1="12" x2="4" y2="12"/>
+      <line x1="20" y1="12" x2="24" y2="12"/>
+      <line x1="3.5" y1="3.5" x2="6.3" y2="6.3"/>
+      <line x1="17.7" y1="17.7" x2="20.5" y2="20.5"/>
+      <line x1="3.5" y1="20.5" x2="6.3" y2="17.7"/>
+      <line x1="17.7" y1="6.3" x2="20.5" y2="3.5"/>
+    </g>
+    <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="10s" repeatCount="indefinite" additive="sum"/>
+  </g>
+  
+  <text x="75" y="38" font-family="'Courier New', monospace" font-size="22" font-weight="bold" fill="#00f0ff" filter="url(#textGlow3)">// HOW IT WORKS</text>
+</svg>
