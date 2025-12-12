@@ -1,0 +1,14 @@
+<svg width="420" height="320" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="320" rx="24" fill="#020714" stroke="#123456" stroke-width="2"/>
+  <circle cx="210" cy="160" r="120" fill="rgba(0,240,255,0.08)" stroke="#00f0ff" stroke-width="2"/>
+  <circle cx="210" cy="160" r="80" fill="rgba(255,77,255,0.08)" stroke="#ff4dff" stroke-width="2">
+    <animate attributeName="r" values="70;80;70" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <text x="210" y="165" text-anchor="middle" fill="#64ffd5" font-size="20" font-family="'Orbitron'">BREACH LOGIC</text>
+  <polyline points="210,40 210,80" stroke="#00f0ff" stroke-width="3" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="3s" repeatCount="indefinite"/>
+  </polyline>
+  <polyline points="340,160 300,160" stroke="#ff4dff" stroke-width="3" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="3s" repeatCount="indefinite" begin="-1.5s"/>
+  </polyline>
+</svg>

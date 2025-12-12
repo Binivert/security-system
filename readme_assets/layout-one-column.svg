@@ -1,0 +1,6 @@
+<svg width="360" height="240" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+  <rect width="360" height="240" rx="20" fill="#030c1e" stroke="#164066" stroke-width="2"/>
+  <rect x="24" y="24" width="312" height="40" rx="10" fill="#041834" stroke="#00f0ff" opacity="0.8"/>
+  <rect x="24" y="88" width="312" height="112" rx="14" fill="#041834" stroke="#00f0ff" opacity="0.5" stroke-dasharray="10 6"/>
+  <text x="180" y="60" text-anchor="middle" fill="#64ffd5" font-size="18" font-family="'Orbitron','Segoe UI',sans-serif">ONE-COLUMN LAYOUT</text>
+</svg>

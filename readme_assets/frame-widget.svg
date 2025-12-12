@@ -1,0 +1,5 @@
+<svg width="900" height="520" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="520" rx="32" fill="#020712" stroke="#0f2b4a" stroke-width="3"/>
+  <rect x="20" y="20" width="860" height="480" rx="24" fill="rgba(5,20,52,0.75)" stroke="#00f0ff" stroke-width="2" stroke-dasharray="14 10"/>
+  <text x="450" y="60" text-anchor="middle" fill="#64ffd5" font-size="28" font-family="'Orbitron'">PLACE WIDGET OR MEDIA HERE</text>
+</svg>

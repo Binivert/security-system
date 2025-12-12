@@ -1,40 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <filter id="teleGlow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  
-  <rect width="100" height="100" fill="#0a0a1a" rx="10"/>
-  <rect x="2" y="2" width="96" height="96" fill="none" stroke="#1a1a4a" stroke-width="1" rx="8"/>
-  
-  <!-- Phone outline -->
-  <g transform="translate(50, 50)" filter="url(#teleGlow)">
-    <rect x="-15" y="-25" width="30" height="50" rx="3" fill="none" stroke="#00f0ff" stroke-width="2"/>
-    <circle cx="0" cy="20" r="3" fill="#00f0ff"/>
-    <rect x="-10" y="-20" width="20" height="30" fill="#00f0ff" fill-opacity="0.2"/>
-  </g>
-  
-  <!-- Signal waves -->
-  <g stroke="#00f0ff" stroke-width="1.5" fill="none" opacity="0.6">
-    <path d="M 70 30 Q 75 40 70 50">
-      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1s" repeatCount="indefinite"/>
-    </path>
-    <path d="M 75 25 Q 82 40 75 55">
-      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1s" repeatCount="indefinite"/>
-    </path>
-    <path d="M 80 20 Q 90 40 80 60">
-      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1s" repeatCount="indefinite"/>
-    </path>
-  </g>
-  
-  <!-- Notification badge -->
-  <circle cx="65" cy="35" r="8" fill="#ff0040">
-    <animate attributeName="r" values="8;10;8" dur="0.5s" repeatCount="indefinite"/>
-  </circle>
-  <text x="65" y="39" font-size="10" fill="white" text-anchor="middle" font-weight="bold">!</text>
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="80" cy="80" r="74" fill="#02132a" stroke="#1e4e76" stroke-width="3"/>
+  <path d="M40 76l80-30-18 70-20-18-18 22z" fill="#00f0ff" opacity="0.8"/>
+  <path d="M40 76l35 10 27-32" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
 </svg>

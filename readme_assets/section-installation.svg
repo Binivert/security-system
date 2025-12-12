@@ -1,0 +1,11 @@
+<svg width="900" height="160" viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="install" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#ff4dff"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="160" rx="28" fill="#040f26" stroke="#1c3e66" stroke-width="2"/>
+  <text x="450" y="64" text-anchor="middle" fill="url(#install)" font-size="44" font-family="'Orbitron','Segoe UI',sans-serif" letter-spacing="4">INSTALLATION GUIDE</text>
+  <text x="450" y="110" text-anchor="middle" fill="#d2f9ff" font-size="18" font-family="'Space Grotesk','Segoe UI',sans-serif">ZERO-CONFIG BOOTSTRAP · TERMINAL OPS · SECRET CONFIG</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg width="520" height="260" viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="260" rx="24" fill="#030b1e" stroke="#1c3c60" stroke-width="2"/>
+  <rect x="24" y="24" width="472" height="80" rx="14" fill="#05142e" stroke="#00f0ff" opacity="0.7"/>
+  <rect x="24" y="124" width="220" height="112" rx="14" fill="#05142e" stroke="#ff4dff" opacity="0.7"/>
+  <rect x="276" y="124" width="220" height="112" rx="14" fill="#05142e" stroke="#64ffd5" opacity="0.7"/>
+  <text x="260" y="70" text-anchor="middle" fill="#64ffd5" font-size="18" font-family="'Orbitron'">MIXED GRID</text>
+</svg>

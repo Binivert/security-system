@@ -1,40 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <filter id="detGlow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <radialGradient id="det" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#03142c"/>
+    </radialGradient>
   </defs>
-  
-  <rect width="100" height="100" fill="#0a0a1a" rx="10"/>
-  <rect x="2" y="2" width="96" height="96" fill="none" stroke="#1a1a4a" stroke-width="1" rx="8"/>
-  
-  <!-- Person outline -->
-  <g transform="translate(50, 50)" filter="url(#detGlow)">
-    <!-- Head -->
-    <circle cx="0" cy="-20" r="10" fill="none" stroke="#00f0ff" stroke-width="2"/>
-    <!-- Body -->
-    <line x1="0" y1="-10" x2="0" y2="10" stroke="#00f0ff" stroke-width="2"/>
-    <!-- Arms -->
-    <line x1="-15" y1="0" x2="15" y2="0" stroke="#00f0ff" stroke-width="2"/>
-    <!-- Legs -->
-    <line x1="0" y1="10" x2="-10" y2="30" stroke="#00f0ff" stroke-width="2"/>
-    <line x1="0" y1="10" x2="10" y2="30" stroke="#00f0ff" stroke-width="2"/>
-  </g>
-  
-  <!-- Scanning effect -->
-  <rect x="20" y="15" width="60" height="2" fill="#00f0ff" opacity="0.5">
-    <animate attributeName="y" values="15;85;15" dur="2s" repeatCount="indefinite"/>
-  </rect>
-  
-  <!-- Corner brackets -->
-  <g stroke="#00f0ff" stroke-width="2" fill="none">
-    <path d="M 15 25 L 15 15 L 25 15"/>
-    <path d="M 75 15 L 85 15 L 85 25"/>
-    <path d="M 85 75 L 85 85 L 75 85"/>
-    <path d="M 25 85 L 15 85 L 15 75"/>
-  </g>
+  <circle cx="80" cy="80" r="74" fill="#031327" stroke="#0f3c64" stroke-width="3"/>
+  <circle cx="80" cy="80" r="60" fill="url(#det)" opacity="0.7"/>
+  <path d="M40 74h80v12H40z" fill="#04122c" stroke="#00f0ff"/>
+  <rect x="57" y="54" width="46" height="52" rx="8" fill="rgba(5,15,32,0.8)" stroke="#64ffd5" stroke-width="2"/>
+  <circle cx="80" cy="80" r="18" fill="none" stroke="#ff4dff" stroke-width="3" stroke-dasharray="6 6">
+    <animate attributeName="stroke-dashoffset" values="0;40" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="80" cy="80" r="6" fill="#ffffff"/>
 </svg>

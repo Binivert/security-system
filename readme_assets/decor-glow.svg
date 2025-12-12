@@ -1,0 +1,10 @@
+<svg width="960" height="120" viewBox="0 0 960 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glowDecor" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="120" fill="#01050d"/>
+  <ellipse cx="480" cy="60" rx="360" ry="30" fill="url(#glowDecor)"/>
+</svg>

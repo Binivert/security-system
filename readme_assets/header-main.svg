@@ -1,14 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#050510"/>
-      <stop offset="50%" style="stop-color:#0a0a1a"/>
-      <stop offset="100%" style="stop-color:#050510"/>
+      <stop offset="0%" style="stop-color:#0a0f1a"/>
+      <stop offset="50%" style="stop-color:#0d1420"/>
+      <stop offset="100%" style="stop-color:#0a0f1a"/>
     </linearGradient>
-    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
       <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:1"/>
       <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="magentaGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff0080;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#ff0080;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff0080;stop-opacity:0"/>
     </linearGradient>
     <filter id="glow">
       <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -17,23 +22,13 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="glitch">
-      <feOffset in="SourceGraphic" dx="2" dy="0" result="r">
-        <animate attributeName="dx" values="2;-2;2" dur="0.1s" repeatCount="indefinite"/>
-      </feOffset>
-      <feOffset in="SourceGraphic" dx="-2" dy="0" result="b">
-        <animate attributeName="dx" values="-2;2;-2" dur="0.1s" repeatCount="indefinite"/>
-      </feOffset>
-      <feColorMatrix in="r" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r2"/>
-      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b2"/>
-      <feBlend in="r2" in2="b2" mode="screen" result="blend"/>
-      <feBlend in="blend" in2="SourceGraphic" mode="screen"/>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <clipPath id="scanClip">
-      <rect x="0" y="0" width="1200" height="300">
-        <animate attributeName="y" values="-50;300;-50" dur="3s" repeatCount="indefinite"/>
-      </rect>
-    </clipPath>
   </defs>
   
   <!-- Background -->
@@ -47,63 +42,64 @@
     <rect width="1200" height="300" fill="url(#grid)"/>
   </g>
   
-  <!-- Animated scan line -->
-  <rect x="0" y="0" width="1200" height="2" fill="url(#cyanGrad)" opacity="0.5">
-    <animate attributeName="y" values="0;300;0" dur="4s" repeatCount="indefinite"/>
+  <!-- Scan lines -->
+  <g opacity="0.05">
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#00f0ff" stroke-width="1"/>
+    </pattern>
+    <rect width="1200" height="300" fill="url(#scanlines)"/>
+  </g>
+  
+  <!-- Top border glow -->
+  <rect x="0" y="0" width="1200" height="2" fill="url(#cyanGlow)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
   </rect>
   
-  <!-- Corner decorations -->
-  <g stroke="#00f0ff" stroke-width="2" fill="none" filter="url(#glow)">
-    <path d="M 20 60 L 20 20 L 60 20"/>
-    <path d="M 1140 20 L 1180 20 L 1180 60"/>
-    <path d="M 1180 240 L 1180 280 L 1140 280"/>
-    <path d="M 60 280 L 20 280 L 20 240"/>
-  </g>
+  <!-- Bottom border glow -->
+  <rect x="0" y="298" width="1200" height="2" fill="url(#magentaGlow)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="1s"/>
+  </rect>
   
   <!-- Shield icon -->
-  <g transform="translate(100, 100)" filter="url(#glow)">
-    <path d="M 50 10 L 90 30 L 90 70 Q 90 100 50 120 Q 10 100 10 70 L 10 30 Z" 
+  <g transform="translate(500, 80)" filter="url(#glowStrong)">
+    <path d="M100 0 L180 30 L180 100 C180 150 100 180 100 180 C100 180 20 150 20 100 L20 30 Z" 
           fill="none" stroke="#00f0ff" stroke-width="3">
-      <animate attributeName="stroke-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke" values="#00f0ff;#ff0080;#00f0ff" dur="4s" repeatCount="indefinite"/>
     </path>
-    <path d="M 35 60 L 45 70 L 65 50" fill="none" stroke="#00f0ff" stroke-width="3"/>
+    <path d="M100 30 L150 50 L150 95 C150 130 100 155 100 155 C100 155 50 130 50 95 L50 50 Z" 
+          fill="#00f0ff" fill-opacity="0.1" stroke="#00f0ff" stroke-width="1"/>
+    <circle cx="100" cy="90" r="25" fill="none" stroke="#ff0080" stroke-width="2">
+      <animate attributeName="r" values="25;30;25" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="90" r="10" fill="#00f0ff">
+      <animate attributeName="fill" values="#00f0ff;#ff0080;#00f0ff" dur="3s" repeatCount="indefinite"/>
+    </circle>
   </g>
   
-  <!-- Main title with glitch effect -->
-  <g filter="url(#glitch)">
-    <text x="600" y="130" font-family="monospace" font-size="72" font-weight="bold" 
-          fill="#00f0ff" text-anchor="middle" filter="url(#glow)">SECURITY</text>
-  </g>
-  <text x="600" y="180" font-family="monospace" font-size="48" font-weight="bold" 
-        fill="#00f0ff" text-anchor="middle" filter="url(#glow)" opacity="0.8">SYSTEM</text>
-  
-  <!-- Subtitle -->
-  <text x="600" y="220" font-family="monospace" font-size="14" 
-        fill="#00f0ff" text-anchor="middle" opacity="0.7">
-    [ AI-POWERED SURVEILLANCE • REAL-TIME DETECTION • ZONE MONITORING ]
+  <!-- Title -->
+  <text x="600" y="245" text-anchor="middle" font-family="'Courier New', monospace" font-size="48" font-weight="bold" fill="#00f0ff" filter="url(#glow)">
+    SECURITY SYSTEM
   </text>
   
-  <!-- Status indicators -->
-  <g transform="translate(950, 100)">
-    <rect x="0" y="0" width="180" height="80" fill="#0a0a1a" stroke="#1a1a4a" stroke-width="1" rx="5"/>
-    <text x="15" y="25" font-family="monospace" font-size="10" fill="#00f0ff">STATUS:</text>
-    <circle cx="160" cy="20" r="5" fill="#0f0">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
-    </circle>
-    <text x="15" y="45" font-family="monospace" font-size="10" fill="#666">VERSION: 2.0</text>
-    <text x="15" y="65" font-family="monospace" font-size="10" fill="#666">PYTHON 3.10+</text>
+  <!-- Subtitle -->
+  <text x="600" y="275" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#ff0080" opacity="0.8">
+    AI-POWERED SURVEILLANCE • YOLOV8 • FACE RECOGNITION • ZONE DETECTION
+  </text>
+  
+  <!-- Corner decorations -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M10 40 L10 10 L40 10"/>
+    <path d="M1160 10 L1190 10 L1190 40"/>
+    <path d="M1190 260 L1190 290 L1160 290"/>
+    <path d="M40 290 L10 290 L10 260"/>
   </g>
   
-  <!-- Bottom line -->
-  <rect x="100" y="270" width="1000" height="1" fill="url(#cyanGrad)"/>
-  
-  <!-- Animated dots -->
-  <g fill="#00f0ff">
-    <circle cx="100" cy="270" r="3">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1100" cy="270" r="3">
-      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
+  <!-- Status indicators -->
+  <g font-family="'Courier New', monospace" font-size="10" fill="#00f0ff" opacity="0.5">
+    <text x="20" y="25">SYS.INIT</text>
+    <text x="1100" y="25">v2.0.0</text>
+    <text x="20" y="285">SECURE</text>
+    <text x="1100" y="285">ONLINE</text>
   </g>
 </svg>
