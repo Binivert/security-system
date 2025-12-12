@@ -1,22 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 30">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="40" viewBox="0 0 1000 40">
   <defs>
-    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
-      <stop offset="20%" style="stop-color:#00f0ff;stop-opacity:1"/>
-      <stop offset="50%" style="stop-color:#ff0080;stop-opacity:1"/>
-      <stop offset="80%" style="stop-color:#00f0ff;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
-    </linearGradient>
-    <filter id="glowLine" x="-20%" y="-100%" width="140%" height="300%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+      @keyframes travel {
+        0% { transform: translateX(-100px); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateX(1100px); opacity: 0; }
+      }
+      @keyframes glitchBlock {
+        0%, 100% { opacity: 0.3; transform: translateX(0); }
+        25% { opacity: 0.6; transform: translateX(2px); }
+        50% { opacity: 0.3; transform: translateX(-1px); }
+        75% { opacity: 0.8; transform: translateX(1px); }
+      }
+      @keyframes nodeGlow {
+        0%, 100% { filter: drop-shadow(0 0 2px rgba(0, 240, 255, 0.5)); }
+        50% { filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.9)); }
+      }
+      .main-line { stroke: #00f0ff; stroke-width: 1; opacity: 0.4; }
+      .circuit-line { stroke: #00f0ff; stroke-width: 1; opacity: 0.2; }
+      .circuit-line-accent { stroke: #ff0080; stroke-width: 1; opacity: 0.15; }
+      .node { fill: #00f0ff; animation: nodeGlow 2s ease-in-out infinite; }
+      .node-accent { fill: #ff0080; animation: nodeGlow 2s ease-in-out infinite 0.5s; }
+      .glitch-block { fill: #00f0ff; animation: glitchBlock 3s infinite; }
+      .glitch-block-r { fill: #ff0080; opacity: 0.3; }
+      .traveler { fill: #00f0ff; animation: travel 3s linear infinite; filter: drop-shadow(0 0 8px #00f0ff); }
+      .pulse-dot { fill: #00f0ff; animation: pulse 1.5s ease-in-out infinite; }
+    </style>
   </defs>
-  <rect width="1200" height="30" fill="transparent"/>
-  <line x1="0" y1="15" x2="1200" y2="15" stroke="url(#lineGrad)" stroke-width="2" filter="url(#glowLine)"/>
-  <circle cx="600" cy="15" r="4" fill="#ff0080" filter="url(#glowLine)"/>
-  <circle cx="550" cy="15" r="2" fill="#00f0ff"/>
-  <circle cx="650" cy="15" r="2" fill="#00f0ff"/>
-  <rect x="580" y="13" width="8" height="4" fill="#00f0ff" opacity="0.5"/>
-  <rect x="612" y="13" width="8" height="4" fill="#00f0ff" opacity="0.5"/>
+  
+  <rect width="1000" height="40" fill="transparent"/>
+  
+  <!-- Main horizontal line -->
+  <line class="main-line" x1="50" y1="20" x2="950" y2="20"/>
+  
+  <!-- Circuit branches left -->
+  <path class="circuit-line" d="M100,20 L100,12 L150,12"/>
+  <path class="circuit-line" d="M100,20 L100,28 L130,28"/>
+  <path class="circuit-line-accent" d="M150,12 L170,12 L180,20"/>
+  
+  <!-- Circuit branches right -->
+  <path class="circuit-line" d="M900,20 L900,12 L850,12"/>
+  <path class="circuit-line" d="M900,20 L900,28 L870,28"/>
+  <path class="circuit-line-accent" d="M850,12 L830,12 L820,20"/>
+  
+  <!-- Center circuit -->
+  <path class="circuit-line" d="M480,20 L480,8 L520,8 L520,20"/>
+  <path class="circuit-line" d="M480,20 L480,32 L520,32 L520,20"/>
+  <path class="circuit-line-accent" d="M490,8 L510,8"/>
+  <path class="circuit-line-accent" d="M490,32 L510,32"/>
+  
+  <!-- Glitch blocks -->
+  <rect class="glitch-block" x="200" y="16" width="40" height="8" rx="1"/>
+  <rect class="glitch-block-r" x="205" y="18" width="30" height="4" rx="1"/>
+  
+  <rect class="glitch-block" x="350" y="16" width="25" height="8" rx="1" style="animation-delay: 0.5s;"/>
+  <rect class="glitch-block-r" x="353" y="18" width="19" height="4" rx="1"/>
+  
+  <rect class="glitch-block" x="625" y="16" width="35" height="8" rx="1" style="animation-delay: 1s;"/>
+  <rect class="glitch-block-r" x="628" y="18" width="29" height="4" rx="1"/>
+  
+  <rect class="glitch-block" x="780" y="16" width="30" height="8" rx="1" style="animation-delay: 1.5s;"/>
+  <rect class="glitch-block-r" x="783" y="18" width="24" height="4" rx="1"/>
+  
+  <!-- Nodes -->
+  <circle class="node" cx="50" cy="20" r="3"/>
+  <circle class="node" cx="150" cy="12" r="2"/>
+  <circle class="node-accent" cx="180" cy="20" r="2"/>
+  <circle class="node" cx="300" cy="20" r="3"/>
+  <circle class="pulse-dot" cx="400" cy="20" r="2"/>
+  <circle class="node" cx="500" cy="20" r="4"/>
+  <circle class="node-accent" cx="500" cy="8" r="2"/>
+  <circle class="node-accent" cx="500" cy="32" r="2"/>
+  <circle class="pulse-dot" cx="600" cy="20" r="2" style="animation-delay: 0.5s;"/>
+  <circle class="node" cx="700" cy="20" r="3"/>
+  <circle class="node-accent" cx="820" cy="20" r="2"/>
+  <circle class="node" cx="850" cy="12" r="2"/>
+  <circle class="node" cx="950" cy="20" r="3"/>
+  
+  <!-- Traveling pulse -->
+  <circle class="traveler" cx="0" cy="20" r="4"/>
 </svg>
