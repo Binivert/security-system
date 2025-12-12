@@ -1,79 +1,93 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180">
   <defs>
     <style>
       @keyframes glitch1 {
         0%, 100% { transform: translate(0, 0); }
         10% { transform: translate(-2px, 1px); }
         20% { transform: translate(2px, -1px); }
-        30% { transform: translate(-1px, -1px); }
+        30% { transform: translate(-1px, 0); }
         40% { transform: translate(1px, 1px); }
         50% { transform: translate(0, 0); }
       }
       @keyframes glitch2 {
-        0%, 100% { opacity: 0; transform: translate(0, 0); }
-        5% { opacity: 0.6; transform: translate(3px, 0); }
-        10% { opacity: 0; transform: translate(-3px, 0); }
-        90% { opacity: 0; }
-        95% { opacity: 0.5; transform: translate(-2px, 0); }
+        0%, 100% { opacity: 0; }
+        5% { opacity: 0.5; transform: translate(3px, 0); }
+        10% { opacity: 0; }
+        92% { opacity: 0; }
+        95% { opacity: 0.4; transform: translate(-2px, 0); }
       }
       @keyframes scanline {
-        0% { transform: translateY(-220px); }
-        100% { transform: translateY(220px); }
+        0% { transform: translateY(-180px); }
+        100% { transform: translateY(180px); }
       }
-      @keyframes flicker {
+      @keyframes matrixFall {
+        0% { transform: translateY(-20px); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { transform: translateY(200px); opacity: 0; }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+      @keyframes dataStream {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+      }
+      @keyframes blink {
         0%, 100% { opacity: 1; }
-        93% { opacity: 0.8; }
-        94% { opacity: 1; }
-        96% { opacity: 0.9; }
-      }
-      @keyframes matrixFade {
-        0%, 100% { opacity: 0.03; }
-        50% { opacity: 0.08; }
-      }
-      @keyframes pulseGlow {
-        0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.4)); }
-        50% { filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8)); }
+        50% { opacity: 0.3; }
       }
       @keyframes shieldPulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
+        0%, 100% { filter: drop-shadow(0 0 3px #00f0ff); }
+        50% { filter: drop-shadow(0 0 10px #00f0ff); }
       }
       .bg { fill: #020818; }
-      .matrix { font-family: 'Courier New', monospace; font-size: 8px; fill: #00f0ff; animation: matrixFade 4s infinite; }
+      .matrix-char {
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        fill: #00f0ff;
+        opacity: 0.15;
+      }
+      .matrix-fall {
+        animation: matrixFall 4s linear infinite;
+      }
+      .hex-code {
+        font-family: 'Courier New', monospace;
+        font-size: 8px;
+        fill: #00f0ff;
+        opacity: 0.12;
+      }
       .title {
         font-family: 'Courier New', monospace;
-        font-size: 24px;
+        font-size: 28px;
         font-weight: bold;
         fill: #00f0ff;
-        animation: pulseGlow 3s ease-in-out infinite, flicker 8s infinite;
+        filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
       }
       .glitch-r {
         font-family: 'Courier New', monospace;
-        font-size: 24px;
+        font-size: 28px;
         font-weight: bold;
         fill: #ff0080;
-        animation: glitch2 4s infinite;
+        animation: glitch2 3s infinite;
       }
       .glitch-c {
         font-family: 'Courier New', monospace;
-        font-size: 24px;
+        font-size: 28px;
         font-weight: bold;
         fill: #00ff80;
-        animation: glitch2 4s infinite;
-        animation-delay: 0.5s;
-      }
-      .glitch-main {
-        font-family: 'Courier New', monospace;
-        font-size: 24px;
-        font-weight: bold;
-        fill: #00f0ff;
-        animation: glitch1 6s infinite;
+        animation: glitch2 3s infinite 0.3s;
       }
       .developer {
         font-family: 'Courier New', monospace;
-        font-size: 12px;
-        fill: #a0d2db;
-        letter-spacing: 2px;
+        font-size: 16px;
+        fill: #e0e0ff;
+        letter-spacing: 1px;
+      }
+      .developer-name {
+        fill: #00f0ff;
+        font-weight: bold;
       }
       .collab {
         font-family: 'Courier New', monospace;
@@ -83,30 +97,38 @@
       }
       .star {
         font-family: 'Courier New', monospace;
-        font-size: 10px;
+        font-size: 11px;
         fill: #ffaa00;
+      }
+      .links {
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        fill: #00f0ff;
       }
       .copyright {
         font-family: 'Courier New', monospace;
         font-size: 9px;
         fill: #4a5568;
       }
-      .social {
-        font-family: 'Courier New', monospace;
-        font-size: 10px;
-        fill: #00f0ff;
-      }
       .scanline {
-        fill: rgba(0, 240, 255, 0.02);
-        animation: scanline 5s linear infinite;
+        fill: rgba(0, 240, 255, 0.015);
+        animation: scanline 6s linear infinite;
       }
-      .grid-line { stroke: #00f0ff; stroke-width: 0.5; opacity: 0.04; }
-      .corner { stroke: #00f0ff; stroke-width: 1.5; fill: none; opacity: 0.6; }
-      .corner-accent { stroke: #ff0080; stroke-width: 1; fill: none; opacity: 0.4; }
-      .circuit { stroke: #00f0ff; stroke-width: 0.8; fill: none; opacity: 0.12; }
-      .node { fill: #00f0ff; opacity: 0.3; }
-      .shield { animation: shieldPulse 2.5s ease-in-out infinite; }
-      .divider { stroke: #00f0ff; stroke-width: 1; opacity: 0.3; }
+      .circuit { stroke: #00f0ff; stroke-width: 0.8; fill: none; opacity: 0.15; }
+      .node { fill: #00f0ff; animation: pulse 2s ease-in-out infinite; }
+      .corner { stroke: #00f0ff; stroke-width: 1.5; fill: none; opacity: 0.5; }
+      .corner-accent { stroke: #ff0080; stroke-width: 1; fill: none; opacity: 0.3; }
+      .shield { animation: shieldPulse 2s ease-in-out infinite; }
+      .code-line {
+        font-family: 'Courier New', monospace;
+        font-size: 8px;
+        fill: #0a4a5a;
+        animation: dataStream 3s infinite;
+      }
+      .status-dot {
+        fill: #00ff80;
+        animation: blink 1.5s infinite;
+      }
     </style>
     
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -115,115 +137,154 @@
       <stop offset="100%" style="stop-color:#051020"/>
     </linearGradient>
     
+    <linearGradient id="topLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="20%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="45%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#ff0080;stop-opacity:1"/>
+      <stop offset="55%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="80%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0.2"/>
       <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0.05"/>
     </linearGradient>
     
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0a3050" stroke-width="0.3"/>
+    </pattern>
+    
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="2" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0a3050" stroke-width="0.3"/>
-    </pattern>
   </defs>
   
   <!-- Background -->
-  <rect class="bg" width="1200" height="220" fill="url(#bgGrad)"/>
-  <rect width="1200" height="220" fill="url(#grid)" opacity="0.3"/>
+  <rect class="bg" width="1200" height="180" fill="url(#bgGrad)"/>
+  <rect width="1200" height="180" fill="url(#grid)" opacity="0.4"/>
   
-  <!-- Top border accent -->
-  <line x1="0" y1="2" x2="450" y2="2" stroke="#00f0ff" stroke-width="2" opacity="0.7"/>
-  <line x1="500" y1="2" x2="700" y2="2" stroke="#ff0080" stroke-width="2" opacity="0.7"/>
-  <line x1="750" y1="2" x2="1200" y2="2" stroke="#00f0ff" stroke-width="2" opacity="0.7"/>
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="2" fill="url(#topLine)"/>
   
-  <!-- Matrix code background -->
-  <g class="matrix">
-    <text x="30" y="20">01001110 11010010 SECURE_LINK</text>
-    <text x="900" y="20">NEURAL_NET::ACTIVE</text>
-    <text x="30" y="210">SYS.CORE.READY</text>
-    <text x="950" y="210">v2.0_STABLE</text>
+  <!-- Matrix code rain - left side -->
+  <g class="matrix-char">
+    <text x="30" y="20" class="matrix-fall" style="animation-delay: 0s;">01001</text>
+    <text x="30" y="45" class="matrix-fall" style="animation-delay: 0.5s;">11010</text>
+    <text x="30" y="70" class="matrix-fall" style="animation-delay: 1s;">00101</text>
+    <text x="30" y="95" class="matrix-fall" style="animation-delay: 1.5s;">10110</text>
+    <text x="30" y="120" class="matrix-fall" style="animation-delay: 2s;">01101</text>
+    
+    <text x="70" y="30" class="matrix-fall" style="animation-delay: 0.3s;">10011</text>
+    <text x="70" y="55" class="matrix-fall" style="animation-delay: 0.8s;">01100</text>
+    <text x="70" y="80" class="matrix-fall" style="animation-delay: 1.3s;">11001</text>
+    <text x="70" y="105" class="matrix-fall" style="animation-delay: 1.8s;">00110</text>
+    
+    <text x="110" y="15" class="matrix-fall" style="animation-delay: 0.2s;">11101</text>
+    <text x="110" y="40" class="matrix-fall" style="animation-delay: 0.7s;">00010</text>
+    <text x="110" y="65" class="matrix-fall" style="animation-delay: 1.2s;">10101</text>
+    <text x="110" y="90" class="matrix-fall" style="animation-delay: 1.7s;">01010</text>
   </g>
+  
+  <!-- Matrix code rain - right side -->
+  <g class="matrix-char">
+    <text x="1120" y="25" class="matrix-fall" style="animation-delay: 0.4s;">10010</text>
+    <text x="1120" y="50" class="matrix-fall" style="animation-delay: 0.9s;">01101</text>
+    <text x="1120" y="75" class="matrix-fall" style="animation-delay: 1.4s;">11000</text>
+    <text x="1120" y="100" class="matrix-fall" style="animation-delay: 1.9s;">00111</text>
+    
+    <text x="1080" y="35" class="matrix-fall" style="animation-delay: 0.1s;">01110</text>
+    <text x="1080" y="60" class="matrix-fall" style="animation-delay: 0.6s;">10001</text>
+    <text x="1080" y="85" class="matrix-fall" style="animation-delay: 1.1s;">00100</text>
+    <text x="1080" y="110" class="matrix-fall" style="animation-delay: 1.6s;">11011</text>
+    
+    <text x="1040" y="20" class="matrix-fall" style="animation-delay: 0.35s;">10100</text>
+    <text x="1040" y="45" class="matrix-fall" style="animation-delay: 0.85s;">01011</text>
+    <text x="1040" y="70" class="matrix-fall" style="animation-delay: 1.35s;">11110</text>
+    <text x="1040" y="95" class="matrix-fall" style="animation-delay: 1.85s;">00001</text>
+  </g>
+  
+  <!-- Hex addresses -->
+  <text class="hex-code" x="160" y="25">0x7FF4A2B8</text>
+  <text class="hex-code" x="160" y="165">0xDEADBEEF</text>
+  <text class="hex-code" x="980" y="25">0x00F0FFAA</text>
+  <text class="hex-code" x="980" y="165">0xCAFEBABE</text>
+  
+  <!-- Code-style decorative lines -->
+  <text class="code-line" x="200" y="15">// SECURITY_PROTOCOL_v2.0</text>
+  <text class="code-line" x="880" y="15">/* NEURAL_CORE_ACTIVE */</text>
+  <text class="code-line" x="200" y="172">return PROCESS.COMPLETE;</text>
+  <text class="code-line" x="920" y="172">LINK.ACTIVE</text>
   
   <!-- Circuit patterns -->
   <g class="circuit">
-    <path d="M0,60 L80,60 L95,75 L140,75"/>
-    <path d="M0,160 L60,160 L75,145 L110,145"/>
-    <path d="M1200,60 L1120,60 L1105,75 L1060,75"/>
-    <path d="M1200,160 L1140,160 L1125,145 L1090,145"/>
-    <circle class="node" cx="95" cy="75" r="2.5"/>
-    <circle class="node" cx="75" cy="145" r="2.5"/>
-    <circle class="node" cx="1105" cy="75" r="2.5"/>
-    <circle class="node" cx="1125" cy="145" r="2.5"/>
+    <path d="M0,50 L60,50 L75,65 L120,65"/>
+    <path d="M0,130 L50,130 L65,115 L100,115"/>
+    <path d="M1200,50 L1140,50 L1125,65 L1080,65"/>
+    <path d="M1200,130 L1150,130 L1135,115 L1100,115"/>
+    <circle class="node" cx="75" cy="65" r="2.5" opacity="0.4"/>
+    <circle class="node" cx="65" cy="115" r="2.5" opacity="0.4" style="animation-delay: 0.5s;"/>
+    <circle class="node" cx="1125" cy="65" r="2.5" opacity="0.4" style="animation-delay: 1s;"/>
+    <circle class="node" cx="1135" cy="115" r="2.5" opacity="0.4" style="animation-delay: 1.5s;"/>
   </g>
   
-  <!-- Grid lines -->
-  <line class="grid-line" x1="0" y1="70" x2="1200" y2="70"/>
-  <line class="grid-line" x1="0" y1="150" x2="1200" y2="150"/>
-  <line class="grid-line" x1="300" y1="0" x2="300" y2="220"/>
-  <line class="grid-line" x1="600" y1="0" x2="600" y2="220"/>
-  <line class="grid-line" x1="900" y1="0" x2="900" y2="220"/>
+  <!-- Corner brackets -->
+  <path class="corner" d="M 10,10 L 10,30 M 10,10 L 30,10"/>
+  <path class="corner-accent" d="M 15,15 L 15,28 M 15,15 L 28,15"/>
+  <path class="corner" d="M 1190,10 L 1190,30 M 1190,10 L 1170,10"/>
+  <path class="corner-accent" d="M 1185,15 L 1185,28 M 1185,15 L 1172,15"/>
+  <path class="corner" d="M 10,170 L 10,150 M 10,170 L 30,170"/>
+  <path class="corner-accent" d="M 15,165 L 15,152 M 15,165 L 28,165"/>
+  <path class="corner" d="M 1190,170 L 1190,150 M 1190,170 L 1170,170"/>
+  <path class="corner-accent" d="M 1185,165 L 1185,152 M 1185,165 L 1172,165"/>
   
   <!-- Scanline -->
   <rect class="scanline" x="0" y="0" width="1200" height="2"/>
   
-  <!-- Corner brackets -->
-  <path class="corner" d="M 12,12 L 12,35 M 12,12 L 35,12"/>
-  <path class="corner-accent" d="M 18,18 L 18,32 M 18,18 L 32,18"/>
-  <path class="corner" d="M 1188,12 L 1188,35 M 1188,12 L 1165,12"/>
-  <path class="corner-accent" d="M 1182,18 L 1182,32 M 1182,18 L 1168,18"/>
-  <path class="corner" d="M 12,208 L 12,185 M 12,208 L 35,208"/>
-  <path class="corner-accent" d="M 18,202 L 18,188 M 18,202 L 32,202"/>
-  <path class="corner" d="M 1188,208 L 1188,185 M 1188,208 L 1165,208"/>
-  <path class="corner-accent" d="M 1182,202 L 1182,188 M 1182,202 L 1168,202"/>
-  
-  <!-- Shield Logo -->
-  <g transform="translate(600, 55)" class="shield" filter="url(#glow)">
-    <path d="M 0 -28 L 22 -18 L 22 8 L 0 26 L -22 8 L -22 -18 Z" fill="url(#shieldGrad)" stroke="#00f0ff" stroke-width="1.5"/>
-    <path d="M 0 -20 L 15 -12 L 15 5 L 0 18 L -15 5 L -15 -12 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="1"/>
-    <circle cx="0" cy="0" r="8" fill="none" stroke="#00f0ff" stroke-width="1"/>
-    <circle cx="0" cy="0" r="3" fill="#00f0ff" opacity="0.5"/>
-    <path d="M -5 0 L -1 4 L 7 -5" stroke="#00f0ff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small Shield Logo -->
+  <g transform="translate(600, 32)" class="shield">
+    <path d="M 0 -18 L 14 -11 L 14 5 L 0 17 L -14 5 L -14 -11 Z" fill="url(#shieldGrad)" stroke="#00f0ff" stroke-width="1.2"/>
+    <path d="M 0 -12 L 9 -7 L 9 3 L 0 11 L -9 3 L -9 -7 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#00f0ff" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="2" fill="#00f0ff" opacity="0.5"/>
+    <path d="M -3 0 L -1 2 L 4 -3" stroke="#00f0ff" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   
-  <!-- Title with Glitch -->
-  <text class="glitch-r" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="glitch-c" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="glitch-main" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="title" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
+  <!-- Title with glitch -->
+  <text class="glitch-r" x="600" y="70" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="glitch-c" x="600" y="70" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="title" x="600" y="70" text-anchor="middle">SECURITY SYSTEM</text>
   
-  <!-- Developer Credit -->
-  <text class="developer" x="600" y="130" text-anchor="middle">Developed by BINIYAM BONGER</text>
+  <!-- Developer credit -->
+  <text class="developer" x="600" y="95" text-anchor="middle">
+    Developed with <tspan fill="#ff0080">❤</tspan> by <tspan class="developer-name">BINIYAM BONGER</tspan>
+  </text>
   
-  <!-- Collaboration Message -->
-  <text class="collab" x="600" y="150" text-anchor="middle">Open to Collaboration &amp; Contributions</text>
+  <!-- Collaboration message -->
+  <text class="collab" x="600" y="115" text-anchor="middle">Open to Collaboration • Contributions Welcome</text>
   
-  <!-- Star Prompt -->
-  <text class="star" x="600" y="170" text-anchor="middle">⭐ Star this repo if you find it useful!</text>
+  <!-- Star prompt -->
+  <text class="star" x="600" y="132" text-anchor="middle">⭐ Star this repo if you find it useful!</text>
   
-  <!-- Social Links -->
-  <g transform="translate(600, 190)">
-    <text class="social" x="-80" y="0" text-anchor="middle" filter="url(#glow)">⚡ github.com/Binivert</text>
-    <text class="social" x="80" y="0" text-anchor="middle" filter="url(#glow)">💼 linkedin.com/in/bintrion</text>
+  <!-- Links row -->
+  <g transform="translate(600, 150)">
+    <text class="links" x="-120" y="0" text-anchor="middle" filter="url(#glow)">⚡ github.com/Binivert</text>
+    <circle class="status-dot" cx="0" cy="-3" r="2"/>
+    <text class="links" x="120" y="0" text-anchor="middle" filter="url(#glow)">💼 linkedin.com/in/bintrion</text>
+  </g>
+  
+  <!-- MIT License badge -->
+  <g transform="translate(600, 168)">
+    <rect x="-30" y="-8" width="60" height="14" rx="3" fill="#0a1628" stroke="#00f0ff" stroke-width="0.5" opacity="0.8"/>
+    <text x="0" y="3" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#00f0ff">MIT LICENSE</text>
   </g>
   
   <!-- Copyright -->
-  <text class="copyright" x="600" y="210" text-anchor="middle">© 2024 Security System • All Rights Reserved • MIT License</text>
+  <text class="copyright" x="250" y="172">© 2024 Security System</text>
+  <text class="copyright" x="950" y="172">All Rights Reserved</text>
   
-  <!-- Decorative dots -->
-  <circle cx="200" cy="110" r="2" fill="#00f0ff" opacity="0.4"/>
-  <circle cx="204" cy="106" r="1" fill="#ff0080" opacity="0.6"/>
-  <circle cx="1000" cy="110" r="2" fill="#00f0ff" opacity="0.4"/>
-  <circle cx="996" cy="106" r="1" fill="#ff0080" opacity="0.6"/>
-  
-  <!-- Divider lines -->
-  <line class="divider" x1="250" y1="110" x2="400" y2="110"/>
-  <line class="divider" x1="800" y1="110" x2="950" y2="110"/>
-  
-  <!-- Bottom accent lines -->
-  <line x1="0" y1="218" x2="450" y2="218" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
-  <line x1="500" y1="218" x2="700" y2="218" stroke="#ff0080" stroke-width="2" opacity="0.5"/>
-  <line x1="750" y1="218" x2="1200" y2="218" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
+  <!-- Bottom accent line -->
+  <rect x="0" y="178" width="1200" height="2" fill="url(#topLine)" opacity="0.6"/>
 </svg>
