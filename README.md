@@ -131,44 +131,62 @@ The system combines **YOLOv8** for accurate person detection, **MediaPipe** for 
 
 <br><br>
 
-<table width="100%">
+<table>
 <tr>
-<td align="center" width="30%" valign="top">
-
-### 🧠 Core Engine
-
-| Module | Purpose |
-|:-------|:--------|
-| `main.py` | Application entry point |
-| `gui.py` | PyQt6 interface & logic |
-| `config.py` | Settings & thresholds |
-
-</td>
-<td align="center" width="70%" valign="top">
-
-### ⚡ Detection Modules
-
-| Module | Technology | Function |
-|:-------|:-----------|:---------|
-| `detectors.py` | YOLOv8 + MediaPipe | Person & skeleton detection |
-| `detectors.py` | face_recognition | Trusted face matching |
-| `detectors.py` | OpenCV | Motion detection & heat maps |
-
-### 📡 Communication
-
-| Module | Protocol | Function |
-|:-------|:---------|:---------|
-| `telegram_bot.py` | HTTPS API | Remote control & alerts |
-| `audio.py` | pyttsx3 + pygame | TTS & alarm sounds |
-
-### 💾 Data Management
-
-| Module | Storage | Function |
-|:-------|:--------|:---------|
-| `database.py` | SQLite | Event logging & statistics |
-| `utils.py` | Memory | Zone geometry & rendering |
-
-</td>
+<th align="center">🧠 Core Engine</th>
+<th align="center">Module</th>
+<th align="center">Technology</th>
+<th align="center">Function</th>
+</tr>
+<tr>
+<td rowspan="3" align="center"><code>main.py</code><br><code>gui.py</code><br><code>config.py</code></td>
+<td align="center"><strong>Person Detection</strong></td>
+<td align="center">YOLOv8</td>
+<td>Neural network person detection with confidence scoring</td>
+</tr>
+<tr>
+<td align="center"><strong>Skeleton Tracking</strong></td>
+<td align="center">MediaPipe</td>
+<td>33-point pose estimation for partial body detection</td>
+</tr>
+<tr>
+<td align="center"><strong>Face Recognition</strong></td>
+<td align="center">face_recognition</td>
+<td>Trusted person identification with auto-processing</td>
+</tr>
+<tr>
+<th align="center">📡 Communication</th>
+<th align="center">Module</th>
+<th align="center">Protocol</th>
+<th align="center">Function</th>
+</tr>
+<tr>
+<td rowspan="2" align="center"><code>telegram_bot.py</code><br><code>audio.py</code></td>
+<td align="center"><strong>Remote Control</strong></td>
+<td align="center">Telegram API</td>
+<td>Inline buttons, live snapshots, instant alerts</td>
+</tr>
+<tr>
+<td align="center"><strong>Audio Alerts</strong></td>
+<td align="center">pyttsx3 + pygame</td>
+<td>Text-to-speech announcements and alarm sounds</td>
+</tr>
+<tr>
+<th align="center">💾 Data Layer</th>
+<th align="center">Module</th>
+<th align="center">Storage</th>
+<th align="center">Function</th>
+</tr>
+<tr>
+<td rowspan="2" align="center"><code>database.py</code><br><code>utils.py</code></td>
+<td align="center"><strong>Event Logging</strong></td>
+<td align="center">SQLite</td>
+<td>Persistent storage for events and daily statistics</td>
+</tr>
+<tr>
+<td align="center"><strong>Zone Management</strong></td>
+<td align="center">Memory</td>
+<td>Polygon geometry, 3D rendering, breach detection</td>
 </tr>
 </table>
 
@@ -264,33 +282,47 @@ Place photos of trusted persons in the `trusted_faces/` folder. The system will 
 python main.py
 ```
 
-**GUI Controls:**
+<div align="center">
+
+<br>
+
+<table>
+<tr>
+<th align="center">🖥️ GUI Controls</th>
+<th align="center">📱 Telegram Commands</th>
+<th align="center">⌨️ Keyboard Shortcuts</th>
+</tr>
+<tr>
+<td valign="top">
 
 | Control | Action |
 |:--------|:-------|
-| `🔒 ARM SYSTEM` | Activate security monitoring |
-| `⏺ Record` | Start/stop video recording |
-| `📸 Snap` | Capture instant snapshot |
-| `🔇 Mute` | Silence alarm sounds |
-| `➕ New Zone` | Create new security zone |
-| `✏️ Draw` | Click to add zone points |
-| `🤖 Auto-Detect` | Auto-detect floor corners |
+| `🔒 ARM SYSTEM` | Activate monitoring |
+| `⏺ Record` | Start/stop recording |
+| `📸 Snap` | Capture snapshot |
+| `🔇 Mute` | Silence alarms |
+| `➕ New Zone` | Create security zone |
+| `✏️ Draw` | Add zone points |
+| `🤖 Auto-Detect` | Auto-detect corners |
 
-**Telegram Commands:**
+</td>
+<td valign="top">
 
 | Command | Description |
 |:--------|:------------|
-| `/arm` | Arm the security system |
+| `/arm` | Arm the system |
 | `/disarm` | Disarm the system |
-| `/snap` | Request live snapshot |
-| `/status` | Get current system status |
-| `/stats` | View daily statistics |
-| `/mute` / `/unmute` | Control alarm sound |
-| `/record` / `/stoprecord` | Control recording |
-| `/sensitivity low/medium/high` | Adjust detection sensitivity |
-| `/nightmode on/off` | Toggle night vision |
+| `/snap` | Request snapshot |
+| `/status` | Get system status |
+| `/stats` | View daily stats |
+| `/mute` | Mute alarm |
+| `/unmute` | Unmute alarm |
+| `/record` | Start recording |
+| `/stoprecord` | Stop recording |
+| `/sensitivity` | Adjust sensitivity |
 
-**Keyboard Shortcuts:**
+</td>
+<td valign="top">
 
 | Key | Action |
 |:----|:-------|
@@ -299,6 +331,12 @@ python main.py
 | `Space` | Take snapshot |
 | `F11` | Toggle fullscreen |
 | `Esc` | Exit fullscreen |
+
+</td>
+</tr>
+</table>
+
+</div>
 
 <br>
 
@@ -351,11 +389,11 @@ Security-System/
 
 <br><br>
 
-![Demo Frame](readme_assets/frame-demo.svg)
+<img src="readme_assets/frame-demo.svg" width="100%">
 
 <br>
 
-
+**[YOUR VIDEO LINK HERE]**
 
 </div>
 
@@ -375,6 +413,8 @@ Security-System/
 
 <br>
 
-
+<a href="https://github.com/Binivert"><img src="https://img.shields.io/badge/GitHub-Binivert-00f0ff?style=for-the-badge&logo=github&logoColor=white" height="30"/></a>
+&nbsp;&nbsp;
+<a href="https://linkedin.com/in/bintrion"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="30"/></a>
 
 </div>
