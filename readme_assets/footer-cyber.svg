@@ -1,131 +1,112 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220">
   <defs>
     <style>
       @keyframes glitch1 {
-        0%, 100% { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
-        10% { transform: translate(-2px, 1px); clip-path: inset(20% 0 40% 0); }
-        20% { transform: translate(2px, -1px); clip-path: inset(60% 0 10% 0); }
-        30% { transform: translate(-1px, -1px); clip-path: inset(10% 0 70% 0); }
-        40% { transform: translate(1px, 1px); clip-path: inset(40% 0 30% 0); }
-        50% { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+        0%, 100% { transform: translate(0, 0); }
+        10% { transform: translate(-2px, 1px); }
+        20% { transform: translate(2px, -1px); }
+        30% { transform: translate(-1px, -1px); }
+        40% { transform: translate(1px, 1px); }
+        50% { transform: translate(0, 0); }
       }
       @keyframes glitch2 {
         0%, 100% { opacity: 0; transform: translate(0, 0); }
-        5% { opacity: 0.7; transform: translate(4px, 0); }
-        10% { opacity: 0; transform: translate(-4px, 0); }
-        15% { opacity: 0.5; transform: translate(2px, 0); }
-        20% { opacity: 0; transform: translate(0, 0); }
-        85% { opacity: 0; transform: translate(0, 0); }
-        90% { opacity: 0.6; transform: translate(-3px, 0); }
-        95% { opacity: 0; transform: translate(3px, 0); }
-      }
-      @keyframes glitch3 {
-        0%, 100% { opacity: 0; transform: translate(0, 0); }
-        25% { opacity: 0; }
-        30% { opacity: 0.4; transform: translate(-5px, 0); }
-        35% { opacity: 0; transform: translate(5px, 0); }
-        70% { opacity: 0; }
-        75% { opacity: 0.5; transform: translate(3px, 0); }
-        80% { opacity: 0; }
+        5% { opacity: 0.6; transform: translate(3px, 0); }
+        10% { opacity: 0; transform: translate(-3px, 0); }
+        90% { opacity: 0; }
+        95% { opacity: 0.5; transform: translate(-2px, 0); }
       }
       @keyframes scanline {
-        0% { transform: translateY(-500px); }
-        100% { transform: translateY(500px); }
+        0% { transform: translateY(-220px); }
+        100% { transform: translateY(220px); }
       }
       @keyframes flicker {
         0%, 100% { opacity: 1; }
-        92% { opacity: 1; }
         93% { opacity: 0.8; }
         94% { opacity: 1; }
-        96% { opacity: 0.85; }
-        97% { opacity: 1; }
+        96% { opacity: 0.9; }
       }
       @keyframes matrixFade {
-        0%, 100% { opacity: 0.04; }
-        50% { opacity: 0.1; }
+        0%, 100% { opacity: 0.03; }
+        50% { opacity: 0.08; }
       }
       @keyframes pulseGlow {
-        0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.5)); }
-        50% { filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.9)); }
+        0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.4)); }
+        50% { filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8)); }
       }
       @keyframes shieldPulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.03); opacity: 0.95; }
-      }
-      @keyframes dataStream {
-        0% { opacity: 0.3; }
-        50% { opacity: 0.7; }
-        100% { opacity: 0.3; }
-      }
-      @keyframes badgePulse {
-        0%, 100% { filter: drop-shadow(0 0 4px currentColor); }
-        50% { filter: drop-shadow(0 0 12px currentColor); }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
       }
       .bg { fill: #020818; }
-      .matrix { font-family: 'Courier New', monospace; font-size: 9px; fill: #00f0ff; animation: matrixFade 4s infinite; }
-      .main-title {
+      .matrix { font-family: 'Courier New', monospace; font-size: 8px; fill: #00f0ff; animation: matrixFade 4s infinite; }
+      .title {
         font-family: 'Courier New', monospace;
-        font-size: 36px;
+        font-size: 24px;
         font-weight: bold;
         fill: #00f0ff;
         animation: pulseGlow 3s ease-in-out infinite, flicker 8s infinite;
       }
       .glitch-r {
         font-family: 'Courier New', monospace;
-        font-size: 36px;
+        font-size: 24px;
         font-weight: bold;
         fill: #ff0080;
         animation: glitch2 4s infinite;
       }
       .glitch-c {
         font-family: 'Courier New', monospace;
-        font-size: 36px;
+        font-size: 24px;
         font-weight: bold;
         fill: #00ff80;
-        animation: glitch3 4s infinite;
+        animation: glitch2 4s infinite;
+        animation-delay: 0.5s;
       }
       .glitch-main {
         font-family: 'Courier New', monospace;
-        font-size: 36px;
+        font-size: 24px;
         font-weight: bold;
         fill: #00f0ff;
         animation: glitch1 6s infinite;
       }
-      .subtitle {
-        font-family: 'Courier New', monospace;
-        font-size: 12px;
-        fill: #4a9eff;
-        letter-spacing: 6px;
-      }
       .developer {
         font-family: 'Courier New', monospace;
-        font-size: 14px;
+        font-size: 12px;
         fill: #a0d2db;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
+      }
+      .collab {
+        font-family: 'Courier New', monospace;
+        font-size: 11px;
+        fill: #00ff80;
+        letter-spacing: 1px;
+      }
+      .star {
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        fill: #ffaa00;
+      }
+      .copyright {
+        font-family: 'Courier New', monospace;
+        font-size: 9px;
+        fill: #4a5568;
+      }
+      .social {
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        fill: #00f0ff;
       }
       .scanline {
         fill: rgba(0, 240, 255, 0.02);
         animation: scanline 5s linear infinite;
       }
-      .grid-line { stroke: #00f0ff; stroke-width: 0.5; opacity: 0.05; }
-      .corner { stroke: #00f0ff; stroke-width: 2; fill: none; opacity: 0.7; }
+      .grid-line { stroke: #00f0ff; stroke-width: 0.5; opacity: 0.04; }
+      .corner { stroke: #00f0ff; stroke-width: 1.5; fill: none; opacity: 0.6; }
       .corner-accent { stroke: #ff0080; stroke-width: 1; fill: none; opacity: 0.4; }
-      .circuit { stroke: #00f0ff; stroke-width: 1; fill: none; opacity: 0.15; }
-      .node { fill: #00f0ff; opacity: 0.4; }
+      .circuit { stroke: #00f0ff; stroke-width: 0.8; fill: none; opacity: 0.12; }
+      .node { fill: #00f0ff; opacity: 0.3; }
       .shield { animation: shieldPulse 2.5s ease-in-out infinite; }
-      .badge-box { fill: #0a1628; stroke-width: 1.5; }
-      .badge-text { font-family: 'Courier New', monospace; font-size: 10px; font-weight: bold; }
-      .status-text { font-family: 'Courier New', monospace; font-size: 10px; fill: #4a5568; }
-      .data-stream { animation: dataStream 2s infinite; }
-      .section-title {
-        font-family: 'Courier New', monospace;
-        font-size: 11px;
-        fill: #00f0ff;
-        letter-spacing: 4px;
-      }
-      .link-badge {
-        animation: badgePulse 2s ease-in-out infinite;
-      }
+      .divider { stroke: #00f0ff; stroke-width: 1; opacity: 0.3; }
     </style>
     
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -135,7 +116,7 @@
     </linearGradient>
     
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0.25"/>
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0.2"/>
       <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0.05"/>
     </linearGradient>
     
@@ -144,190 +125,105 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     
-    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0a3050" stroke-width="0.5"/>
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0a3050" stroke-width="0.3"/>
     </pattern>
   </defs>
   
   <!-- Background -->
-  <rect class="bg" width="1200" height="500" fill="url(#bgGrad)"/>
-  <rect width="1200" height="500" fill="url(#grid)" opacity="0.3"/>
+  <rect class="bg" width="1200" height="220" fill="url(#bgGrad)"/>
+  <rect width="1200" height="220" fill="url(#grid)" opacity="0.3"/>
   
   <!-- Top border accent -->
-  <line x1="0" y1="2" x2="500" y2="2" stroke="#00f0ff" stroke-width="3" opacity="0.8"/>
-  <line x1="550" y1="2" x2="650" y2="2" stroke="#ff0080" stroke-width="3" opacity="0.8"/>
-  <line x1="700" y1="2" x2="1200" y2="2" stroke="#00f0ff" stroke-width="3" opacity="0.8"/>
+  <line x1="0" y1="2" x2="450" y2="2" stroke="#00f0ff" stroke-width="2" opacity="0.7"/>
+  <line x1="500" y1="2" x2="700" y2="2" stroke="#ff0080" stroke-width="2" opacity="0.7"/>
+  <line x1="750" y1="2" x2="1200" y2="2" stroke="#00f0ff" stroke-width="2" opacity="0.7"/>
   
   <!-- Matrix code background -->
   <g class="matrix">
-    <text x="30" y="25">01001110 11010010 SECURE_LINK::ESTABLISHED</text>
-    <text x="700" y="25">0xFF00FF NEURAL_NET::ACTIVE</text>
-    <text x="30" y="485">SYSTEM.SHUTDOWN_READY</text>
-    <text x="450" y="485">DETECTION_MODULE::STANDBY</text>
-    <text x="900" y="485">© 2024</text>
-  </g>
-  
-  <!-- Data streams -->
-  <g class="matrix data-stream" style="animation-delay: 0.5s;">
-    <text x="50" y="55">10110101</text>
-    <text x="1050" y="55">01001101</text>
-    <text x="100" y="455">SECURE</text>
-    <text x="1000" y="455">ARMED</text>
+    <text x="30" y="20">01001110 11010010 SECURE_LINK</text>
+    <text x="900" y="20">NEURAL_NET::ACTIVE</text>
+    <text x="30" y="210">SYS.CORE.READY</text>
+    <text x="950" y="210">v2.0_STABLE</text>
   </g>
   
   <!-- Circuit patterns -->
   <g class="circuit">
-    <path d="M0,80 L100,80 L120,100 L180,100"/>
-    <path d="M0,420 L80,420 L100,400 L150,400"/>
-    <path d="M1200,80 L1100,80 L1080,100 L1020,100"/>
-    <path d="M1200,420 L1120,420 L1100,400 L1050,400"/>
-    <path d="M0,250 L60,250 L80,230 L80,200"/>
-    <path d="M1200,250 L1140,250 L1120,230 L1120,200"/>
-    <circle class="node" cx="120" cy="100" r="3"/>
-    <circle class="node" cx="100" cy="400" r="3"/>
-    <circle class="node" cx="1080" cy="100" r="3"/>
-    <circle class="node" cx="1100" cy="400" r="3"/>
-    <circle class="node" cx="80" cy="200" r="2"/>
-    <circle class="node" cx="1120" cy="200" r="2"/>
+    <path d="M0,60 L80,60 L95,75 L140,75"/>
+    <path d="M0,160 L60,160 L75,145 L110,145"/>
+    <path d="M1200,60 L1120,60 L1105,75 L1060,75"/>
+    <path d="M1200,160 L1140,160 L1125,145 L1090,145"/>
+    <circle class="node" cx="95" cy="75" r="2.5"/>
+    <circle class="node" cx="75" cy="145" r="2.5"/>
+    <circle class="node" cx="1105" cy="75" r="2.5"/>
+    <circle class="node" cx="1125" cy="145" r="2.5"/>
   </g>
   
   <!-- Grid lines -->
-  <g>
-    <line class="grid-line" x1="0" y1="100" x2="1200" y2="100"/>
-    <line class="grid-line" x1="0" y1="200" x2="1200" y2="200"/>
-    <line class="grid-line" x1="0" y1="300" x2="1200" y2="300"/>
-    <line class="grid-line" x1="0" y1="400" x2="1200" y2="400"/>
-    <line class="grid-line" x1="200" y1="0" x2="200" y2="500"/>
-    <line class="grid-line" x1="400" y1="0" x2="400" y2="500"/>
-    <line class="grid-line" x1="600" y1="0" x2="600" y2="500"/>
-    <line class="grid-line" x1="800" y1="0" x2="800" y2="500"/>
-    <line class="grid-line" x1="1000" y1="0" x2="1000" y2="500"/>
-  </g>
+  <line class="grid-line" x1="0" y1="70" x2="1200" y2="70"/>
+  <line class="grid-line" x1="0" y1="150" x2="1200" y2="150"/>
+  <line class="grid-line" x1="300" y1="0" x2="300" y2="220"/>
+  <line class="grid-line" x1="600" y1="0" x2="600" y2="220"/>
+  <line class="grid-line" x1="900" y1="0" x2="900" y2="220"/>
   
-  <!-- Scanlines -->
-  <rect class="scanline" x="0" y="0" width="1200" height="3"/>
-  <rect class="scanline" x="0" y="0" width="1200" height="2" style="animation-delay: 2.5s;"/>
+  <!-- Scanline -->
+  <rect class="scanline" x="0" y="0" width="1200" height="2"/>
   
   <!-- Corner brackets -->
-  <path class="corner" d="M 15,15 L 15,50 M 15,15 L 50,15"/>
-  <path class="corner-accent" d="M 22,22 L 22,45 M 22,22 L 45,22"/>
-  <path class="corner" d="M 1185,15 L 1185,50 M 1185,15 L 1150,15"/>
-  <path class="corner-accent" d="M 1178,22 L 1178,45 M 1178,22 L 1155,22"/>
-  <path class="corner" d="M 15,485 L 15,450 M 15,485 L 50,485"/>
-  <path class="corner-accent" d="M 22,478 L 22,455 M 22,478 L 45,478"/>
-  <path class="corner" d="M 1185,485 L 1185,450 M 1185,485 L 1150,485"/>
-  <path class="corner-accent" d="M 1178,478 L 1178,455 M 1178,478 L 1155,478"/>
+  <path class="corner" d="M 12,12 L 12,35 M 12,12 L 35,12"/>
+  <path class="corner-accent" d="M 18,18 L 18,32 M 18,18 L 32,18"/>
+  <path class="corner" d="M 1188,12 L 1188,35 M 1188,12 L 1165,12"/>
+  <path class="corner-accent" d="M 1182,18 L 1182,32 M 1182,18 L 1168,18"/>
+  <path class="corner" d="M 12,208 L 12,185 M 12,208 L 35,208"/>
+  <path class="corner-accent" d="M 18,202 L 18,188 M 18,202 L 32,202"/>
+  <path class="corner" d="M 1188,208 L 1188,185 M 1188,208 L 1165,208"/>
+  <path class="corner-accent" d="M 1182,202 L 1182,188 M 1182,202 L 1168,202"/>
   
   <!-- Shield Logo -->
-  <g transform="translate(600, 85)" class="shield" filter="url(#strongGlow)">
-    <path d="M 0 -45 L 35 -28 L 35 15 L 0 42 L -35 15 L -35 -28 Z" fill="url(#shieldGrad)" stroke="#00f0ff" stroke-width="2"/>
-    <path d="M 0 -32 L 25 -20 L 25 10 L 0 30 L -25 10 L -25 -20 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="1"/>
-    <circle cx="0" cy="0" r="14" fill="none" stroke="#00f0ff" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="7" fill="#00f0ff" opacity="0.25"/>
+  <g transform="translate(600, 55)" class="shield" filter="url(#glow)">
+    <path d="M 0 -28 L 22 -18 L 22 8 L 0 26 L -22 8 L -22 -18 Z" fill="url(#shieldGrad)" stroke="#00f0ff" stroke-width="1.5"/>
+    <path d="M 0 -20 L 15 -12 L 15 5 L 0 18 L -15 5 L -15 -12 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="1"/>
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#00f0ff" stroke-width="1"/>
     <circle cx="0" cy="0" r="3" fill="#00f0ff" opacity="0.5"/>
-    <path d="M -7 0 L -2 5 L 9 -6" stroke="#00f0ff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M -5 0 L -1 4 L 7 -5" stroke="#00f0ff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   
-  <!-- Main Title with Glitch -->
-  <text class="glitch-r" x="600" y="170" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="glitch-c" x="600" y="170" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="glitch-main" x="600" y="170" text-anchor="middle">SECURITY SYSTEM</text>
-  <text class="main-title" x="600" y="170" text-anchor="middle">SECURITY SYSTEM</text>
-  
-  <!-- Version Badge -->
-  <g transform="translate(600, 195)">
-    <rect x="-50" y="-12" width="100" height="22" rx="4" fill="#0a1628" stroke="#00ff80" stroke-width="1" filter="url(#glow)"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" font-weight="bold" fill="#00ff80">v2.0 STABLE</text>
-  </g>
-  
-  <!-- Divider line -->
-  <line x1="200" y1="220" x2="1000" y2="220" stroke="#00f0ff" stroke-width="1" opacity="0.3"/>
-  <circle cx="600" cy="220" r="4" fill="#ff0080" opacity="0.8" filter="url(#glow)"/>
+  <!-- Title with Glitch -->
+  <text class="glitch-r" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="glitch-c" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="glitch-main" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
+  <text class="title" x="600" y="105" text-anchor="middle">SECURITY SYSTEM</text>
   
   <!-- Developer Credit -->
-  <text class="section-title" x="600" y="250" text-anchor="middle">DEVELOPED BY</text>
-  <text class="developer" x="600" y="275" text-anchor="middle" filter="url(#glow)">BINIYAM BONGER</text>
+  <text class="developer" x="600" y="130" text-anchor="middle">Developed by BINIYAM BONGER</text>
   
-  <!-- Technology Stack Section -->
-  <text class="section-title" x="600" y="310" text-anchor="middle">POWERED BY</text>
+  <!-- Collaboration Message -->
+  <text class="collab" x="600" y="150" text-anchor="middle">Open to Collaboration &amp; Contributions</text>
   
-  <!-- Tech Badges Row -->
-  <g transform="translate(600, 345)">
-    <!-- Python -->
-    <g transform="translate(-450, 0)" class="link-badge" style="color: #00f0ff;">
-      <rect class="badge-box" x="-45" y="-15" width="90" height="30" rx="4" stroke="#00f0ff" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#00f0ff">🐍 PYTHON</text>
-    </g>
-    
-    <!-- YOLOv8 -->
-    <g transform="translate(-270, 0)" class="link-badge" style="color: #ff0080; animation-delay: 0.3s;">
-      <rect class="badge-box" x="-45" y="-15" width="90" height="30" rx="4" stroke="#ff0080" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#ff0080">🎯 YOLOv8</text>
-    </g>
-    
-    <!-- MediaPipe -->
-    <g transform="translate(-90, 0)" class="link-badge" style="color: #00ff80; animation-delay: 0.6s;">
-      <rect class="badge-box" x="-55" y="-15" width="110" height="30" rx="4" stroke="#00ff80" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#00ff80">🦴 MEDIAPIPE</text>
-    </g>
-    
-    <!-- OpenCV -->
-    <g transform="translate(90, 0)" class="link-badge" style="color: #4a9eff; animation-delay: 0.9s;">
-      <rect class="badge-box" x="-50" y="-15" width="100" height="30" rx="4" stroke="#4a9eff" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#4a9eff">👁️ OPENCV</text>
-    </g>
-    
-    <!-- PyQt6 -->
-    <g transform="translate(270, 0)" class="link-badge" style="color: #a855f7; animation-delay: 1.2s;">
-      <rect class="badge-box" x="-45" y="-15" width="90" height="30" rx="4" stroke="#a855f7" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#a855f7">🖥️ PYQT6</text>
-    </g>
-    
-    <!-- Telegram -->
-    <g transform="translate(450, 0)" class="link-badge" style="color: #ffaa00; animation-delay: 1.5s;">
-      <rect class="badge-box" x="-55" y="-15" width="110" height="30" rx="4" stroke="#ffaa00" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#ffaa00">📱 TELEGRAM</text>
-    </g>
+  <!-- Star Prompt -->
+  <text class="star" x="600" y="170" text-anchor="middle">⭐ Star this repo if you find it useful!</text>
+  
+  <!-- Social Links -->
+  <g transform="translate(600, 190)">
+    <text class="social" x="-80" y="0" text-anchor="middle" filter="url(#glow)">⚡ github.com/Binivert</text>
+    <text class="social" x="80" y="0" text-anchor="middle" filter="url(#glow)">💼 linkedin.com/in/bintrion</text>
   </g>
   
-  <!-- Social Links Section -->
-  <text class="section-title" x="600" y="395" text-anchor="middle">CONNECT</text>
+  <!-- Copyright -->
+  <text class="copyright" x="600" y="210" text-anchor="middle">© 2024 Security System • All Rights Reserved • MIT License</text>
   
-  <!-- Social Badges -->
-  <g transform="translate(600, 425)">
-    <!-- GitHub -->
-    <g transform="translate(-120, 0)" class="link-badge" style="color: #00f0ff;">
-      <rect class="badge-box" x="-80" y="-15" width="160" height="30" rx="4" stroke="#00f0ff" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#00f0ff">⚡ GITHUB/BINIVERT</text>
-    </g>
-    
-    <!-- LinkedIn -->
-    <g transform="translate(120, 0)" class="link-badge" style="color: #0077b5; animation-delay: 0.5s;">
-      <rect class="badge-box" x="-85" y="-15" width="170" height="30" rx="4" stroke="#0077b5" filter="url(#glow)"/>
-      <text class="badge-text" x="0" y="4" text-anchor="middle" fill="#0077b5">💼 LINKEDIN/BINTRION</text>
-    </g>
-  </g>
+  <!-- Decorative dots -->
+  <circle cx="200" cy="110" r="2" fill="#00f0ff" opacity="0.4"/>
+  <circle cx="204" cy="106" r="1" fill="#ff0080" opacity="0.6"/>
+  <circle cx="1000" cy="110" r="2" fill="#00f0ff" opacity="0.4"/>
+  <circle cx="996" cy="106" r="1" fill="#ff0080" opacity="0.6"/>
   
-  <!-- Status indicators -->
-  <g transform="translate(600, 465)">
-    <text class="status-text" x="-300" y="0">NEURAL_CORE::ONLINE</text>
-    <text class="status-text" x="0" y="0" text-anchor="middle">DETECTION::ACTIVE</text>
-    <text class="status-text" x="300" y="0" text-anchor="end">SECURE_LINK::ESTABLISHED</text>
-  </g>
-  
-  <!-- Decorative accent dots -->
-  <circle cx="150" cy="250" r="3" fill="#00f0ff" opacity="0.5"/>
-  <circle cx="155" cy="245" r="1.5" fill="#ff0080" opacity="0.7"/>
-  <circle cx="1050" cy="250" r="3" fill="#00f0ff" opacity="0.5"/>
-  <circle cx="1045" cy="245" r="1.5" fill="#ff0080" opacity="0.7"/>
+  <!-- Divider lines -->
+  <line class="divider" x1="250" y1="110" x2="400" y2="110"/>
+  <line class="divider" x1="800" y1="110" x2="950" y2="110"/>
   
   <!-- Bottom accent lines -->
-  <line x1="0" y1="498" x2="400" y2="498" stroke="#00f0ff" stroke-width="2" opacity="0.6"/>
-  <line x1="450" y1="498" x2="750" y2="498" stroke="#ff0080" stroke-width="2" opacity="0.6"/>
-  <line x1="800" y1="498" x2="1200" y2="498" stroke="#00f0ff" stroke-width="2" opacity="0.6"/>
+  <line x1="0" y1="218" x2="450" y2="218" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
+  <line x1="500" y1="218" x2="700" y2="218" stroke="#ff0080" stroke-width="2" opacity="0.5"/>
+  <line x1="750" y1="218" x2="1200" y2="218" stroke="#00f0ff" stroke-width="2" opacity="0.5"/>
 </svg>
