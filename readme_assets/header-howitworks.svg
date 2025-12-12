@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50">
+  <defs>
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="50" fill="transparent"/>
+  <text x="200" y="35" text-anchor="middle" font-family="'Courier New', monospace" font-size="24" font-weight="bold" fill="#00f0ff" filter="url(#textGlow)">▸ HOW IT WORKS</text>
+</svg>

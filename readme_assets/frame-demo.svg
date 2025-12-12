@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <filter id="frameGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="800" height="450" fill="transparent"/>
+  
+  <!-- Corner frames only -->
+  <g stroke="#00f0ff" stroke-width="3" fill="none" filter="url(#frameGlow)">
+    <!-- Top left -->
+    <path d="M 10 50 L 10 10 L 50 10"/>
+    <!-- Top right -->
+    <path d="M 750 10 L 790 10 L 790 50"/>
+    <!-- Bottom right -->
+    <path d="M 790 400 L 790 440 L 750 440"/>
+    <!-- Bottom left -->
+    <path d="M 50 440 L 10 440 L 10 400"/>
+  </g>
+  
+  <!-- Accent corners -->
+  <g stroke="#ff0080" stroke-width="2" fill="none">
+    <path d="M 20 40 L 20 20 L 40 20"/>
+    <path d="M 760 20 L 780 20 L 780 40"/>
+    <path d="M 780 410 L 780 430 L 760 430"/>
+    <path d="M 40 430 L 20 430 L 20 410"/>
+  </g>
+  
+  <!-- Center placeholder -->
+  <rect x="100" y="60" width="600" height="330" fill="#0a1628" stroke="#1a3050" stroke-width="1" rx="4"/>
+  <text x="400" y="220" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#4a9eff">▶ VIDEO DEMO PLACEHOLDER</text>
+  <text x="400" y="245" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00f0ff">Embed YouTube or video link here</text>
+  
+  <!-- Play button -->
+  <circle cx="400" cy="280" r="25" fill="none" stroke="#ff0080" stroke-width="2"/>
+  <polygon points="392,268 392,292 415,280" fill="#ff0080"/>
+</svg>

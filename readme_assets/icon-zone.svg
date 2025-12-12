@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <defs>
+    <filter id="iconGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="60" height="60" fill="#0a1628" rx="8"/>
+  <polygon points="30,12 48,25 42,48 18,48 12,25" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#iconGlow)"/>
+  <polygon points="30,18 42,28 38,44 22,44 18,28" fill="#00f0ff" opacity="0.2"/>
+  <circle cx="30" cy="32" r="5" fill="#ff0080">
+    <animate attributeName="opacity" values="1;0.4;1" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="30" y="35" text-anchor="middle" font-size="6" fill="white" font-weight="bold">!</text>
+</svg>

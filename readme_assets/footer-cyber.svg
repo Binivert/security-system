@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120">
+  <defs>
+    <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="30%" style="stop-color:#00f0ff;stop-opacity:0.5"/>
+      <stop offset="50%" style="stop-color:#ff0080;stop-opacity:0.8"/>
+      <stop offset="70%" style="stop-color:#00f0ff;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glitchText">
+      <feOffset in="SourceGraphic" dx="1" dy="0" result="r"/>
+      <feOffset in="SourceGraphic" dx="-1" dy="0" result="b"/>
+      <feColorMatrix in="r" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0" result="red"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 0.5 0" result="blue"/>
+      <feBlend in="red" in2="blue" mode="screen" result="blend"/>
+      <feBlend in="blend" in2="SourceGraphic" mode="screen"/>
+    </filter>
+    <filter id="footerGlow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="120" fill="#020818"/>
+  
+  <!-- Top line -->
+  <line x1="0" y1="5" x2="1200" y2="5" stroke="url(#footerGrad)" stroke-width="2" filter="url(#footerGlow)"/>
+  
+  <!-- Digital pattern -->
+  <g opacity="0.3" font-family="'Courier New', monospace" font-size="8" fill="#00f0ff">
+    <text x="50" y="30">01100011 01111001 01100010 01100101 01110010</text>
+    <text x="900" y="30">01110011 01100101 01100011 01110101 01110010 01100101</text>
+    <text x="100" y="100">10110010 11001010 01010110</text>
+    <text x="950" y="100">01001110 01000101 01010100</text>
+  </g>
+  
+  <!-- Neon lines -->
+  <line x1="100" y1="50" x2="350" y2="50" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+  <line x1="850" y1="50" x2="1100" y2="50" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Center content -->
+  <text x="600" y="55" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#00f0ff" filter="url(#glitchText)">━━━ SECURITY SYSTEM v2.0 ━━━</text>
+  <text x="600" y="80" text-anchor="middle" font-family="'Courier New', monospace" font-size="18" fill="#ff0080" filter="url(#footerGlow)">Created by Binivert</text>
+  <text x="600" y="100" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">AI-Powered • Real-Time • Secure</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="450" cy="70" r="3" fill="#00f0ff" opacity="0.8"/>
+  <circle cx="750" cy="70" r="3" fill="#00f0ff" opacity="0.8"/>
+  <rect x="470" y="68" width="20" height="4" fill="#ff0080" opacity="0.5"/>
+  <rect x="710" y="68" width="20" height="4" fill="#ff0080" opacity="0.5"/>
+  
+  <!-- Bottom line -->
+  <line x1="0" y1="115" x2="1200" y2="115" stroke="url(#footerGrad)" stroke-width="1"/>
+</svg>

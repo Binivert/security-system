@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350">
+  <defs>
+    <filter id="nodeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00f0ff"/>
+    </marker>
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff"/>
+      <stop offset="100%" style="stop-color:#ff0080"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1000" height="350" fill="transparent"/>
+  
+  <!-- Row 1: Camera → Frame Capture → Preprocessing -->
+  <g transform="translate(80, 60)">
+    <rect x="-60" y="-30" width="120" height="60" rx="8" fill="#0a1628" stroke="#00f0ff" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00f0ff">📹 CAMERA</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">INPUT</text>
+  </g>
+  
+  <line x1="140" y1="60" x2="200" y2="60" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <g transform="translate(280, 60)">
+    <rect x="-70" y="-30" width="140" height="60" rx="8" fill="#0a1628" stroke="#4a9eff" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#4a9eff">🖼️ FRAME</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#00f0ff">CAPTURE</text>
+  </g>
+  
+  <line x1="350" y1="60" x2="410" y2="60" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <g transform="translate(500, 60)">
+    <rect x="-80" y="-30" width="160" height="60" rx="8" fill="#0a1628" stroke="#00ff80" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00ff80">⚡ PREPROCESS</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">RESIZE • NORMALIZE</text>
+  </g>
+  
+  <!-- Branch down to detection modules -->
+  <line x1="500" y1="90" x2="500" y2="130" stroke="#00f0ff" stroke-width="2"/>
+  <line x1="500" y1="130" x2="200" y2="130" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="500" y1="130" x2="500" y2="130" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="500" y1="130" x2="800" y2="130" stroke="#00f0ff" stroke-width="1"/>
+  
+  <!-- Row 2: Detection Modules -->
+  <line x1="200" y1="130" x2="200" y2="160" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <g transform="translate(200, 200)">
+    <rect x="-70" y="-30" width="140" height="60" rx="8" fill="#0a1628" stroke="#ff0080" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#ff0080">🎯 YOLOv8</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">PERSON DETECT</text>
+  </g>
+  
+  <line x1="500" y1="130" x2="500" y2="160" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <g transform="translate(500, 200)">
+    <rect x="-70" y="-30" width="140" height="60" rx="8" fill="#0a1628" stroke="#ffaa00" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#ffaa00">🦴 MEDIAPIPE</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">SKELETON</text>
+  </g>
+  
+  <line x1="800" y1="130" x2="800" y2="160" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <g transform="translate(800, 200)">
+    <rect x="-70" y="-30" width="140" height="60" rx="8" fill="#0a1628" stroke="#00ff80" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="-5" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#00ff80">👤 FACE REC</text>
+    <text x="0" y="12" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">TRUSTED CHECK</text>
+  </g>
+  
+  <!-- Merge detections -->
+  <line x1="200" y1="230" x2="200" y2="260" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="500" y1="230" x2="500" y2="260" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="800" y1="230" x2="800" y2="260" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="200" y1="260" x2="800" y2="260" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="500" y1="260" x2="500" y2="280" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Row 3: Zone Check -->
+  <g transform="translate(500, 310)">
+    <rect x="-80" y="-25" width="160" height="50" rx="8" fill="#0a1628" stroke="#ff0080" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="0" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#ff0080">🎯 ZONE CHECK</text>
+    <text x="0" y="15" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#4a9eff">BREACH DETECTION</text>
+  </g>
+  
+  <!-- Output branches -->
+  <line x1="420" y1="310" x2="150" y2="310" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="150" y1="310" x2="150" y2="340" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="580" y1="310" x2="850" y2="310" stroke="#00f0ff" stroke-width="1"/>
+  <line x1="850" y1="310" x2="850" y2="340" stroke="#00f0ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Output nodes -->
+  <text x="150" y="348" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00ff80">📱 TELEGRAM ALERT</text>
+  <text x="850" y="348" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ffaa00">🔊 ALARM + TTS</text>
+  
+  <!-- Motion detection side branch -->
+  <g transform="translate(920, 60)">
+    <rect x="-60" y="-25" width="120" height="50" rx="8" fill="#0a1628" stroke="#ffaa00" stroke-width="2" filter="url(#nodeGlow)"/>
+    <text x="0" y="0" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ffaa00">🔥 MOTION</text>
+    <text x="0" y="14" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#4a9eff">HEAT MAP</text>
+  </g>
+  <line x1="920" y1="85" x2="920" y2="130" stroke="#ffaa00" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="920" y1="130" x2="800" y2="130" stroke="#ffaa00" stroke-width="1" stroke-dasharray="4,2"/>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020818"/>
+      <stop offset="50%" style="stop-color:#0a1628"/>
+      <stop offset="100%" style="stop-color:#051020"/>
+    </linearGradient>
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glitch">
+      <feOffset in="SourceGraphic" dx="2" dy="0" result="r"/>
+      <feOffset in="SourceGraphic" dx="-2" dy="0" result="b"/>
+      <feColorMatrix in="r" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue"/>
+      <feBlend in="red" in2="blue" mode="screen" result="blend"/>
+      <feBlend in="blend" in2="SourceGraphic" mode="screen"/>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0a3050" stroke-width="0.5"/>
+    </pattern>
+    <clipPath id="scanClip">
+      <rect x="0" y="0" width="1200" height="400"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bgGrad)"/>
+  <rect width="1200" height="400" fill="url(#grid)" opacity="0.5"/>
+  
+  <!-- Scanning Lines -->
+  <g opacity="0.3">
+    <line x1="0" y1="50" x2="1200" y2="50" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="0" y1="150" x2="1200" y2="150" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="0" y1="250" x2="1200" y2="250" stroke="#00f0ff" stroke-width="0.5"/>
+    <line x1="0" y1="350" x2="1200" y2="350" stroke="#00f0ff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Vertical Scan Bar Animation -->
+  <rect x="0" y="0" width="3" height="400" fill="url(#cyanGlow)" opacity="0.8">
+    <animate attributeName="x" from="-100" to="1300" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Corner Decorations -->
+  <g stroke="#00f0ff" stroke-width="2" fill="none" opacity="0.8">
+    <path d="M 20 60 L 20 20 L 60 20"/>
+    <path d="M 1140 20 L 1180 20 L 1180 60"/>
+    <path d="M 1180 340 L 1180 380 L 1140 380"/>
+    <path d="M 60 380 L 20 380 L 20 340"/>
+  </g>
+  
+  <!-- Security Shield Logo -->
+  <g transform="translate(600, 120)" filter="url(#glow)">
+    <path d="M 0 -60 L 50 -40 L 50 20 L 0 60 L -50 20 L -50 -40 Z" fill="none" stroke="#00f0ff" stroke-width="3"/>
+    <path d="M 0 -45 L 35 -30 L 35 15 L 0 45 L -35 15 L -35 -30 Z" fill="#0a1628" stroke="#00f0ff" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <circle cx="0" cy="0" r="8" fill="#00f0ff" opacity="0.5"/>
+    <path d="M -8 0 L 0 8 L 12 -8" stroke="#00f0ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="220" text-anchor="middle" font-family="'Courier New', monospace" font-size="42" font-weight="bold" fill="#00f0ff" filter="url(#glitch)">SECURITY SYSTEM</text>
+  <text x="600" y="250" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#4a9eff">AI-POWERED SURVEILLANCE • REAL-TIME MONITORING</text>
+  
+  <!-- Feature Badges -->
+  <g transform="translate(600, 300)">
+    <g transform="translate(-420, 0)">
+      <rect x="-70" y="-15" width="140" height="30" rx="4" fill="#0a1628" stroke="#00f0ff" stroke-width="1"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00f0ff">🤖 AI-POWERED</text>
+    </g>
+    <g transform="translate(-210, 0)">
+      <rect x="-55" y="-15" width="110" height="30" rx="4" fill="#0a1628" stroke="#ff0080" stroke-width="1"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ff0080">🎯 YOLOv8</text>
+    </g>
+    <g transform="translate(0, 0)">
+      <rect x="-75" y="-15" width="150" height="30" rx="4" fill="#0a1628" stroke="#00ff80" stroke-width="1"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#00ff80">👤 FACE RECOGNITION</text>
+    </g>
+    <g transform="translate(210, 0)">
+      <rect x="-75" y="-15" width="150" height="30" rx="4" fill="#0a1628" stroke="#4a9eff" stroke-width="1"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#4a9eff">📱 TELEGRAM CONTROL</text>
+    </g>
+    <g transform="translate(420, 0)">
+      <rect x="-70" y="-15" width="140" height="30" rx="4" fill="#0a1628" stroke="#ffaa00" stroke-width="1"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#ffaa00">🔥 MOTION DETECT</text>
+    </g>
+  </g>
+  
+  <!-- Neon Streaks -->
+  <line x1="0" y1="395" x2="400" y2="395" stroke="#00f0ff" stroke-width="2" opacity="0.8"/>
+  <line x1="450" y1="395" x2="750" y2="395" stroke="#ff0080" stroke-width="2" opacity="0.8"/>
+  <line x1="800" y1="395" x2="1200" y2="395" stroke="#00f0ff" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Data Stream Effects -->
+  <g opacity="0.4" font-family="'Courier New', monospace" font-size="10" fill="#00f0ff">
+    <text x="30" y="100">01001110</text>
+    <text x="1100" y="80">11010011</text>
+    <text x="50" y="320">SECURE</text>
+    <text x="1080" y="340">ACTIVE</text>
+  </g>
+</svg>

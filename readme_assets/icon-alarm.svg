@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <defs>
+    <filter id="iconGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="60" height="60" fill="#0a1628" rx="8"/>
+  <path d="M 30 12 L 30 8" stroke="#ffaa00" stroke-width="2"/>
+  <path d="M 30 16 C 20 16 14 26 14 36 L 46 36 C 46 26 40 16 30 16" fill="none" stroke="#ffaa00" stroke-width="2" filter="url(#iconGlow)"/>
+  <rect x="12" y="36" width="36" height="4" fill="#ffaa00" rx="2"/>
+  <ellipse cx="30" cy="46" rx="4" ry="3" fill="#ffaa00"/>
+  <!-- Sound waves -->
+  <path d="M 8 28 Q 4 30 8 32" fill="none" stroke="#ff0080" stroke-width="1.5">
+    <animate attributeName="opacity" values="1;0;1" dur="0.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 52 28 Q 56 30 52 32" fill="none" stroke="#ff0080" stroke-width="1.5">
+    <animate attributeName="opacity" values="1;0;1" dur="0.5s" repeatCount="indefinite"/>
+  </path>
+</svg>
