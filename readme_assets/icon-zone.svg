@@ -1,8 +1,0 @@
-<svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="80" cy="80" r="74" fill="#020b1b" stroke="#154063" stroke-width="3"/>
-  <polygon points="50,40 110,50 120,110 60,120" fill="rgba(0,240,255,0.15)" stroke="#00f0ff" stroke-width="3"/>
-  <polyline points="50,40 50,20 120,30 120,110" fill="none" stroke="#ff4dff" stroke-width="2" stroke-dasharray="10 6"/>
-  <circle cx="65" cy="65" r="6" fill="#64ffd5"/>
-  <circle cx="98" cy="70" r="6" fill="#64ffd5"/>
-  <circle cx="105" cy="105" r="6" fill="#64ffd5"/>
-</svg>
