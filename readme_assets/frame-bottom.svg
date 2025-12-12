@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="40" viewBox="0 0 800 40">
+  <defs>
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+      }
+      .corner-main {
+        stroke: #00f0ff;
+        stroke-width: 2;
+        fill: none;
+        animation: pulse 3s ease-in-out infinite;
+      }
+      .corner-accent {
+        stroke: #ff0080;
+        stroke-width: 1;
+        fill: none;
+        opacity: 0.6;
+      }
+      .dot {
+        fill: #00f0ff;
+        animation: pulse 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  
+  <!-- Bottom Left Corner -->
+  <g transform="translate(80, 30)">
+    <path class="corner-main" d="M 0,-25 L 0,0 L 25,0"/>
+    <path class="corner-accent" d="M 4,-21 L 4,-4 L 21,-4"/>
+    <circle class="dot" cx="0" cy="0" r="2"/>
+  </g>
+  
+  <!-- Bottom Right Corner -->
+  <g transform="translate(720, 30)">
+    <path class="corner-main" d="M 0,-25 L 0,0 L -25,0"/>
+    <path class="corner-accent" d="M -4,-21 L -4,-4 L -21,-4"/>
+    <circle class="dot" cx="0" cy="0" r="2"/>
+  </g>
+</svg>
