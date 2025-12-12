@@ -393,7 +393,7 @@ Security-System/
 
 <br>
 
-[![Security System Demo](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 
 <br>
 
@@ -417,8 +417,6 @@ Security-System/
 
 <br>
 
-<a href="https://github.com/Binivert"><img src="https://img.shields.io/badge/GitHub-Binivert-00f0ff?style=for-the-badge&logo=github&logoColor=white" height="30"/></a>
-&nbsp;&nbsp;
-<a href="https://linkedin.com/in/bintrion"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="30"/></a>
+
 
 </div>
