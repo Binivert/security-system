@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs><filter id="ig11"><feGaussianBlur stdDeviation="1.5"/></filter></defs>
-  <rect width="64" height="64" rx="8" fill="#0a0a2a"/>
-  <rect x="1" y="1" width="62" height="62" rx="7" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
-  <!-- Speaker -->
-  <polygon points="14,26 14,38 22,38 32,48 32,16 22,26" fill="#00f0ff" fill-opacity="0.3" stroke="#00f0ff" stroke-width="2" filter="url(#ig11)"/>
-  <path d="M38 24 Q44 32 38 40" stroke="#ff0080" stroke-width="2" fill="none"/>
-  <path d="M44 18 Q54 32 44 46" stroke="#ff0080" stroke-width="2" fill="none"/>
-</svg>

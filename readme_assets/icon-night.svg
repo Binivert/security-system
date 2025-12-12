@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs><filter id="ig7"><feGaussianBlur stdDeviation="1.5"/></filter></defs>
-  <rect width="64" height="64" rx="8" fill="#0a0a2a"/>
-  <rect x="1" y="1" width="62" height="62" rx="7" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
-  <!-- Moon -->
-  <path d="M40 14 A18 18 0 1 0 40 50 A14 14 0 1 1 40 14" fill="#00f0ff" fill-opacity="0.3" stroke="#00f0ff" stroke-width="2" filter="url(#ig7)"/>
-  <circle cx="48" cy="18" r="2" fill="#ff0080"/>
-  <circle cx="54" cy="28" r="1.5" fill="#ff0080"/>
-</svg>
