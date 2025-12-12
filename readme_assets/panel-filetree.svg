@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="panelBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a20"/>
+      <stop offset="100%" stop-color="#050510"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#panelBg)" rx="10"/>
+  <rect x="1" y="1" width="598" height="338" rx="9" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.5"/>
+  <!-- Title bar -->
+  <rect x="0" y="0" width="600" height="30" fill="#101030" rx="10"/>
+  <circle cx="18" cy="15" r="5" fill="#ff5f56"/>
+  <circle cx="38" cy="15" r="5" fill="#ffbd2e"/>
+  <circle cx="58" cy="15" r="5" fill="#27c93f"/>
+  <text x="300" y="20" text-anchor="middle" font-family="Consolas,monospace" font-size="12" fill="#00f0ff">📁 security-system</text>
+  <!-- Tree -->
+  <text x="30" y="60" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">.</text>
+  <text x="30" y="80" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── main.py</text>
+  <text x="30" y="100" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── gui.py</text>
+  <text x="30" y="120" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── detectors.py</text>
+  <text x="30" y="140" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── utils.py</text>
+  <text x="30" y="160" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── config.py</text>
+  <text x="30" y="180" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── database.py</text>
+  <text x="30" y="200" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── telegram_bot.py</text>
+  <text x="30" y="220" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── audio.py</text>
+  <text x="30" y="240" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── requirements.txt</text>
+  <text x="30" y="260" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── LICENSE</text>
+  <text x="30" y="280" font-family="Consolas,monospace" font-size="12" fill="#c0c0ff">├── README.md</text>
+  <text x="30" y="300" font-family="Consolas,monospace" font-size="12" fill="#00f0ff">└── readme_assets/</text>
+  <text x="60" y="320" font-family="Consolas,monospace" font-size="11" fill="#888">└── *.svg (30+ assets)</text>
+</svg>

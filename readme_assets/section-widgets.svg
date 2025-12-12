@@ -1,0 +1,11 @@
+<svg width="900" height="160" viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="widgets" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#ff4dff"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="160" rx="28" fill="#030919" stroke="#1e3b67" stroke-width="2"/>
+  <text x="450" y="64" text-anchor="middle" fill="url(#widgets)" font-size="44" font-family="'Orbitron','Segoe UI',sans-serif" letter-spacing="4">GITHUB WIDGETS</text>
+  <text x="450" y="110" text-anchor="middle" fill="#c5e3ff" font-size="18" font-family="'Space Grotesk','Segoe UI',sans-serif">STATS · LANGS · STREAKS · NEON FRAMING</text>
+</svg>

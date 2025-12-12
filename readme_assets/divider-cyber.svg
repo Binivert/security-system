@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24">
+  <defs>
+    <linearGradient id="divG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a2a"/>
+      <stop offset="20%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#ff0080"/>
+      <stop offset="80%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#0a0a2a"/>
+    </linearGradient>
+    <filter id="divGlow"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <rect x="0" y="10" width="1200" height="4" fill="url(#divG)" rx="2" filter="url(#divGlow)"/>
+  <rect x="0" y="11" width="1200" height="2" fill="url(#divG)" rx="1"/>
+  <!-- Pulse dot -->
+  <circle cx="600" cy="12" r="5" fill="#ff0080">
+    <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

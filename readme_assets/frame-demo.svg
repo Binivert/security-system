@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="demoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050510"/>
+      <stop offset="100%" stop-color="#0a0a2a"/>
+    </linearGradient>
+    <filter id="demoGlow"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#demoBg)" rx="12"/>
+  <!-- Neon border -->
+  <rect x="4" y="4" width="792" height="442" rx="10" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#demoGlow)"/>
+  <rect x="4" y="4" width="792" height="442" rx="10" fill="none" stroke="#ff0080" stroke-width="1" stroke-dasharray="20,10">
+    <animate attributeName="stroke-dashoffset" values="0;-60" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Placeholder text -->
+  <text x="400" y="210" text-anchor="middle" font-family="Consolas,monospace" font-size="24" fill="#00f0ff">[ SCREENSHOT / GIF ]</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Consolas,monospace" font-size="14" fill="#888">Replace with actual demo media</text>
+  <!-- Corner brackets -->
+  <path d="M20 60 L20 20 L60 20" stroke="#ff0080" stroke-width="3" fill="none"/>
+  <path d="M740 20 L780 20 L780 60" stroke="#ff0080" stroke-width="3" fill="none"/>
+  <path d="M20 390 L20 430 L60 430" stroke="#ff0080" stroke-width="3" fill="none"/>
+  <path d="M740 430 L780 430 L780 390" stroke="#ff0080" stroke-width="3" fill="none"/>
+</svg>

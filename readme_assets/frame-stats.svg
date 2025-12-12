@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 60">
+  <defs>
+    <linearGradient id="statBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a2a"/>
+      <stop offset="50%" stop-color="#101040"/>
+      <stop offset="100%" stop-color="#0a0a2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="60" fill="url(#statBg)" rx="8"/>
+  <rect x="1" y="1" width="898" height="58" rx="7" fill="none" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+  <text x="450" y="38" text-anchor="middle" font-family="Consolas,monospace" font-size="14" fill="#c0c0ff">📊 GITHUB ANALYTICS PANEL</text>
+</svg>

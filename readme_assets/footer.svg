@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100">
+  <defs>
+    <linearGradient id="footBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#050510"/>
+      <stop offset="50%" stop-color="#0a0a2a"/>
+      <stop offset="100%" stop-color="#050510"/>
+    </linearGradient>
+    <linearGradient id="footNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a2a"/>
+      <stop offset="20%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#ff0080"/>
+      <stop offset="80%" stop-color="#00f0ff"/>
+      <stop offset="100%" stop-color="#0a0a2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="100" fill="url(#footBg)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#footNeon)"/>
+  <text x="600" y="55" text-anchor="middle" font-family="Consolas,monospace" font-size="14" fill="#00f0ff">Built with 💙 by Binivert</text>
+  <text x="600" y="80" text-anchor="middle" font-family="Consolas,monospace" font-size="11" fill="#666">© 2024 · AGPL-3.0 License</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg width="420" height="240" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="240" rx="20" fill="#040f22" stroke="#1e456c" stroke-width="2"/>
+  <rect x="24" y="30" width="168" height="180" rx="14" fill="#051a36" stroke="#00f0ff" opacity="0.8"/>
+  <rect x="228" y="30" width="168" height="180" rx="14" fill="#051a36" stroke="#ff4dff" opacity="0.8"/>
+  <text x="108" y="210" text-anchor="middle" fill="#64ffd5" font-size="16" font-family="'Space Grotesk'">COLUMN A</text>
+  <text x="312" y="210" text-anchor="middle" fill="#ffbbea" font-size="16" font-family="'Space Grotesk'">COLUMN B</text>
+</svg>

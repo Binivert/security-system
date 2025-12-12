@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><filter id="ig3"><feGaussianBlur stdDeviation="1.5"/></filter></defs>
+  <rect width="64" height="64" rx="8" fill="#0a0a2a"/>
+  <rect x="1" y="1" width="62" height="62" rx="7" fill="none" stroke="#00f0ff" stroke-width="1.5" opacity="0.6"/>
+  <!-- Bell -->
+  <path d="M32 12 C22 12 16 22 16 32 L16 40 L12 44 L12 48 L52 48 L52 44 L48 40 L48 32 C48 22 42 12 32 12 Z" fill="none" stroke="#00f0ff" stroke-width="2" filter="url(#ig3)"/>
+  <circle cx="32" cy="54" r="4" fill="#ff0080"/>
+  <!-- Sound waves -->
+  <path d="M8 28 Q4 32 8 36" stroke="#ff0080" stroke-width="2" fill="none"/>
+  <path d="M56 28 Q60 32 56 36" stroke="#ff0080" stroke-width="2" fill="none"/>
+</svg>
