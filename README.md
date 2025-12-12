@@ -355,14 +355,7 @@ Security-System/
 
 <br>
 
-*Replace with your YouTube video embed or GIF demonstration*
 
-```html
-<!-- Example YouTube embed -->
-<a href="https://youtube.com/watch?v=YOUR_VIDEO_ID">
-  <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" width="600"/>
-</a>
-```
 
 </div>
 
@@ -382,8 +375,6 @@ Security-System/
 
 <br>
 
-<a href="https://github.com/Binivert"><img src="https://img.shields.io/badge/GitHub-Binivert-00f0ff?style=for-the-badge&logo=github&logoColor=white" height="30"/></a>
-&nbsp;&nbsp;
-<a href="https://linkedin.com/in/bintrion"><img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="30"/></a>
+
 
 </div>
