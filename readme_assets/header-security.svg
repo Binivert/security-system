@@ -1,0 +1,112 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Cyberpunk gradient -->
+    <linearGradient id="cyberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0080ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004080;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Scan line animation -->
+    <linearGradient id="scanLine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#00f0ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00f0ff;stop-opacity:0" />
+    </linearGradient>
+    
+    <!-- Glitch effect -->
+    <filter id="glitch">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="turbulence"/>
+      <feColorMatrix in="turbulence" type="saturate" values="0" result="colormatrix"/>
+      <feComposite in="colormatrix" in2="SourceGraphic" operator="multiply" result="composite"/>
+    </filter>
+  </defs>
+  
+  <!-- Background grid -->
+  <rect width="800" height="200" fill="#050510"/>
+  
+  <!-- Grid lines -->
+  <g opacity="0.3">
+    <path d="M0 50 L800 50" stroke="#0ff" stroke-width="0.5"/>
+    <path d="M0 100 L800 100" stroke="#0ff" stroke-width="0.5"/>
+    <path d="M0 150 L800 150" stroke="#0ff" stroke-width="0.5"/>
+    <path d="M200 0 L200 200" stroke="#0ff" stroke-width="0.5"/>
+    <path d="M400 0 L400 200" stroke="#0ff" stroke-width="0.5"/>
+    <path d="M600 0 L600 200" stroke="#0ff" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Animated scan lines -->
+  <rect width="800" height="4" fill="url(#scanLine)" opacity="0.7">
+    <animateTransform attributeName="transform" type="translate" values="0,-200;0,200" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Security shield icon -->
+  <g transform="translate(400,100)" filter="url(#glow)">
+    <!-- Outer shield -->
+    <path d="M-60,-40 L60,-40 L70,-20 L70,20 L60,40 L0,50 L-60,40 L-70,20 L-70,-20 Z" 
+          fill="none" stroke="url(#cyberGrad)" stroke-width="3" stroke-linejoin="round"/>
+    
+    <!-- Inner circuits -->
+    <path d="M-40,-20 L40,-20 L45,-10 L45,10 L40,20 L0,25 L-40,20 L-45,10 L-45,-10 Z" 
+          fill="none" stroke="#0ff" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Center cross -->
+    <path d="M-20,0 L20,0 M0,-20 L0,20" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Circuit nodes -->
+    <circle cx="-30" cy="-10" r="3" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="30" cy="-10" r="3" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="-30" cy="10" r="3" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="30" cy="10" r="3" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="5" fill="#00f0ff" filter="url(#glow)"/>
+  </g>
+  
+  <!-- Title text -->
+  <text x="400" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+        fill="url(#cyberGrad)" filter="url(#glow)" opacity="0.9">
+    SECURITY SYSTEM
+  </text>
+  
+  <!-- Glitch bars -->
+  <rect x="100" y="80" width="200" height="3" fill="#0ff" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0;0.6" dur="0.5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="500" y="115" width="150" height="2" fill="#00f0ff" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0;0.7" dur="0.3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Binary code background -->
+  <text x="50" y="30" font-family="monospace" font-size="10" fill="#0ff" opacity="0.2">
+    10101010 11001100 01010101 00110011
+  </text>
+  <text x="600" y="170" font-family="monospace" font-size="10" fill="#00f0ff" opacity="0.2">
+    11001100 10101010 00110011 01010101
+  </text>
+  
+  <!-- Side decorations -->
+  <g opacity="0.8">
+    <path d="M50,60 L80,60 L85,65 L80,70 L50,70 L45,65 Z" fill="none" stroke="#0ff" stroke-width="2"/>
+    <path d="M750,60 L720,60 L715,65 L720,70 L750,70 L755,65 Z" fill="none" stroke="#0ff" stroke-width="2"/>
+    <path d="M50,130 L80,130 L85,125 L80,120 L50,120 L45,125 Z" fill="none" stroke="#00f0ff" stroke-width="2"/>
+    <path d="M750,130 L720,130 L715,125 L720,120 L750,120 L755,125 Z" fill="none" stroke="#00f0ff" stroke-width="2"/>
+  </g>
+  
+  <!-- Bottom tech lines -->
+  <g opacity="0.6">
+    <path d="M150,180 L250,180" stroke="#0ff" stroke-width="2"/>
+    <path d="M550,180 L650,180" stroke="#0ff" stroke-width="2"/>
+    <circle cx="150" cy="180" r="4" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="250" cy="180" r="4" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="550" cy="180" r="4" fill="#0ff" filter="url(#glow)"/>
+    <circle cx="650" cy="180" r="4" fill="#0ff" filter="url(#glow)"/>
+  </g>
+</svg>
