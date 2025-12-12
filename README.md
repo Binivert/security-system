@@ -1,586 +1,341 @@
-# <div align='center'>
-
-<img src='./readme_assets/header-security-system.svg' width='100%' alt='Neon Sentinel security system banner' />
-
-<br/>
-
-<b>NEON SENTINEL</b> · Computer‑Vision Security System<br/>
-<sub>YOLOv8 · MediaPipe Pose · Face Recognition · Multi‑Zone Breach Detection · Telegram Control</sub>
-
-<br/>
-
-<img src='https://img.shields.io/badge/Python-3.10%2B-0b1120?style=for-the-badge&logo=python&logoColor=00f0ff' alt='Python 3.10+' />
-<img src='https://img.shields.io/badge/OpenCV-4.x-0b1120?style=for-the-badge&logo=opencv&logoColor=00f0ff' alt='OpenCV' />
-<img src='https://img.shields.io/badge/PyQt6-Desktop_UI-0b1120?style=for-the-badge&logo=qt&logoColor=00f0ff' alt='PyQt6' />
-<img src='https://img.shields.io/badge/YOLOv8-People_Detection-0b1120?style=for-the-badge&logo=ultralytics&logoColor=00f0ff' alt='YOLOv8' />
-<img src='https://img.shields.io/badge/MediaPipe-Pose-0b1120?style=for-the-badge&logo=google&logoColor=00f0ff' alt='MediaPipe Pose' />
-
+<div align="center">
+  <img src="readme_assets/header-cyber-grid.svg" width="100%" alt="Nebula Sentinel HUD">
+  <h1>NEBULA SENTINEL // QUANTUM SECURITY CORE</h1>
+  <p>Immersive cyber-defense dashboard with adaptive AI, holographic analytics, and multi-vector breach intelligence.</p>
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.10+-00f0ff?style=for-the-badge&logo=python&logoColor=00f0ff&labelColor=050b18" alt="Python Badge"/>
+    <img src="https://img.shields.io/badge/OpenCV-4.8+-00f0ff?style=for-the-badge&logo=opencv&logoColor=00f0ff&labelColor=050b18" alt="OpenCV Badge"/>
+    <img src="https://img.shields.io/badge/MediaPipe-Pose-ff4dff?style=for-the-badge&logo=google&logoColor=ff4dff&labelColor=050b18" alt="MediaPipe Badge"/>
+    <img src="https://img.shields.io/badge/YOLOv8-Realtime-16b5ff?style=for-the-badge&logo=yolo&logoColor=16b5ff&labelColor=050b18" alt="YOLO Badge"/>
+    <img src="https://img.shields.io/badge/Telegram-Control-64ffd5?style=for-the-badge&logo=telegram&logoColor=64ffd5&labelColor=050b18" alt="Telegram Badge"/>
+    <img src="https://img.shields.io/badge/License-AGPL--3.0-ff4dff?style=for-the-badge&labelColor=050b18" alt="License Badge"/>
+  </p>
 </div>
 
-<br/>
+<img src="readme_assets/divider-plasma.svg" width="100%" alt="Divider"/>
 
-<div align='center'>
-  <img src='./readme_assets/divider-glitch.svg' width='100%' alt='cyber divider' />
+<div align="center">
+  <img src="readme_assets/section-overview.svg" width="80%" alt="Overview Header"/>
 </div>
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-overview.svg' width='80%' alt='Overview' />
-</div>
-
-## Overview
-
-**Neon Sentinel** is a desktop security system that turns a standard webcam into a **vision‑driven intrusion detection console**.
-It combines:
-
-- **YOLOv8 person detection** for robust human detection
-- **MediaPipe pose skeletons** for partial‑body and foot‑position awareness
-- **Multi‑zone 3D breach logic** with animated holographic zones
-- **Face recognition** for trusted users
-- **Motion heat maps** to visualize movement over time
-- **Telegram bot control panel** for remote arming, snapshots, logs, and stats
-- **Neon PyQt6 GUI** styled as a futuristic security operations dashboard
-
-> All processing runs locally. No telemetry is sent anywhere except explicitly via your configured Telegram bot.
-
-<br/>
 
 <table>
-  <tr>
-    <td align='center' width='50%'>
-      <img src='./readme_assets/panel-system-status.svg' width='100%' alt='System status panel' />
-    </td>
-    <td width='50%' valign='top'>
-
-### Core Capabilities
-
-- Real‑time **multi‑zone breach detection** with animated holographic grids
-- **Partial skeleton detection** (hands, feet, torso) to reduce false negatives
-- **Trusted face whitelist** with automatic database building
-- **Motion heat map** overlay with temporal decay
-- **Continuous alarm** with mute, TTS alerts, and auto‑recording
-- **Camera or video file** input with transport controls
-- **SQLite analytics** for events and daily stats
-
-    </td>
-  </tr>
+<tr>
+<td width="65%">
+  <img src="readme_assets/panel-glassmorph.svg" width="100%" alt="Glass Panel"/>
+  <h3>Mission Console</h3>
+  <p><strong>Nebula Sentinel</strong> is a production-ready security system that feels like a live cyberpunk control room. Combining YOLOv8 detection, MediaPipe skeleton intelligence, and trusted-face recognition, it orchestrates multi-zone defense, Telegram command surfaces, and PyQt6 glassmorphic UI panels.</p>
+  <ul>
+    <li>Real-time holographic zone rendering with animated scans and breach beacons.</li>
+    <li>Adaptive sensitivity curves for YOLO, skeleton, and motion engines.</li>
+    <li>Glitch-enhanced HUD dividers and neon beams for instant visual parsing.</li>
+  </ul>
+</td>
+<td width="35%" valign="top">
+  <img src="readme_assets/layout-one-column.svg" width="100%" alt="Layout"/>
+  <ul>
+    <li><strong>Core Input</strong>: Live camera or forensic video playback</li>
+    <li><strong>Processing</strong>: YOLOv8 + MediaPipe + heat-map fusion</li>
+    <li><strong>Orchestration</strong>: Telegram bot, TTS, continuous alarm</li>
+    <li><strong>Storage</strong>: Structured alerts, recordings, database stats</li>
+  </ul>
+</td>
+</tr>
 </table>
 
-<br/>
+<img src="readme_assets/divider-glitch-animated.svg" width="100%" alt="Glitch Divider"/>
 
-<div align='center'>
-  <img src='./readme_assets/header-features.svg' width='80%' alt='Full Feature List' />
+<div align="center">
+  <img src="readme_assets/section-features.svg" width="70%" alt="Features"/>
+  <img src="readme_assets/layout-two-column.svg" width="55%" alt="Two Column Layout"/>
 </div>
 
-## Full Feature List
+<table width="100%">
+<tr>
+<td align="center">
+  <img src="readme_assets/icon-detection.svg" width="90" alt="Detection Icon"/>
+  <h3>Adaptive Detection Grid</h3>
+  <p>YOLOv8 + MediaPipe pipeline with skeleton enrichment, partial limb tracking, and breach-aware foot locking.</p>
+</td>
+<td align="center">
+  <img src="readme_assets/icon-face.svg" width="90" alt="Face Icon"/>
+  <h3>Trusted Persona Cortex</h3>
+  <p>Auto-ingests faces, applies tolerance-tuned recognition, issues greetings, and suppresses false alarms.</p>
+</td>
+<td align="center">
+  <img src="readme_assets/icon-zone.svg" width="90" alt="Zone Icon"/>
+  <h3>Holographic Zones</h3>
+  <p>3D grids, animated scans, breach walls, and glitch pulses for every monitored perimeter.</p>
+</td>
+</tr>
+<tr>
+<td align="center">
+  <img src="readme_assets/icon-motion.svg" width="90" alt="Motion Icon"/>
+  <h3>Thermal Motion Heatmaps</h3>
+  <p>Decaying heat signatures layered over live feeds for instant anomaly tracing.</p>
+</td>
+<td align="center">
+  <img src="readme_assets/icon-telegram.svg" width="90" alt="Telegram Icon"/>
+  <h3>Command Mesh</h3>
+  <p>Telegram inline keyboards, quick states, remote arming, and snapshot streaming.</p>
+</td>
+<td align="center">
+  <img src="readme_assets/icon-recording.svg" width="90" alt="Recording Icon"/>
+  <h3>Smart Capture Stack</h3>
+  <p>Manual/auto recordings, precise snapshots, and AGPL-compliant audit logging.</p>
+</td>
+</tr>
+</table>
+
+### Full Capability Matrix
+
+- 🌌 **Glassmorphic PyQt6 UI** with neon edges, parallax gradients, and animated status bars.
+- 🧠 **Multi-Threaded Detection Core** separating acquisition, inference, and motion analysis for low latency.
+- 🔐 **Sensitivity Profiles** for low/medium/high contexts, automatically tuning YOLO, skeleton, and motion thresholds.
+- 🔄 **Instant Face Reload** without reboot—auto-process, sanitize, and migrate to the fixed image vault.
+- 📟 **Cyber-Terminal Panels** for installation logs, usage quick-start, and GitHub widget framing.
+
+<img src="readme_assets/divider-plasma.svg" width="100%" alt="Divider"/>
+
+<div align="center">
+  <img src="readme_assets/section-how.svg" width="70%" alt="How it Works"/>
+</div>
 
 <table>
-  <tr>
-    <td align='center' width='33%'>
-      <img src='./readme_assets/icon-yolo.svg' width='72' alt='YOLO icon' />
-      <br/>
-      <b>Vision Engine</b>
-    </td>
-    <td align='center' width='33%'>
-      <img src='./readme_assets/icon-zones.svg' width='72' alt='Zones icon' />
-      <br/>
-      <b>Zone Intelligence</b>
-    </td>
-    <td align='center' width='33%'>
-      <img src='./readme_assets/icon-telegram.svg' width='72' alt='Telegram icon' />
-      <br/>
-      <b>Remote Control</b>
-    </td>
-  </tr>
-  <tr>
-    <td valign='top'>
-
-- YOLOv8 person detection
-- Configurable sensitivity (Low / Medium / High)
-- MediaPipe pose skeletons
-- Partial body detection (hands, feet, torso, arms, legs)
-- Per‑frame heat‑map motion detection
-
-    </td>
-    <td valign='top'>
-
-- Multiple named detection zones
-- 3D‑style zone walls and scan lines
-- Auto‑detect floor corners
-- Zone optimization via convex hull
-- Per‑zone breach visualization and labels
-
-    </td>
-    <td valign='top'>
-
-- Telegram inline keyboard control
-- Arm / disarm, record / stop, mute / unmute
-- Live snapshots with photo delivery
-- Status, stats, and recent event logs
-- Remote sensitivity & night‑mode toggling
-
-    </td>
-  </tr>
+<tr>
+<td width="55%">
+  <img src="readme_assets/flow-sequence.svg" width="100%" alt="Flow Sequence"/>
+  <h4>Operational Lattice</h4>
+  <ol>
+    <li><strong>Capture</strong> — Camera/video streams normalized to 1280×720 with real-time HDR tuning.</li>
+    <li><strong>Detection</strong> — YOLOv8 draws bboxes, MediaPipe enriches with skeleton landmarks, partial limbs, and foot centers.</li>
+    <li><strong>Zone Intelligence</strong> — Multi-zone manager validates bboxes, skeleton points, partial body regions, and motion heatmaps.</li>
+    <li><strong>Decision Engine</strong> — Alerts triggered only on verified breaches, respecting trusted-face overrides and motion context.</li>
+    <li><strong>Comms</strong> — Telegram bot, TTS, alarms, recordings, and SQLite logs synchronize the response.</li>
+  </ol>
+</td>
+<td width="45%">
+  <img src="readme_assets/flow-animated.svg" width="100%" alt="Animated Flow"/>
+  <h4>Breach Logic Highlights</h4>
+  <ul>
+    <li>Bounding box corners OR skeleton points inside a zone.</li>
+    <li>Partial limbs (hands/feet/torso) intersect custom perimeters.</li>
+    <li>Motion heatmaps overlapping active persons inside a zone.</li>
+    <li>Trusted face detected ⇒ auto-suppress breach alarms.</li>
+  </ul>
+</td>
+</tr>
 </table>
 
-<br/>
+<img src="readme_assets/arrows-animated.svg" width="100%" alt="Animated Arrows"/>
 
-<table>
-  <tr>
-    <td align='center' width='33%'>
-      <img src='./readme_assets/icon-face-recognition.svg' width='72' alt='Face icon' />
-      <br/>
-      <b>Identity Layer</b>
-    </td>
-    <td align='center' width='33%'>
-      <img src='./readme_assets/icon-motion.svg' width='72' alt='Motion icon' />
-      <br/>
-      <b>Alerting Layer</b>
-    </td>
-    <td align='center' width='33%'>
-      <img src='./readme_assets/frame-neon.svg' width='120' alt='Layout frame' />
-      <br/>
-      <b>UI & Analytics</b>
-    </td>
-  </tr>
-  <tr>
-    <td valign='top'>
-
-- Face recognition via `face_recognition`
-- Auto‑processing of new faces from `trusted_faces/`
-- Persistent encoded faces in `fixed_images/`
-- Trusted faces can suppress alarms
-- Spoken greetings via TTS
-
-    </td>
-    <td valign='top'>
-
-- Continuous alarm with configurable frequency
-- Auto‑recording when breach is detected
-- Snapshot capture on every alert
-- Telegram alerts with embedded snapshots
-- Daily stats (detections, breaches, alerts)
-
-    </td>
-    <td valign='top'>
-
-- Neon PyQt6 desktop UI
-- Camera and video‑file modes
-- Night‑vision and heat‑map overlays
-- Zone editor with drawing tools
-- Status, breach, and face database panels
-
-    </td>
-  </tr>
-</table>
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/divider-glitch.svg' width='100%' alt='divider' />
+<div align="center">
+  <img src="readme_assets/section-installation.svg" width="70%" alt="Installation"/>
 </div>
 
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-architecture.svg' width='80%' alt='How the system works' />
-</div>
-
-## How the System Works
-
-<div align='center'>
-  <img src='./readme_assets/flow-security-pipeline.svg' width='100%' alt='Security pipeline flow diagram' />
-</div>
-
-### Processing Pipeline
-
-1. **Capture Layer**
-   - `CameraThread` pulls frames from a webcam
-   - `VideoThread` can replay recorded files for analysis
-
-2. **Detection Layer**
-   - `PersonDetector` (YOLOv8 + MediaPipe Pose)
-     - Robust **person bounding boxes**
-     - **Skeleton landmarks** for fine‑grained contact points
-     - **Partial body detection** when the full body is not visible
-   - `MotionDetector`
-     - Frame differencing and adaptive thresholding
-     - Persistent **heat map** of motion with temporal decay
-
-3. **Zone Intelligence**
-   - `MultiZoneManager` manages multiple `DetectionZone3D` objects
-   - Each zone renders:
-     - Neon polygon outline and animated grid
-     - 3D‑style walls, scan beam, and label
-   - Breach detection checks:
-     - Person box corners and feet
-     - Skeleton landmarks
-     - Partial body boxes
-     - Motion regions intersecting zones
-
-4. **Identity & Policy Layer**
-   - `FaceRecognitionEngine`
-     - Builds a local face encoding database from `fixed_images/`
-     - Auto‑promotes valid images from `trusted_faces/`
-   - Trusted faces:
-     - Can suppress alarms
-     - Receive TTS greetings and tags in the UI
-
-5. **Alerting & Control Layer**
-   - `TelegramBot` exposes a **control panel**:
-     - Arm / Disarm, Record, Snapshot, Mute, Stats, Logs
-   - `ContinuousAlarm` handles continuous beeping with mute support
-   - `TTSEngine` issues spoken messages for events
-   - `DatabaseManager` logs events and aggregates daily stats
-
-6. **Presentation Layer**
-   - `SecuritySystemWindow` (PyQt6):
-     - Neon video viewport with overlays
-     - Interactive zone drawing
-     - Status bar, stats widgets, and controls
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-installation.svg' width='80%' alt='Installation' />
-</div>
-
-## Installation Guide
-
-> Recommended: **Python 3.10+** with a virtual environment.
-
-### 1. Clone the repository
+<img src="readme_assets/panel-terminal.svg" width="100%" alt="Terminal Panel"/>
 
 ```bash
-git clone https://github.com/Binivert/Security-System.git
-cd Security-System
-```
+# 1. Clone
+git clone https://github.com/your-user/security-system.git
+cd security-system
 
-### 2. Create and activate a virtual environment (recommended)
+# 2. (Recommended) Virtual Environment
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 
-```bash
-python -m venv .venv
-
-# Windows
-.venv\\Scripts\\activate
-
-# Linux / macOS
-source .venv/bin/activate
-```
-
-### 3. Install dependencies
-
-```bash
-pip install --upgrade pip
+# 3. Dependencies
 pip install -r requirements.txt
+pip install ultralytics              # downloads YOLO weights on demand
 
-# Additional heavy dependencies (if not already installed)
-pip install ultralytics mediapipe face-recognition dlib
-```
+# 4. Configure Secrets
+# edit config.py with Telegram token/chat ID and optional thresholds
 
-> The first YOLOv8 run will download the `yolov8n.pt` weights automatically.
-
-### 4. Configure Telegram (optional but recommended)
-
-1. Create a bot via **@BotFather** and get a **bot token**.
-2. Get your **chat ID** (e.g. by messaging @userinfobot).
-3. Edit `config.py` and set:
-
-```python
-TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'
-TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID_HERE'
-```
-
-Keep these values **secret**; do not commit real tokens to a public repository.
-
-### 5. Run the application
-
-```bash
+# 5. Launch
 python main.py
 ```
 
-The PyQt6 dashboard will open, connect to your default camera, and start processing.
+**Prerequisites**
+- Python 3.10+ (strict)
+- Webcam or recorded surveillance feed
+- Discrete GPU preferred for YOLOv8 acceleration (CPU supported with lower FPS)
+- Telegram bot token + chat ID if remote control is desired
 
-<br/>
+<img src="readme_assets/divider-glitch-animated.svg" width="100%" alt="Glitch Divider"/>
 
-<div align='center'>
-  <img src='./readme_assets/header-usage.svg' width='80%' alt='Usage guide' />
+<div align="center">
+  <img src="readme_assets/section-usage.svg" width="70%" alt="Usage"/>
+  <img src="readme_assets/layout-mixed.svg" width="65%" alt="Mixed Layout"/>
 </div>
 
-## Usage Guide
+<table>
+<tr>
+<td width="50%" valign="top">
+  <h4>🎯 Zone Configuration</h4>
+  <ol>
+    <li>Click <strong>➕ New</strong> then <strong>✏️ Draw</strong>.</li>
+    <li>Plot minimum of three points directly on the live feed.</li>
+    <li>Use <strong>🔧 Optimize</strong> to convexify and smooth edges.</li>
+    <li>Glitch beams visualize active perimeters; animated scans confirm coverage.</li>
+  </ol>
+  <h4>👤 Trusted-Face Sync</h4>
+  <ol>
+    <li>Drop curated faces into <code>trusted_faces/</code>.</li>
+    <li>Hit <strong>🔄 Reload Faces</strong> or wait for auto-scan.</li>
+    <li>System validates, copies into <code>fixed_images/</code>, and broadcasts ready-state.</li>
+  </ol>
+</td>
+<td width="50%" valign="top">
+  <h4>⌨️ Power Shortcuts</h4>
+  <table>
+    <tr><td><code>A</code></td><td>Arm / Disarm</td></tr>
+    <tr><td><code>R</code></td><td>Start / Stop recording</td></tr>
+    <tr><td><code>Space</code></td><td>Snapshot capture</td></tr>
+    <tr><td><code>F11</code></td><td>Toggle fullscreen HUD</td></tr>
+  </table>
+  <h4>📲 Telegram Commands</h4>
+  <table>
+    <tr><td><code>/menu</code></td><td>Inline control deck</td></tr>
+    <tr><td><code>/arm</code> / <code>/disarm</code></td><td>Security state</td></tr>
+    <tr><td><code>/snap</code></td><td>Remote snapshot</td></tr>
+    <tr><td><code>/record</code></td><td>Toggle recording</td></tr>
+    <tr><td><code>/status</code></td><td>System health pulse</td></tr>
+    <tr><td><code>/reload_faces</code></td><td>Refresh trusted DB</td></tr>
+  </table>
+</td>
+</tr>
+</table>
 
-### 1. Basic Workflow
+<img src="readme_assets/divider-plasma.svg" width="100%" alt="Divider"/>
 
-1. **Start the app** with `python main.py`.
-2. Ensure your camera feed is visible.
-3. Draw one or more **zones** and then **ARM** the system.
-4. Monitor breaches, alerts, snapshots, and logs either on the desktop UI or via Telegram.
-
-### 2. Drawing & Managing Zones
-
-- Click **"➕ New"** to create a new zone.
-- Enable **"✏️ Draw"** and click points on the video widget to define the polygon.
-- Click **"🔧 Optimize"** to auto‑optimize to a convex hull.
-- Use **"🤖 Auto‑Detect"** to detect approximate floor corners.
-- Click **"🗑️ Clear"** to remove all zones.
-
-Zones support animated 3D walls, scan lines, and labels. Any person, skeleton landmark, or partial body crossing a zone triggers a breach when the system is armed.
-
-### 3. Arming, Recording, Snapshots
-
-- **Arm / Disarm**
-  - Press **"🔒 ARM SYSTEM"** to arm.
-  - Press again (**"🔓 DISARM"**) to disarm.
-- **Recording**
-  - Toggle **"⏺ Record"** (records to `recordings/`).
-  - Auto‑recording can be enabled via **"📹 Auto‑Record"**.
-- **Snapshots**
-  - Press **"📸 Snap"** to store a high‑quality frame in `snapshots/`.
-
-### 4. Visual Overlays
-
-- **Night Vision**: boosts brightness and tints frames for low light.
-- **Motion Heat Map**: overlays a decaying heat map of motion intensity.
-- **Status HUD**: shows FPS, detector availability, person count, and source type.
-
-### 5. Telegram Bot Controls
-
-All commands can be issued via the inline keyboard or chat commands:
-
-- `arm` / `disarm`
-- `snap` / `snapshot`
-- `record` / `stoprecord`
-- `mute` / `unmute`
-- `status` – current system status
-- `stats` – daily statistics
-- `log` – recent events
-- `reload_faces` – reload trusted faces
-- `nightmode on|off`
-- `sensitivity low|medium|high`
-
-The bot sends alerts with snapshots when breaches occur, as well as recovery messages when zones are cleared.
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-structure.svg' width='80%' alt='File structure' />
+<div align="center">
+  <img src="readme_assets/section-structure.svg" width="70%" alt="Structure"/>
 </div>
 
-## File Structure
-
-Only **production‑relevant files** required to run `main.py` are listed.
-Experimental / legacy folders are intentionally excluded.
-
-```bash
-Security-System/
-├─ main.py                     # Application entrypoint
-├─ config.py                   # Global configuration (paths, thresholds, Telegram, etc.)
-├─ gui.py                      # PyQt6 neon GUI (SecuritySystemWindow)
-├─ detectors.py                # YOLOv8 + MediaPipe + motion detection engine
-├─ utils.py                    # Detection zones, zone manager, corner detection
-├─ telegram_bot.py             # Telegram bot (inline keyboard + commands)
-├─ audio.py                    # TTS engine and continuous alarm
-├─ database.py                 # SQLite schema + daily stats and event log helpers
-├─ requirements.txt            # Python dependencies for the core system
-├─ README.md                   # This futuristic dashboard README
-└─ readme_assets/              # Cyberpunk SVG assets for the README
-   ├─ header-security-system.svg
-   ├─ divider-glitch.svg
-   ├─ header-overview.svg
-   ├─ header-features.svg
-   ├─ header-architecture.svg
-   ├─ header-installation.svg
-   ├─ header-usage.svg
-   ├─ header-structure.svg
-   ├─ header-required-files.svg
-   ├─ header-demo.svg
-   ├─ header-widgets.svg
-   ├─ header-license.svg
-   ├─ icon-yolo.svg
-   ├─ icon-zones.svg
-   ├─ icon-telegram.svg
-   ├─ icon-face-recognition.svg
-   ├─ icon-motion.svg
-   ├─ flow-security-pipeline.svg
-   ├─ panel-system-status.svg
-   ├─ panel-demo-screenshot.svg
-   ├─ panel-demo-video.svg
-   ├─ layout-1col.svg
-   ├─ layout-2col.svg
-   ├─ layout-mixed.svg
-   ├─ arrow-glow.svg
-   ├─ frame-neon.svg
-   └─ corner-accent.svg
+```
+security-system/
+├── main.py                 # Application entry point (PyQt6 launcher)
+├── gui.py                  # Futuristic UI, threads, zone management
+├── config.py               # Alert types, paths, sensitivity tuning, secrets
+├── detectors.py            # YOLOv8, MediaPipe pose, face recognition, motion
+├── utils.py                # Zone geometry, grid rendering, corner detection
+├── database.py             # SQLite event + stats storage
+├── telegram_bot.py         # Inline keyboard bot + remote commands
+├── audio.py                # Text-to-speech + continuous alarm
+├── requirements.txt        # Production dependency lock
+├── README.md               # This cyber interface
+├── LICENSE                 # AGPL-3.0 terms
+├── .gitignore              # Ensures clean commits
+└── readme_assets/          # All cyberpunk SVGs used in README
 ```
 
-> Runtime folders like `recordings/`, `snapshots/`, `alerts/`, `trusted_faces/`, `fixed_images/`, and the `security.db` database are created automatically at runtime based on `config.Config`.
+Auto-created at runtime (do **not** commit): `recordings/`, `snapshots/`, `alerts/`, `trusted_faces/`, `fixed_images/`, `security.db`, `.aye/`, `__pycache__/`, virtual environments, YOLO weights.
 
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-required-files.svg' width='80%' alt='Required files' />
-</div>
-
-## Required Files to Upload to GitHub
-
-### 1. Source Code
-
-Upload these **Python modules**:
-
-- `main.py`
-- `config.py` (without hard‑coded secrets in public repos)
-- `gui.py`
-- `detectors.py`
-- `utils.py`
-- `telegram_bot.py`
-- `audio.py`
-- `database.py`
-
-### 2. Assets & Configuration
-
-- `requirements.txt`
-- `README.md` (this file)
-- `readme_assets/` (all SVGs used by the README)
-- Optional but recommended:
-  - `.gitignore`
-  - `LICENSE` (AGPL‑3.0)
-  - `.env.example` or configuration template if you externalize secrets
-
-### 3. Documentation
-
-- Any additional Markdown docs, design notes, or architecture diagrams
-  (e.g. `docs/` if you maintain extended docs).
-
-### 4. Explicitly Exclude (Do **not** commit)
-
-- Python virtual environments
-  - `.venv/`, `venv/`, or similar
-- Bytecode and cache directories
-  - `__pycache__/`, `*.pyc`, `*.pyo`
-- IDE or editor metadata
-  - `.idea/`, `.vscode/`, `.DS_Store`, `Thumbs.db`
-- Runtime and generated artifacts
-  - `recordings/`, `snapshots/`, `alerts/`
-  - `trusted_faces/` and `fixed_images/` containing personal images
-  - `security.db` (SQLite database)
-- Temporary or experimental folders you no longer use
-- Any `.aye/` or local tooling folders
-
-This keeps the repo lean, reproducible, and free from personal data.
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-demo.svg' width='80%' alt='Demo' />
-</div>
-
-## Demo Section
-
-> This section is intentionally designed as a **visual placeholder** so you can drop in real screenshots and videos later.
+<img src="readme_assets/section-required.svg" width="70%" alt="Required Files"/>
 
 <table>
-  <tr>
-    <td align='center' width='50%'>
-      <img src='./readme_assets/panel-demo-screenshot.svg' width='100%' alt='Screenshot placeholder' />
-      <br/>
-      <b>Live GUI Screenshot</b>
-      <br/>
-      <sub>Replace this panel with a real screenshot of the neon PyQt dashboard.</sub>
-    </td>
-    <td align='center' width='50%'>
-      <img src='./readme_assets/panel-demo-video.svg' width='100%' alt='Video placeholder' />
-      <br/>
-      <b>Demo Video / GIF</b>
-      <br/>
-      <sub>Embed a short demo video or animated GIF showcasing detection and breaches.</sub>
-    </td>
-  </tr>
+<tr>
+<th align="left">✅ Upload</th>
+<th align="left">❌ Exclude</th>
+</tr>
+<tr>
+<td>
+<ul>
+  <li>Source code: <code>main.py</code>, <code>gui.py</code>, <code>config.py</code>, <code>detectors.py</code>, <code>utils.py</code>, <code>database.py</code>, <code>telegram_bot.py</code>, <code>audio.py</code></li>
+  <li><code>requirements.txt</code>, <code>README.md</code>, <code>LICENSE</code>, <code>.gitignore</code></li>
+  <li><code>readme_assets/</code> (all SVGs below)</li>
+</ul>
+</td>
+<td>
+<ul>
+  <li>Virtual environments (<code>venv/</code>) and cached packages</li>
+  <li>Runtime data: <code>recordings/</code>, <code>snapshots/</code>, <code>alerts/</code>, <code>trusted_faces/</code>, <code>fixed_images/</code>, <code>security.db</code></li>
+  <li>Local checkpoints, YOLO weights (<code>yolov8n.pt</code> auto-downloads)</li>
+  <li>Editor metadata (<code>.aye/</code>, <code>.vscode/</code>, <code>__pycache__/</code>)</li>
+</ul>
+</td>
+</tr>
 </table>
 
-Example embeds (once you have media):
+<img src="readme_assets/divider-glitch-animated.svg" width="100%" alt="Divider"/>
 
-```markdown
-![Neon Sentinel GUI](./docs/images/gui-overview.png)
-
-https://github.com/user/repo/assets/your-demo-video-id
-```
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-widgets.svg' width='80%' alt='GitHub widgets' />
+<div align="center">
+  <img src="readme_assets/section-demo.svg" width="70%" alt="Demo"/>
+  <img src="readme_assets/layout-mixed.svg" width="50%" alt="Layout"/>
 </div>
-
-## GitHub Widgets · Analytics Deck
-
-> These widgets are visually framed by neon SVG dividers to match the project aesthetic.
-
-<div align='center'>
-  <img src='./readme_assets/layout-2col.svg' width='60%' alt='2-column layout accent' />
-</div>
-
-<br/>
-
-<div align='center'>
 
 <table>
-  <tr>
-    <td width='60%'>
-      <img src='./readme_assets/frame-neon.svg' width='100%' alt='Widget frame' />
-      <br/>
-      <img src='https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Binivert&theme=github_dark' width='100%' alt='Profile summary' />
-    </td>
-    <td width='40%'>
-      <img src='./readme_assets/frame-neon.svg' width='100%' alt='Widget frame' />
-      <br/>
-      <img src='https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Binivert&theme=github_dark' width='100%' alt='Stats' />
-      <br/>
-      <img src='https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Binivert&theme=github_dark' width='100%' alt='Top languages' />
-    </td>
-  </tr>
+<tr>
+<td align="center" width="50%">
+  <h3>📸 Screenshots</h3>
+  <p>Embed production shots inside <code>readme_assets/frame-widget.svg</code> for consistent neon framing.</p>
+  <ul>
+    <li><em>Placeholder:</em> <code>screenshots/dashboard.png</code></li>
+    <li><em>Placeholder:</em> <code>screenshots/breach.png</code></li>
+  </ul>
+</td>
+<td align="center" width="50%">
+  <h3>🎬 Demo Video / GIF</h3>
+  <p>Place a looping HUD capture or link to a cinematic walkthrough.</p>
+  <ul>
+    <li><em>Placeholder:</em> <code>demo/security_hud.mp4</code></li>
+    <li>Wrap thumbnails with <code>readme_assets/frame-widget.svg</code>.</li>
+  </ul>
+</td>
+</tr>
 </table>
 
-<br/>
+<img src="readme_assets/divider-plasma.svg" width="100%" alt="Divider"/>
 
-<img src='./readme_assets/divider-glitch.svg' width='100%' alt='divider' />
+<div align="center">
+  <img src="readme_assets/section-widgets.svg" width="70%" alt="Widgets"/>
+  <img src="readme_assets/frame-widget.svg" width="60%" alt="Widget Frame"/>
+</div>
 
-<br/>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=your-user&show_icons=true&bg_color=050b18&title_color=00f0ff&text_color=64ffd5&icon_color=ff4dff&hide_border=true" alt="Stats"/>
+</p>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=your-user&layout=compact&bg_color=050b18&title_color=00f0ff&text_color=64ffd5&hide_border=true" alt="Languages"/>
+</p>
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=your-user&background=050b18&border=050b18&stroke=00f0ff&ring=00f0ff&fire=ff4dff&currStreakLabel=64ffd5" alt="Contribution Streak"/>
+</p>
+
+> Wrap badges, stats, and streak widgets inside the neon frame for a cohesive cyber aesthetic.
+
+<img src="readme_assets/divider-glitch-animated.svg" width="100%" alt="Divider"/>
+
+<div align="center">
+  <img src="readme_assets/section-license.svg" width="70%" alt="License"/>
+</div>
 
 <table>
-  <tr>
-    <td width='100%'>
-      <img src='./readme_assets/layout-1col.svg' width='50%' alt='1-column layout accent' />
-      <br/>
-      <img src='https://github-readme-activity-graph.vercel.app/graph?username=Binivert&bg_color=050816&color=00f0ff&line=00f0ff&point=ff00c3&area=true&area_color=0f172a&hide_border=true&height=320' width='100%' alt='Activity graph' />
-    </td>
-  </tr>
+<tr>
+<td>
+  <img src="readme_assets/panel-glassmorph.svg" width="100%" alt="License Panel"/>
+  <h3>AGPL-3.0 Compliance</h3>
+  <ul>
+    <li>✔ Commercial use, modification, distribution, private use allowed.</li>
+    <li>✔ Source disclosure + network interaction rules preserved.</li>
+    <li>⚠ Derivatives must remain AGPL-3.0 and publish source for hosted services.</li>
+  </ul>
+  <p>See <a href="LICENSE">LICENSE</a> for full legal text.</p>
+</td>
+</tr>
 </table>
 
-</div>
+<img src="readme_assets/divider-plasma.svg" width="100%" alt="Divider"/>
 
-You can freely adjust the `username` and theming parameters to match your profile and desired color palette.
-
-<br/>
-
-<div align='center'>
-  <img src='./readme_assets/header-license.svg' width='80%' alt='License' />
-</div>
-
-## License · AGPL-3.0
-
-This project is licensed under the **GNU Affero General Public License v3.0 (AGPL‑3.0)**.
-
-- You are free to **use, modify, and distribute** this software.
-- If you modify and **run it as a network service**, you must make your source code (including modifications) available to users of that service.
-- Any derivative work that you distribute must remain under **AGPL‑3.0**.
-
-> Add a `LICENSE` file to the repository containing the full AGPL‑3.0 text to make the licensing explicit.
-
----
-
-<div align='center'>
-  <img src='./readme_assets/corner-accent.svg' width='120' alt='neon accent' />
-  <br/>
-  <sub>Neon Sentinel · Vision‑driven security for the cyberpunk era.</sub>
+<div align="center">
+  <img src="readme_assets/footer-neon.svg" width="100%" alt="Footer"/>
+  <p>
+    <img src="readme_assets/decor-glow.svg" width="60%" alt="Decor"/>
+  </p>
+  <p><strong>Built for operators who demand cinematic situational awareness.</strong></p>
+  <p>
+    <a href="https://github.com/your-user">GitHub</a> ·
+    <a href="https://linkedin.com/in/your-handle">LinkedIn</a> ·
+    <a href="https://your-portfolio.com">Portfolio</a>
+  </p>
+  <p>⭐ Star this repository to keep the defense grid fully charged.</p>
 </div>
