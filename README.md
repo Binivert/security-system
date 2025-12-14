@@ -236,13 +236,7 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-**Step 4: Install YOLOv8**
-
-```bash
-pip install ultralytics
-```
-
-**Step 5: Configure Telegram Bot**
+**Step 4: Configure Telegram Bot**
 
 1. Create a bot via [@BotFather](https://t.me/botfather) on Telegram
 2. Copy your bot token
@@ -393,7 +387,7 @@ Security-System/
 
 <br>
 
-
+<iframe src="https://streamable.com/e/7v1xt2" width="60%" height="315" frameborder="0" allowfullscreen></iframe>
 
 <br>
 
