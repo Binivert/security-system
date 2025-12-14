@@ -387,7 +387,9 @@ Security-System/
 
 <br>
 
-<iframe src="https://streamable.com/e/7v1xt2" width="60%" height="315" frameborder="0" allowfullscreen></iframe>
+
+
+[▶ Watch the demo](https://streamable.com/7v1xt2)
 
 <br>
 
