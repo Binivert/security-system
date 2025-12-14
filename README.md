@@ -389,10 +389,7 @@ Security-System/
 
 
 
-<video width="720" controls>
-  <source src="https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
 
 <br>
 
