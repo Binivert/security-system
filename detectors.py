@@ -1,77 +1,90 @@
 #!/usr/bin/env python3
-"""Detection modules - Enhanced with partial skeleton detection for reliable zone breach."""
+"""Detection modules - Professional skeleton, accurate zone detection."""
 
 import cv2
 import numpy as np
-from typing import List, Tuple, Optional, Dict, Any
+from typing import List, Tuple, Optional
 from dataclasses import dataclass, field
 import threading
 from queue import Queue, Empty
-import warnings
-import time
 import shutil
-
-warnings.filterwarnings('ignore')
+import gc
 
 from config import Config, Sensitivity
 
-# Check for YOLO availability
+
+class DownloadManager:
+    """Track model downloads."""
+    _instance = None
+    _lock = threading.Lock()
+    
+    def __new__(cls):
+        if cls._instance is None:
+            with cls._lock:
+                if cls._instance is None:
+                    cls._instance = super().__new__(cls)
+                    cls._instance._downloading = False
+                    cls._instance._model_name = ""
+                    cls._instance._progress = 0
+        return cls._instance
+    
+    def start_download(self, model_name: str):
+        self._downloading = True
+        self._model_name = model_name
+    
+    def end_download(self):
+        self._downloading = False
+        self._model_name = ""
+    
+    def get_status(self) -> Tuple[bool, str, int]:
+        return self._downloading, self._model_name, self._progress
+
+
+download_manager = DownloadManager()
+
+
+YOLO_AVAILABLE = False
 try:
     from ultralytics import YOLO
     YOLO_AVAILABLE = True
 except ImportError:
-    YOLO_AVAILABLE = False
-    print("WARNING: ultralytics not installed. Run: pip install ultralytics")
+    pass
 
-# Face recognition
+FACE_RECOGNITION_AVAILABLE = False
 try:
     import face_recognition
     FACE_RECOGNITION_AVAILABLE = True
 except ImportError:
-    FACE_RECOGNITION_AVAILABLE = False
+    pass
 
-# MediaPipe for skeleton detection
+MEDIAPIPE_AVAILABLE = False
 try:
     import mediapipe as mp
     MEDIAPIPE_AVAILABLE = True
 except ImportError:
-    MEDIAPIPE_AVAILABLE = False
-    print("WARNING: mediapipe not installed. Run: pip install mediapipe")
+    pass
 
 
 @dataclass
 class SkeletonLandmark:
-    """Individual skeleton landmark."""
     x: int
     y: int
     visibility: float
     name: str
 
 
-@dataclass
-class PartialBodyDetection:
-    """Detected body part."""
-    part_type: str  # 'face', 'hand_left', 'hand_right', 'foot_left', 'foot_right', 'torso', 'arm', 'leg'
-    center: Tuple[int, int]
-    bbox: Optional[Tuple[int, int, int, int]] = None  # left, top, right, bottom
-    confidence: float = 0.0
-
-
-@dataclass
+@dataclass 
 class PersonDetection:
-    """Detected person data with skeleton information."""
     center: Tuple[int, int]
     foot_center: Tuple[int, int]
-    bbox: Tuple[int, int, int, int]  # left, top, right, bottom
+    bbox: Tuple[int, int, int, int]
     confidence: float
     skeleton_landmarks: List[SkeletonLandmark] = field(default_factory=list)
-    partial_detections: List[PartialBodyDetection] = field(default_factory=list)
-    has_full_skeleton: bool = False
+    track_id: int = -1
 
 
 @dataclass
 class FaceDetection:
-    """Detected face data."""
     name: str
     confidence: float
     is_trusted: bool
@@ -79,535 +92,321 @@ class FaceDetection:
 
 
 class PersonDetector:
-    """Enhanced person detector with partial skeleton detection."""
+    """Person detector with professional skeleton drawing."""
     
-    # MediaPipe Pose landmark indices
-    POSE_LANDMARKS = {
-        'nose': 0,
-        'left_eye_inner': 1, 'left_eye': 2, 'left_eye_outer': 3,
-        'right_eye_inner': 4, 'right_eye': 5, 'right_eye_outer': 6,
-        'left_ear': 7, 'right_ear': 8,
-        'mouth_left': 9, 'mouth_right': 10,
-        'left_shoulder': 11, 'right_shoulder': 12,
-        'left_elbow': 13, 'right_elbow': 14,
-        'left_wrist': 15, 'right_wrist': 16,
-        'left_pinky': 17, 'right_pinky': 18,
-        'left_index': 19, 'right_index': 20,
-        'left_thumb': 21, 'right_thumb': 22,
-        'left_hip': 23, 'right_hip': 24,
-        'left_knee': 25, 'right_knee': 26,
-        'left_ankle': 27, 'right_ankle': 28,
-        'left_heel': 29, 'right_heel': 30,
-        'left_foot_index': 31, 'right_foot_index': 32
+    # MediaPipe pose landmark indices
+    NOSE = 0
+    LEFT_EYE = 2
+    RIGHT_EYE = 5
+    LEFT_EAR = 7
+    RIGHT_EAR = 8
+    LEFT_SHOULDER = 11
+    RIGHT_SHOULDER = 12
+    LEFT_ELBOW = 13
+    RIGHT_ELBOW = 14
+    LEFT_WRIST = 15
+    RIGHT_WRIST = 16
+    LEFT_HIP = 23
+    RIGHT_HIP = 24
+    LEFT_KNEE = 25
+    RIGHT_KNEE = 26
+    LEFT_ANKLE = 27
+    RIGHT_ANKLE = 28
+    
+    # Professional skeleton connections with colors
+    SKELETON_CONNECTIONS = [
+        # Head (cyan)
+        (NOSE, LEFT_EYE, (0, 255, 255)),
+        (NOSE, RIGHT_EYE, (0, 255, 255)),
+        (LEFT_EYE, LEFT_EAR, (0, 255, 255)),
+        (RIGHT_EYE, RIGHT_EAR, (0, 255, 255)),
+        
+        # Torso (green)
+        (LEFT_SHOULDER, RIGHT_SHOULDER, (0, 255, 0)),
+        (LEFT_SHOULDER, LEFT_HIP, (0, 255, 0)),
+        (RIGHT_SHOULDER, RIGHT_HIP, (0, 255, 0)),
+        (LEFT_HIP, RIGHT_HIP, (0, 255, 0)),
+        
+        # Left arm (yellow)
+        (LEFT_SHOULDER, LEFT_ELBOW, (0, 255, 255)),
+        (LEFT_ELBOW, LEFT_WRIST, (0, 200, 255)),
+        
+        # Right arm (yellow)
+        (RIGHT_SHOULDER, RIGHT_ELBOW, (0, 255, 255)),
+        (RIGHT_ELBOW, RIGHT_WRIST, (0, 200, 255)),
+        
+        # Left leg (magenta)
+        (LEFT_HIP, LEFT_KNEE, (255, 0, 255)),
+        (LEFT_KNEE, LEFT_ANKLE, (255, 100, 255)),
+        
+        # Right leg (magenta)
+        (RIGHT_HIP, RIGHT_KNEE, (255, 0, 255)),
+        (RIGHT_KNEE, RIGHT_ANKLE, (255, 100, 255)),
+    ]
+    
+    # Joint colors by body part
+    JOINT_COLORS = {
+        'head': (0, 255, 255),      # Cyan
+        'torso': (0, 255, 0),       # Green
+        'arm': (0, 200, 255),       # Orange-yellow
+        'leg': (255, 100, 255),     # Pink-magenta
     }
-    
-    # Body part groupings for partial detection
-    FACE_LANDMARKS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    LEFT_HAND_LANDMARKS = [15, 17, 19, 21]
-    RIGHT_HAND_LANDMARKS = [16, 18, 20, 22]
-    LEFT_FOOT_LANDMARKS = [27, 29, 31]
-    RIGHT_FOOT_LANDMARKS = [28, 30, 32]
-    TORSO_LANDMARKS = [11, 12, 23, 24]
-    LEFT_ARM_LANDMARKS = [11, 13, 15]
-    RIGHT_ARM_LANDMARKS = [12, 14, 16]
-    LEFT_LEG_LANDMARKS = [23, 25, 27]
-    RIGHT_LEG_LANDMARKS = [24, 26, 28]
     
     def __init__(self, config: Config):
         self.config = config
         self.model = None
-        self.confidence_threshold = config.YOLO_CONFIDENCE
-        self.skeleton_confidence = config.SKELETON_CONFIDENCE
+        self.model_name = 'yolov8n.pt'
+        self.confidence = config.YOLO_CONFIDENCE
         self._lock = threading.Lock()
+        self._loaded = False
         
-        # Initialize YOLO
-        if YOLO_AVAILABLE:
-            try:
-                self.model = YOLO('yolov8n.pt')
-                print("YOLOv8 model loaded successfully")
-            except Exception as e:
-                print(f"Failed to load YOLO model: {e}")
-                self.model = None
-        
-        # Initialize MediaPipe Pose for skeleton detection
+        # MediaPipe pose for skeleton
         self.pose = None
         self.mp_pose = None
-        self.mp_draw = None
         if MEDIAPIPE_AVAILABLE:
             self.mp_pose = mp.solutions.pose
-            self.mp_draw = mp.solutions.drawing_utils
-            self.mp_drawing_styles = mp.solutions.drawing_styles
-            self.pose = self.mp_pose.Pose(
-                static_image_mode=False,
-                model_complexity=1,  # Use medium complexity for better detection
-                smooth_landmarks=True,
-                enable_segmentation=False,
-                min_detection_confidence=0.3,
-                min_tracking_confidence=0.3
-            )
-    
-    def set_sensitivity(self, sensitivity: Sensitivity):
-        """Update detection sensitivity."""
-        settings = self.config.get_sensitivity_settings(sensitivity)
-        self.confidence_threshold = settings.get('yolo_confidence', 0.4)
-        self.skeleton_confidence = settings.get('skeleton_confidence', 0.5)
         
-        # Update MediaPipe confidence if available
-        if MEDIAPIPE_AVAILABLE and self.pose:
+        if YOLO_AVAILABLE:
+            self._load_model()
+    
+    def _load_model(self):
+        try:
+            download_manager.start_download(self.model_name)
+            print(f"[Detector] Loading {self.model_name}...")
+            self.model = YOLO(self.model_name)
+            self._loaded = True
+            print(f"[Detector] Loaded")
+        except Exception as e:
+            print(f"[Detector] Error: {e}")
+        finally:
+            download_manager.end_download()
+    
+    def _init_pose(self):
+        """Lazy init MediaPipe pose."""
+        if self.pose is None and MEDIAPIPE_AVAILABLE and self.mp_pose:
             self.pose = self.mp_pose.Pose(
                 static_image_mode=False,
                 model_complexity=1,
                 smooth_landmarks=True,
                 enable_segmentation=False,
-                min_detection_confidence=self.skeleton_confidence,
-                min_tracking_confidence=self.skeleton_confidence
+                min_detection_confidence=0.5,
+                min_tracking_confidence=0.5
             )
-        
-        print(f"Detection sensitivity: yolo={self.confidence_threshold}, skeleton={self.skeleton_confidence}")
     
-    def detect(self, frame: np.ndarray) -> Tuple[List[PersonDetection], np.ndarray]:
-        """Detect people using YOLO + MediaPipe skeleton detection."""
-        if frame is None or frame.size == 0:
-            return [], frame
-        
-        h, w = frame.shape[:2]
-        persons = []
-        
-        # First, run skeleton detection on full frame for partial body detection
-        skeleton_detections = self._detect_skeletons(frame)
-        
-        # Then run YOLO for person bounding boxes
-        yolo_persons = self._detect_yolo(frame)
-        
-        # Merge YOLO detections with skeleton data
-        persons = self._merge_detections(yolo_persons, skeleton_detections, w, h)
-        
-        # If no YOLO detection but skeleton found, create person from skeleton
-        if not yolo_persons and skeleton_detections:
-            for skel in skeleton_detections:
-                person = self._create_person_from_skeleton(skel, w, h)
-                if person:
-                    persons.append(person)
-        
-        # Draw detections on frame
-        frame = self._draw_detections(frame, persons)
-        
-        return persons, frame
-    
-    def _detect_yolo(self, frame: np.ndarray) -> List[Dict]:
-        """Run YOLO person detection."""
-        if self.model is None:
-            return []
-        
-        yolo_persons = []
-        try:
-            with self._lock:
-                results = self.model(
-                    frame,
-                    conf=self.confidence_threshold,
-                    classes=[0],  # Person class
-                    verbose=False
-                )
-            
-            for result in results:
-                boxes = result.boxes
-                if boxes is None:
-                    continue
-                
-                for box in boxes:
-                    x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
-                    conf = float(box.conf[0])
-                    cls = int(box.cls[0])
-                    
-                    if cls == 0:  # Person
-                        yolo_persons.append({
-                            'bbox': (int(x1), int(y1), int(x2), int(y2)),
-                            'confidence': conf
-                        })
-        except Exception as e:
-            pass
-        
-        return yolo_persons
-    
-    def _detect_skeletons(self, frame: np.ndarray) -> List[Dict]:
-        """Detect skeletons using MediaPipe Pose."""
-        if self.pose is None:
-            return []
-        
-        skeletons = []
-        try:
-            rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            results = self.pose.process(rgb)
-            
-            if results.pose_landmarks:
-                h, w = frame.shape[:2]
-                landmarks = []
-                
-                for idx, lm in enumerate(results.pose_landmarks.landmark):
-                    px = int(lm.x * w)
-                    py = int(lm.y * h)
-                    visibility = lm.visibility
-                    
-                    # Get landmark name
-                    name = list(self.POSE_LANDMARKS.keys())[idx] if idx < len(self.POSE_LANDMARKS) else f"point_{idx}"
-                    
-                    landmarks.append({
-                        'idx': idx,
-                        'x': px,
-                        'y': py,
-                        'visibility': visibility,
-                        'name': name
-                    })
-                
-                skeletons.append({
-                    'landmarks': landmarks,
-                    'raw_results': results
-                })
-        except Exception as e:
-            pass
-        
-        return skeletons
-    
-    def _merge_detections(self, yolo_persons: List[Dict], skeletons: List[Dict], w: int, h: int) -> List[PersonDetection]:
-        """Merge YOLO and skeleton detections."""
-        persons = []
-        
-        for yolo in yolo_persons:
-            x1, y1, x2, y2 = yolo['bbox']
-            cx = (x1 + x2) // 2
-            cy = (y1 + y2) // 2
-            foot_y = y2
-            
-            person = PersonDetection(
-                center=(cx, cy),
-                foot_center=(cx, foot_y),
-                bbox=yolo['bbox'],
-                confidence=yolo['confidence'],
-                skeleton_landmarks=[],
-                partial_detections=[],
-                has_full_skeleton=False
-            )
-            
-            # Try to match with skeleton
-            best_skeleton = None
-            best_overlap = 0
-            
-            for skel in skeletons:
-                overlap = self._calculate_skeleton_overlap(yolo['bbox'], skel['landmarks'])
-                if overlap > best_overlap:
-                    best_overlap = overlap
-                    best_skeleton = skel
-            
-            if best_skeleton and best_overlap > 0.3:
-                person = self._enrich_with_skeleton(person, best_skeleton, w, h)
-            
-            persons.append(person)
-        
-        return persons
-    
-    def _calculate_skeleton_overlap(self, bbox: Tuple, landmarks: List[Dict]) -> float:
-        """Calculate how much of skeleton is inside bbox."""
-        x1, y1, x2, y2 = bbox
-        inside = 0
-        visible = 0
-        
-        for lm in landmarks:
-            if lm['visibility'] > 0.3:
-                visible += 1
-                if x1 <= lm['x'] <= x2 and y1 <= lm['y'] <= y2:
-                    inside += 1
-        
-        return inside / visible if visible > 0 else 0
-    
-    def _enrich_with_skeleton(self, person: PersonDetection, skeleton: Dict, w: int, h: int) -> PersonDetection:
-        """Add skeleton data to person detection."""
-        landmarks = skeleton['landmarks']
-        
-        # Convert to SkeletonLandmark objects
-        for lm in landmarks:
-            person.skeleton_landmarks.append(SkeletonLandmark(
-                x=lm['x'],
-                y=lm['y'],
-                visibility=lm['visibility'],
-                name=lm['name']
-            ))
-        
-        # Detect partial body parts
-        person.partial_detections = self._detect_partial_bodies(landmarks, w, h)
-        
-        # Check if full skeleton is visible
-        visible_count = sum(1 for lm in landmarks if lm['visibility'] > self.skeleton_confidence)
-        person.has_full_skeleton = visible_count >= 20
-        
-        # Update foot center with actual foot position if available
-        foot_landmarks = [lm for lm in landmarks if lm['idx'] in self.LEFT_FOOT_LANDMARKS + self.RIGHT_FOOT_LANDMARKS]
-        visible_feet = [lm for lm in foot_landmarks if lm['visibility'] > 0.3]
-        if visible_feet:
-            foot_x = sum(lm['x'] for lm in visible_feet) // len(visible_feet)
-            foot_y = max(lm['y'] for lm in visible_feet)
-            person.foot_center = (foot_x, foot_y)
-        
-        return person
-    
-    def _detect_partial_bodies(self, landmarks: List[Dict], w: int, h: int) -> List[PartialBodyDetection]:
-        """Detect visible partial body parts."""
-        partials = []
-        
-        # Check face
-        face_lms = [lm for lm in landmarks if lm['idx'] in self.FACE_LANDMARKS and lm['visibility'] > 0.3]
-        if len(face_lms) >= 3:
-            xs = [lm['x'] for lm in face_lms]
-            ys = [lm['y'] for lm in face_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='face',
-                center=(cx, cy),
-                bbox=(min(xs) - 20, min(ys) - 20, max(xs) + 20, max(ys) + 20),
-                confidence=sum(lm['visibility'] for lm in face_lms) / len(face_lms)
-            ))
-        
-        # Check left hand
-        left_hand_lms = [lm for lm in landmarks if lm['idx'] in self.LEFT_HAND_LANDMARKS and lm['visibility'] > 0.3]
-        if len(left_hand_lms) >= 2:
-            xs = [lm['x'] for lm in left_hand_lms]
-            ys = [lm['y'] for lm in left_hand_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='hand_left',
-                center=(cx, cy),
-                bbox=(min(xs) - 15, min(ys) - 15, max(xs) + 15, max(ys) + 15),
-                confidence=sum(lm['visibility'] for lm in left_hand_lms) / len(left_hand_lms)
-            ))
-        
-        # Check right hand
-        right_hand_lms = [lm for lm in landmarks if lm['idx'] in self.RIGHT_HAND_LANDMARKS and lm['visibility'] > 0.3]
-        if len(right_hand_lms) >= 2:
-            xs = [lm['x'] for lm in right_hand_lms]
-            ys = [lm['y'] for lm in right_hand_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='hand_right',
-                center=(cx, cy),
-                bbox=(min(xs) - 15, min(ys) - 15, max(xs) + 15, max(ys) + 15),
-                confidence=sum(lm['visibility'] for lm in right_hand_lms) / len(right_hand_lms)
-            ))
-        
-        # Check left foot
-        left_foot_lms = [lm for lm in landmarks if lm['idx'] in self.LEFT_FOOT_LANDMARKS and lm['visibility'] > 0.3]
-        if len(left_foot_lms) >= 2:
-            xs = [lm['x'] for lm in left_foot_lms]
-            ys = [lm['y'] for lm in left_foot_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='foot_left',
-                center=(cx, cy),
-                bbox=(min(xs) - 10, min(ys) - 10, max(xs) + 10, max(ys) + 10),
-                confidence=sum(lm['visibility'] for lm in left_foot_lms) / len(left_foot_lms)
-            ))
-        
-        # Check right foot
-        right_foot_lms = [lm for lm in landmarks if lm['idx'] in self.RIGHT_FOOT_LANDMARKS and lm['visibility'] > 0.3]
-        if len(right_foot_lms) >= 2:
-            xs = [lm['x'] for lm in right_foot_lms]
-            ys = [lm['y'] for lm in right_foot_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='foot_right',
-                center=(cx, cy),
-                bbox=(min(xs) - 10, min(ys) - 10, max(xs) + 10, max(ys) + 10),
-                confidence=sum(lm['visibility'] for lm in right_foot_lms) / len(right_foot_lms)
-            ))
-        
-        # Check torso
-        torso_lms = [lm for lm in landmarks if lm['idx'] in self.TORSO_LANDMARKS and lm['visibility'] > 0.3]
-        if len(torso_lms) >= 3:
-            xs = [lm['x'] for lm in torso_lms]
-            ys = [lm['y'] for lm in torso_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='torso',
-                center=(cx, cy),
-                bbox=(min(xs) - 20, min(ys) - 20, max(xs) + 20, max(ys) + 20),
-                confidence=sum(lm['visibility'] for lm in torso_lms) / len(torso_lms)
-            ))
-        
-        # Check arms
-        left_arm_lms = [lm for lm in landmarks if lm['idx'] in self.LEFT_ARM_LANDMARKS and lm['visibility'] > 0.3]
-        if len(left_arm_lms) >= 2:
-            xs = [lm['x'] for lm in left_arm_lms]
-            ys = [lm['y'] for lm in left_arm_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='arm_left',
-                center=(cx, cy),
-                confidence=sum(lm['visibility'] for lm in left_arm_lms) / len(left_arm_lms)
-            ))
-        
-        right_arm_lms = [lm for lm in landmarks if lm['idx'] in self.RIGHT_ARM_LANDMARKS and lm['visibility'] > 0.3]
-        if len(right_arm_lms) >= 2:
-            xs = [lm['x'] for lm in right_arm_lms]
-            ys = [lm['y'] for lm in right_arm_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='arm_right',
-                center=(cx, cy),
-                confidence=sum(lm['visibility'] for lm in right_arm_lms) / len(right_arm_lms)
-            ))
-        
-        # Check legs
-        left_leg_lms = [lm for lm in landmarks if lm['idx'] in self.LEFT_LEG_LANDMARKS and lm['visibility'] > 0.3]
-        if len(left_leg_lms) >= 2:
-            xs = [lm['x'] for lm in left_leg_lms]
-            ys = [lm['y'] for lm in left_leg_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='leg_left',
-                center=(cx, cy),
-                confidence=sum(lm['visibility'] for lm in left_leg_lms) / len(left_leg_lms)
-            ))
-        
-        right_leg_lms = [lm for lm in landmarks if lm['idx'] in self.RIGHT_LEG_LANDMARKS and lm['visibility'] > 0.3]
-        if len(right_leg_lms) >= 2:
-            xs = [lm['x'] for lm in right_leg_lms]
-            ys = [lm['y'] for lm in right_leg_lms]
-            cx, cy = sum(xs) // len(xs), sum(ys) // len(ys)
-            partials.append(PartialBodyDetection(
-                part_type='leg_right',
-                center=(cx, cy),
-                confidence=sum(lm['visibility'] for lm in right_leg_lms) / len(right_leg_lms)
-            ))
-        
-        return partials
-    
-    def _create_person_from_skeleton(self, skeleton: Dict, w: int, h: int) -> Optional[PersonDetection]:
-        """Create a PersonDetection from skeleton data when no YOLO detection."""
-        landmarks = skeleton['landmarks']
-        visible_lms = [lm for lm in landmarks if lm['visibility'] > 0.3]
-        
-        if len(visible_lms) < 5:
-            return None
-        
-        xs = [lm['x'] for lm in visible_lms]
-        ys = [lm['y'] for lm in visible_lms]
-        
-        x1, y1 = max(0, min(xs) - 20), max(0, min(ys) - 20)
-        x2, y2 = min(w, max(xs) + 20), min(h, max(ys) + 20)
-        cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
-        
-        person = PersonDetection(
-            center=(cx, cy),
-            foot_center=(cx, y2),
-            bbox=(x1, y1, x2, y2),
-            confidence=sum(lm['visibility'] for lm in visible_lms) / len(visible_lms),
-            skeleton_landmarks=[],
-            partial_detections=[],
-            has_full_skeleton=False
-        )
-        
-        return self._enrich_with_skeleton(person, skeleton, w, h)
-    
-    def _draw_detections(self, frame: np.ndarray, persons: List[PersonDetection]) -> np.ndarray:
-        """Draw all detections on frame."""
-        for person in persons:
-            x1, y1, x2, y2 = person.bbox
-            
-            # Draw bounding box
-            color = (0, 255, 0)
-            cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
-            
-            # Draw label
-            label = f"Person {person.confidence:.0%}"
-            if person.has_full_skeleton:
-                label += " [Full]"
-            elif person.partial_detections:
-                parts = [p.part_type for p in person.partial_detections]
-                label += f" [{len(parts)} parts]"
-            
-            cv2.putText(frame, label, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
-            
-            # Draw skeleton
-            if person.skeleton_landmarks and self.mp_pose and self.mp_draw:
-                self._draw_skeleton(frame, person)
-            
-            # Draw partial body markers
-            for partial in person.partial_detections:
-                px, py = partial.center
-                part_color = self._get_part_color(partial.part_type)
-                cv2.circle(frame, (px, py), 8, part_color, -1)
-                cv2.putText(frame, partial.part_type[:4], (px - 15, py - 10),
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.4, part_color, 1)
-            
-            # Draw foot center marker
-            cv2.circle(frame, person.foot_center, 5, (255, 0, 255), -1)
-        
-        return frame
-    
-    def _draw_skeleton(self, frame: np.ndarray, person: PersonDetection):
-        """Draw skeleton connections."""
-        if not person.skeleton_landmarks:
+    def change_model(self, model_name: str):
+        if not YOLO_AVAILABLE:
             return
         
-        # Define connections
-        connections = [
-            (11, 12), (11, 13), (13, 15), (12, 14), (14, 16),  # Arms
-            (11, 23), (12, 24), (23, 24),  # Torso
-            (23, 25), (25, 27), (24, 26), (26, 28),  # Legs
-            (27, 29), (29, 31), (28, 30), (30, 32),  # Feet
-            (0, 1), (1, 2), (2, 3), (3, 7),  # Face left
-            (0, 4), (4, 5), (5, 6), (6, 8),  # Face right
-        ]
+        def load():
+            download_manager.start_download(model_name)
+            with self._lock:
+                try:
+                    self.model = YOLO(model_name)
+                    self.model_name = model_name
+                    self._loaded = True
+                except MemoryError:
+                    print("[Detector] Memory error")
+                    gc.collect()
+                except Exception as e:
+                    print(f"[Detector] Error: {e}")
+                finally:
+                    download_manager.end_download()
         
-        lm_dict = {lm.name: lm for lm in person.skeleton_landmarks}
-        idx_to_name = {v: k for k, v in self.POSE_LANDMARKS.items()}
-        
-        for start_idx, end_idx in connections:
-            start_name = idx_to_name.get(start_idx)
-            end_name = idx_to_name.get(end_idx)
-            
-            if start_name in lm_dict and end_name in lm_dict:
-                start_lm = lm_dict[start_name]
-                end_lm = lm_dict[end_name]
-                
-                if start_lm.visibility > 0.3 and end_lm.visibility > 0.3:
-                    cv2.line(frame, (start_lm.x, start_lm.y), (end_lm.x, end_lm.y),
-                            (0, 255, 255), 2)
-        
-        # Draw landmarks
-        for lm in person.skeleton_landmarks:
-            if lm.visibility > 0.3:
-                cv2.circle(frame, (lm.x, lm.y), 4, (255, 0, 255), -1)
+        threading.Thread(target=load, daemon=True).start()
     
-    def _get_part_color(self, part_type: str) -> Tuple[int, int, int]:
-        """Get color for body part."""
-        colors = {
-            'face': (0, 255, 255),
-            'hand_left': (255, 165, 0),
-            'hand_right': (255, 165, 0),
-            'foot_left': (255, 0, 0),
-            'foot_right': (255, 0, 0),
-            'torso': (0, 255, 0),
-            'arm_left': (255, 200, 0),
-            'arm_right': (255, 200, 0),
-            'leg_left': (0, 200, 255),
-            'leg_right': (0, 200, 255),
-        }
-        return colors.get(part_type, (255, 255, 255))
+    def set_sensitivity(self, sensitivity: Sensitivity):
+        settings = Config.get_sensitivity_settings(sensitivity)
+        self.confidence = settings.get('yolo_confidence', 0.25)
+    
+    def set_confidence(self, conf: float):
+        self.confidence = max(0.1, min(0.99, conf))
+    
+    def detect(self, frame: np.ndarray, draw_skeleton: bool = False) -> Tuple[List[PersonDetection], np.ndarray]:
+        if frame is None or not self._loaded:
+            return [], frame if frame is not None else np.zeros((480, 640, 3), dtype=np.uint8)
+        
+        if download_manager.get_status()[0]:
+            return [], frame.copy()
+        
+        persons = []
+        output = frame.copy()
+        h, w = frame.shape[:2]
+        
+        # Run YOLO detection
+        try:
+            with self._lock:
+                results = self.model(frame, conf=self.confidence, classes=[0], verbose=False)
+            
+            for result in results:
+                if result.boxes is None:
+                    continue
+                for i, box in enumerate(result.boxes):
+                    x1, y1, x2, y2 = map(int, box.xyxy[0].cpu().numpy())
+                    conf = float(box.conf[0])
+                    cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
+                    
+                    person = PersonDetection(
+                        center=(cx, cy),
+                        foot_center=(cx, y2),
+                        bbox=(x1, y1, x2, y2),
+                        confidence=conf,
+                        track_id=i
+                    )
+                    persons.append(person)
+        except MemoryError:
+            print("[Detector] Memory error")
+            gc.collect()
+        except Exception as e:
+            print(f"[Detector] Detection error: {e}")
+        
+        # Run skeleton detection for each person if enabled
+        if draw_skeleton and MEDIAPIPE_AVAILABLE and persons:
+            self._init_pose()
+            if self.pose:
+                for person in persons:
+                    skeleton = self._detect_skeleton_for_person(frame, person.bbox)
+                    if skeleton:
+                        person.skeleton_landmarks = skeleton
+        
+        # Draw detections
+        for p in persons:
+            x1, y1, x2, y2 = p.bbox
+            
+            # Draw bounding box
+            cv2.rectangle(output, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            
+            # Draw confidence label
+            label = f"Person {p.confidence:.0%}"
+            (tw, th), _ = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
+            cv2.rectangle(output, (x1, y1 - th - 8), (x1 + tw + 4, y1), (0, 255, 0), -1)
+            cv2.putText(output, label, (x1 + 2, y1 - 4), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+            
+            # Draw foot marker
+            cv2.circle(output, p.foot_center, 5, (255, 0, 255), -1)
+            
+            # Draw professional skeleton if available
+            if draw_skeleton and p.skeleton_landmarks:
+                self._draw_professional_skeleton(output, p.skeleton_landmarks, p.bbox)
+        
+        return persons, output
+    
+    def _detect_skeleton_for_person(self, frame: np.ndarray, bbox: Tuple[int, int, int, int]) -> List[SkeletonLandmark]:
+        """Detect skeleton for a specific person's bounding box."""
+        x1, y1, x2, y2 = bbox
+        h, w = frame.shape[:2]
+        
+        # Expand bbox slightly for better pose detection
+        pad_x = int((x2 - x1) * 0.1)
+        pad_y = int((y2 - y1) * 0.1)
+        x1 = max(0, x1 - pad_x)
+        y1 = max(0, y1 - pad_y)
+        x2 = min(w, x2 + pad_x)
+        y2 = min(h, y2 + pad_y)
+        
+        # Crop person region
+        person_crop = frame[y1:y2, x1:x2]
+        if person_crop.size == 0:
+            return []
+        
+        crop_h, crop_w = person_crop.shape[:2]
+        
+        try:
+            rgb = cv2.cvtColor(person_crop, cv2.COLOR_BGR2RGB)
+            pose_results = self.pose.process(rgb)
+            
+            if pose_results.pose_landmarks:
+                landmarks = []
+                for idx, lm in enumerate(pose_results.pose_landmarks.landmark):
+                    # Transform coordinates back to original frame
+                    px = int(lm.x * crop_w) + x1
+                    py = int(lm.y * crop_h) + y1
+                    landmarks.append(SkeletonLandmark(
+                        x=px, y=py,
+                        visibility=lm.visibility,
+                        name=f"point_{idx}"
+                    ))
+                return landmarks
+        except Exception as e:
+            print(f"[Skeleton] Error: {e}")
+        
+        return []
+    
+    def _draw_professional_skeleton(self, frame: np.ndarray, landmarks: List[SkeletonLandmark], bbox: Tuple[int, int, int, int]):
+        """Draw a professional-looking skeleton."""
+        if len(landmarks) < 33:
+            return
+        
+        x1, y1, x2, y2 = bbox
+        
+        # Draw connections with gradient colors
+        for start_idx, end_idx, color in self.SKELETON_CONNECTIONS:
+            if start_idx < len(landmarks) and end_idx < len(landmarks):
+                start = landmarks[start_idx]
+                end = landmarks[end_idx]
+                
+                # Only draw if both points are visible and within bbox
+                if start.visibility > 0.5 and end.visibility > 0.5:
+                    # Check if points are roughly within the person's area
+                    if self._point_near_bbox(start.x, start.y, bbox) and self._point_near_bbox(end.x, end.y, bbox):
+                        # Draw glow effect
+                        cv2.line(frame, (start.x, start.y), (end.x, end.y), 
+                                (color[0]//3, color[1]//3, color[2]//3), 6)
+                        # Draw main line
+                        cv2.line(frame, (start.x, start.y), (end.x, end.y), color, 3)
+                        # Draw bright center
+                        cv2.line(frame, (start.x, start.y), (end.x, end.y), 
+                                (min(255, color[0]+50), min(255, color[1]+50), min(255, color[2]+50)), 1)
+        
+        # Draw joints with glow
+        for idx, lm in enumerate(landmarks):
+            if lm.visibility > 0.5 and self._point_near_bbox(lm.x, lm.y, bbox):
+                # Determine joint color based on body part
+                if idx in [0, 2, 5, 7, 8]:  # Head
+                    color = self.JOINT_COLORS['head']
+                    radius = 4
+                elif idx in [11, 12, 23, 24]:  # Torso
+                    color = self.JOINT_COLORS['torso']
+                    radius = 5
+                elif idx in [13, 14, 15, 16]:  # Arms
+                    color = self.JOINT_COLORS['arm']
+                    radius = 4
+                elif idx in [25, 26, 27, 28]:  # Legs
+                    color = self.JOINT_COLORS['leg']
+                    radius = 5
+                else:
+                    continue
+                
+                # Draw glow
+                cv2.circle(frame, (lm.x, lm.y), radius + 3, (color[0]//3, color[1]//3, color[2]//3), -1)
+                # Draw joint
+                cv2.circle(frame, (lm.x, lm.y), radius, color, -1)
+                # Draw highlight
+                cv2.circle(frame, (lm.x, lm.y), radius - 1, (255, 255, 255), 1)
+    
+    def _point_near_bbox(self, x: int, y: int, bbox: Tuple[int, int, int, int], margin: float = 0.3) -> bool:
+        """Check if point is near the bounding box."""
+        x1, y1, x2, y2 = bbox
+        w, h = x2 - x1, y2 - y1
+        
+        # Allow some margin outside bbox
+        margin_x = int(w * margin)
+        margin_y = int(h * margin)
+        
+        return (x1 - margin_x <= x <= x2 + margin_x and 
+                y1 - margin_y <= y <= y2 + margin_y)
 
 
 class FaceRecognitionEngine:
-    """Face recognition with auto-processing of trusted faces."""
+    """Face recognition."""
     
     def __init__(self, config: Config):
         self.config = config
         self.known_faces = {}
         self.known_names = []
         self._lock = threading.Lock()
-        self._processed_files = set()
-        self._last_check = 0
         self._load_faces()
     
     def _load_faces(self):
-        """Load trusted faces from fixed_images directory."""
         if not FACE_RECOGNITION_AVAILABLE:
             return
         
@@ -615,98 +414,53 @@ class FaceRecognitionEngine:
             self.known_faces.clear()
             self.known_names.clear()
             
-            # Process any new images in trusted_faces folder
-            self._process_new_trusted_faces()
+            if self.config.TRUSTED_FACES_DIR.exists():
+                for fp in self.config.TRUSTED_FACES_DIR.iterdir():
+                    if fp.suffix.lower() in {'.jpg', '.jpeg', '.png'}:
+                        try:
+                            img = cv2.imread(str(fp))
+                            if img is None:
+                                continue
+                            rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                            locs = face_recognition.face_locations(rgb, model="hog")
+                            if locs:
+                                dest = self.config.FIXED_IMAGES_DIR / fp.name
+                                if not dest.exists():
+                                    shutil.copy2(str(fp), str(dest))
+                        except:
+                            pass
             
-            # Load from fixed_images (processed database)
-            if not self.config.FIXED_IMAGES_DIR.exists():
-                return
+            if self.config.FIXED_IMAGES_DIR.exists():
+                for fp in self.config.FIXED_IMAGES_DIR.iterdir():
+                    if fp.suffix.lower() in {'.jpg', '.jpeg', '.png'}:
+                        try:
+                            img = cv2.imread(str(fp))
+                            if img is None:
+                                continue
+                            rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                            locs = face_recognition.face_locations(rgb, model="hog")
+                            if locs:
+                                enc = face_recognition.face_encodings(rgb, locs)
+                                if enc:
+                                    self.known_faces[fp.stem] = enc[0]
+                                    self.known_names.append(fp.stem)
+                        except:
+                            pass
             
-            for fp in self.config.FIXED_IMAGES_DIR.iterdir():
-                if fp.suffix.lower() in {'.jpg', '.jpeg', '.png', '.bmp'}:
-                    try:
-                        img = cv2.imread(str(fp))
-                        if img is None:
-                            continue
-                        rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                        locs = face_recognition.face_locations(rgb, model="hog")
-                        if locs:
-                            enc = face_recognition.face_encodings(rgb, locs)
-                            if enc:
-                                self.known_faces[fp.stem] = enc[0]
-                                self.known_names.append(fp.stem)
-                                print(f"Loaded trusted face: {fp.stem}")
-                    except Exception as e:
-                        print(f"Error loading face {fp}: {e}")
-    
-    def _process_new_trusted_faces(self):
-        """Process new images from trusted_faces folder and move to fixed_images."""
-        if not FACE_RECOGNITION_AVAILABLE:
-            return
-        
-        if not self.config.TRUSTED_FACES_DIR.exists():
-            return
-        
-        for fp in self.config.TRUSTED_FACES_DIR.iterdir():
-            if fp.suffix.lower() in {'.jpg', '.jpeg', '.png', '.bmp'}:
-                if str(fp) in self._processed_files:
-                    continue
-                
-                try:
-                    # Load and verify face exists
-                    img = cv2.imread(str(fp))
-                    if img is None:
-                        continue
-                    
-                    rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                    locs = face_recognition.face_locations(rgb, model="hog")
-                    
-                    if locs:
-                        # Face found, copy to fixed_images
-                        dest = self.config.FIXED_IMAGES_DIR / fp.name
-                        shutil.copy2(str(fp), str(dest))
-                        print(f"Processed and added trusted face: {fp.stem}")
-                        self._processed_files.add(str(fp))
-                    else:
-                        print(f"No face found in {fp.name}, skipping")
-                except Exception as e:
-                    print(f"Error processing {fp}: {e}")
-    
-    def check_for_new_faces(self):
-        """Check for new trusted face images (call periodically)."""
-        now = time.time()
-        if now - self._last_check < self.config.TRUSTED_FACES_CHECK_INTERVAL:
-            return
-        
-        self._last_check = now
-        
-        # Check for new files
-        if self.config.TRUSTED_FACES_DIR.exists():
-            current_files = set(str(f) for f in self.config.TRUSTED_FACES_DIR.iterdir()
-                               if f.suffix.lower() in {'.jpg', '.jpeg', '.png', '.bmp'})
-            new_files = current_files - self._processed_files
-            
-            if new_files:
-                self._load_faces()
+            print(f"[Faces] Loaded {len(self.known_names)}")
     
     def reload_faces(self):
-        """Reload trusted faces."""
-        self._processed_files.clear()
         self._load_faces()
     
     def recognize_faces(self, frame: np.ndarray) -> List[FaceDetection]:
-        """Recognize faces in frame."""
         if not FACE_RECOGNITION_AVAILABLE or frame is None:
             return []
-        
-        # Check for new trusted faces
-        self.check_for_new_faces()
         
         results = []
         try:
             h, w = frame.shape[:2]
-            scale = self.config.FACE_DETECTION_SCALE
-            small = cv2.resize(frame, (int(w * scale), int(h * scale)))
+            scale = 0.2  # Reduced scale for faster processing
+            small = cv2.resize(frame, (int(w*scale), int(h*scale)))
             rgb = cv2.cvtColor(small, cv2.COLOR_BGR2RGB)
             
             locs = face_recognition.face_locations(rgb, model="hog")
@@ -717,7 +471,6 @@ class FaceRecognitionEngine:
             
             with self._lock:
                 for (top, right, bottom, left), enc in zip(locs, encs):
-                    # Scale back to original size
                     top = int(top / scale)
                     right = int(right / scale)
                     bottom = int(bottom / scale)
@@ -729,9 +482,7 @@ class FaceRecognitionEngine:
                     
                     if self.known_names:
                         known_encs = list(self.known_faces.values())
-                        matches = face_recognition.compare_faces(
-                            known_encs, enc, self.config.FACE_MATCH_TOLERANCE
-                        )
+                        matches = face_recognition.compare_faces(known_encs, enc, self.config.FACE_MATCH_TOLERANCE)
                         dists = face_recognition.face_distance(known_encs, enc)
                         
                         if len(dists) > 0:
@@ -742,19 +493,17 @@ class FaceRecognitionEngine:
                                 trusted = True
                     
                     results.append(FaceDetection(
-                        name=name,
-                        confidence=conf,
-                        is_trusted=trusted,
+                        name=name, confidence=conf, is_trusted=trusted,
                         bbox=(left, top, right, bottom)
                     ))
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"[Faces] Error: {e}")
         
         return results
 
 
 class MotionDetector:
-    """Motion detection with heat map generation."""
+    """Motion detection with heat map and zone awareness."""
     
     def __init__(self, config: Config):
         self.config = config
@@ -765,15 +514,13 @@ class MotionDetector:
         self.min_area = config.MOTION_MIN_AREA
     
     def set_sensitivity(self, sensitivity: Sensitivity):
-        """Update motion detection sensitivity."""
-        settings = self.config.get_sensitivity_settings(sensitivity)
-        self.threshold = settings.get('motion_threshold', 25)
-        self.min_area = settings.get('motion_min_area', 500)
+        settings = Config.get_sensitivity_settings(sensitivity)
+        self.threshold = settings.get('motion_threshold', 20)
+        self.min_area = settings.get('motion_min_area', 300)
     
-    def detect(self, frame: np.ndarray) -> Tuple[bool, np.ndarray, List[Tuple]]:
-        """Detect motion in frame."""
+    def detect(self, frame: np.ndarray) -> Tuple[bool, List[Tuple[int, int, int, int]]]:
         if frame is None:
-            return False, np.zeros((480, 640), dtype=np.uint8), []
+            return False, []
         
         h, w = frame.shape[:2]
         size = (w, h)
@@ -781,22 +528,22 @@ class MotionDetector:
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (21, 21), 0)
         
+        # Initialize or reset if size changed
         if self.frame_size != size or self.prev_frame is None:
             self.prev_frame = gray
-            self.heat_map = np.zeros_like(gray, dtype=np.float32)
+            self.heat_map = np.zeros((h, w), dtype=np.float32)
             self.frame_size = size
-            return False, np.zeros_like(gray), []
+            return False, []
         
-        # Frame difference
         delta = cv2.absdiff(self.prev_frame, gray)
         thresh = cv2.threshold(delta, self.threshold, 255, cv2.THRESH_BINARY)[1]
         thresh = cv2.dilate(thresh, None, iterations=2)
         
         # Update heat map with decay
-        self.heat_map = self.heat_map * 0.92 + thresh.astype(np.float32) * 0.08
+        self.heat_map = self.heat_map * 0.9 + thresh.astype(np.float32) * 0.1
+        
         self.prev_frame = gray
         
-        # Find contours
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
         regions = []
@@ -809,17 +556,23 @@ class MotionDetector:
                 x, y, cw, ch = cv2.boundingRect(cnt)
                 regions.append((x, y, x + cw, y + ch))
         
-        return has_motion, thresh, regions
+        return has_motion, regions
     
     def get_heat_map(self) -> Optional[np.ndarray]:
         """Get motion heat map."""
         if self.heat_map is None:
             return None
         return np.clip(self.heat_map, 0, 255).astype(np.uint8)
+    
+    def reset(self):
+        """Reset motion detector state."""
+        self.prev_frame = None
+        self.heat_map = None
+        self.frame_size = None
 
 
 class DetectionThread(threading.Thread):
-    """Background thread for detection processing."""
+    """Detection thread with skeleton and motion support."""
     
     def __init__(self, person_detector: PersonDetector, motion_detector: MotionDetector):
         super().__init__(daemon=True)
@@ -827,31 +580,49 @@ class DetectionThread(threading.Thread):
         self.motion_detector = motion_detector
         self._input_queue = Queue(maxsize=2)
         self._running = False
-        
-        self.last_persons: List[PersonDetection] = []
-        self.last_motion = False
-        self.last_motion_regions: List[Tuple] = []
-        self.last_frame: Optional[np.ndarray] = None
         self._result_lock = threading.Lock()
+        
+        self.last_persons = []
+        self.last_motion = False
+        self.last_motion_regions = []
+        self.last_frame = None
+        
+        self.draw_skeleton = False
     
     def run(self):
-        """Main detection loop."""
         self._running = True
         while self._running:
             try:
                 frame = self._input_queue.get(timeout=0.1)
                 
-                # Run person detection (includes skeleton)
-                persons, processed = self.person_detector.detect(frame)
+                if frame is None or frame.size == 0:
+                    continue
                 
-                # Run motion detection
-                motion, _, regions = self.motion_detector.detect(frame)
+                if len(frame.shape) != 3 or frame.shape[2] != 3:
+                    continue
                 
-                with self._result_lock:
-                    self.last_persons = persons
-                    self.last_motion = motion
-                    self.last_motion_regions = regions
-                    self.last_frame = processed
+                if download_manager.get_status()[0]:
+                    with self._result_lock:
+                        self.last_frame = frame.copy()
+                    continue
+                
+                try:
+                    # Detect persons with optional skeleton
+                    persons, processed = self.person_detector.detect(frame, self.draw_skeleton)
+                    
+                    # Detect motion
+                    motion, regions = self.motion_detector.detect(frame)
+                    
+                    with self._result_lock:
+                        self.last_persons = persons
+                        self.last_motion = motion
+                        self.last_motion_regions = regions
+                        self.last_frame = processed
+                except MemoryError:
+                    print("[Detection] Memory error")
+                    gc.collect()
+                except Exception as e:
+                    print(f"[Detection] Error: {e}")
                     
             except Empty:
                 continue
@@ -859,22 +630,26 @@ class DetectionThread(threading.Thread):
                 pass
     
     def stop(self):
-        """Stop the detection thread."""
         self._running = False
     
     def submit(self, frame: np.ndarray):
-        """Submit a frame for processing."""
+        if frame is None:
+            return
         try:
-            self._input_queue.put_nowait(frame.copy())
-        except Exception:
+            while not self._input_queue.empty():
+                try:
+                    self._input_queue.get_nowait()
+                except:
+                    break
+            self._input_queue.put_nowait(frame)
+        except:
             pass
     
     def get_results(self) -> dict:
-        """Get latest detection results."""
         with self._result_lock:
             return {
-                'persons': self.last_persons.copy() if self.last_persons else [],
+                'persons': list(self.last_persons) if self.last_persons else [],
                 'motion': self.last_motion,
-                'motion_regions': self.last_motion_regions.copy() if self.last_motion_regions else [],
+                'motion_regions': list(self.last_motion_regions) if self.last_motion_regions else [],
                 'frame': self.last_frame.copy() if self.last_frame is not None else None
             }
