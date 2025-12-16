@@ -383,17 +383,63 @@ Security-System/
 
 <br><br>
 
+<!-- VIDEO FRAME -->
 <img src="readme_assets/frame-top.svg" width="100%">
 
 <br>
 
+<!-- MAIN VIDEO DEMO -->
+<a href="https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833">
+  <strong>▶️ Watch Full System Demo Video</strong>
+</a>
 
+<br><br>
 
-https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
+<img src="readme_assets/frame-bottom.svg" width="100%">
+
+<br><br>
+
+<!-- TELEGRAM DEMO -->
+<h3>📱 Telegram Remote Control Demo</h3>
+
+<sub>Real-time alerts, snapshots, and full system control directly from your phone</sub>
+
+<br><br>
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+<img src="readme_assets/frame-phone-top.svg" width="260">
+
+<img src="readme_assets/telegram-demo.png" width="260" style="border-radius: 14px;">
+
+<img src="readme_assets/frame-phone-bottom.svg" width="260">
 
 <br>
 
-<img src="readme_assets/frame-bottom.svg" width="100%">
+<sub><strong>Live intrusion alert with snapshot</strong></sub>
+
+</td>
+
+<td align="left" width="50%">
+
+### What You’re Seeing
+
+- 🚨 Instant intrusion notification  
+- 📸 Auto-captured snapshot  
+- 🔘 Inline control buttons  
+- 🔐 Arm / Disarm remotely  
+- 🔇 Mute alarms instantly  
+
+<br>
+
+Designed for **speed, clarity, and zero friction** —  
+your security system responds in seconds, wherever you are.
+
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -402,6 +448,7 @@ https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
 <img src="readme_assets/divider-cyber.svg" width="100%">
 
 <br>
+
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- FOOTER -->
