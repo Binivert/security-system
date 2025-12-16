@@ -389,9 +389,7 @@ Security-System/
 <br>
 
 <!-- MAIN VIDEO DEMO -->
-<a href="https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833">
-  <strong>▶️ Watch Full System Demo Video</strong>
-</a>
+https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
 
 <br><br>
 
