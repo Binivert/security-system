@@ -381,40 +381,33 @@ Security-System/
 
 ![Demo](readme_assets/header-demo.svg)
 
-<br><br>
+
 
 <!-- VIDEO FRAME -->
 <img src="readme_assets/frame-top.svg" width="100%">
 
-<br>
+
 
 <!-- MAIN VIDEO DEMO -->
 https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
 
-<br><br>
 
-<img src="readme_assets/frame-bottom.svg" width="100%">
 
-<br><br>
+<img src="readme_assets/frame-bottom.svg" width="190%">
+
+
 
 <!-- TELEGRAM DEMO -->
-<h3>📱 Telegram Remote Control Demo</h3>
+<h1>📱 Telegram Remote Control Demo</h3>
 
 <sub>Real-time alerts, snapshots, and full system control directly from your phone</sub>
 
-<br><br>
 
 <table>
 <tr>
 <td align="center" width="50%">
 
-
-
 <img src="readme_assets/telegram-demo.png" width="260" style="border-radius: 14px;">
-
-
-
-<br>
 
 <sub><strong>Live intrusion alert with snapshot</strong></sub>
 
