@@ -393,7 +393,7 @@ https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
 
 <br><br>
 
-
+<img src="readme_assets/frame-bottom.svg" width="100%">
 
 <br><br>
 
@@ -408,11 +408,11 @@ https://github.com/user-attachments/assets/1c1affee-bd75-458a-82f8-8e7766e99833
 <tr>
 <td align="center" width="50%">
 
-<img src="readme_assets/frame-phone-top.svg" width="260">
+
 
 <img src="readme_assets/telegram-demo.png" width="260" style="border-radius: 14px;">
 
-<img src="readme_assets/frame-phone-bottom.svg" width="260">
+
 
 <br>
 
@@ -443,7 +443,7 @@ your security system responds in seconds, wherever you are.
 
 <br>
 
-
+<img src="readme_assets/divider-cyber.svg" width="100%">
 
 <br>
 
